@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homebrew on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/homebrew/</link>
+    <description>Recent content in Homebrew on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>homebrew的环境变量</title>
+      <link>http://localhost:1313/post/homebrew%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.zh-cn/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/homebrew%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.zh-cn/</guid>
+      <description>homewbrew在macOS Intel中的安装路径是 /usr/local，homewbrew在Apple Silicon中的安装路径是 /opt/homebrew。这里以M1电脑为例，brew安装的软件都存放在 /opt/homebrew/Cellar。brew 会为每个软件的bin目录创建一个软连接到/opt/homebrew/bin 里面。比如 我们通过brew install go&#xA;，那么在 /opt/homebrew/bin 目录下就会有一个 go 软连接，这个go 软件对应的原身就是 /opt/homebrew/Cellar/go/1.20.1/libexec/bin/go。因为我们安装homebrew的时候会配置环境变量。会把 /opt/homebrew/bin 配置到环境变量里面，这样间接就配置了所有通过brew安装的软件的环境变量。</description>
+    </item>
+  </channel>
+</rss>

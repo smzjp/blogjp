@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/redis/</link>
+    <description>Recent content in Redis on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis使用</title>
+      <link>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>redis：remote dictionary server 远程字典服务&#xA;安装 在mac下，通过homebrew安装，brew install redis&#xA;运行 redis也是c/s架构的，需要先启动redis服务器。&#xA;redis服务器 启动方式 通过brew启动 brew services start redis,这是后台启动 直接在终端执行 redis-server，这个是前台启动 关闭服务 如果是通过前台启动的，直接关闭终端就可以。 如果是通过brew启动的 brew services stop redis 也可以通过 客户端向服务端发送命令关闭 redis-cli shutdown 检查redis相关进程是否在运行 可以通过 命令 ps axu | grep redis redis客户端 必须先开启服务端服务，客户端才能正常工作。&#xA;命令行终端 启动方式 redis-cli redis-cli -h 127.0.0.1 -p 6379 redis-cli -h 127.0.0.1 -p 6379 -a password 退出方式 直接 输入exit 就可以。 可视化工具 RedisDesktopManager&#xA;语法 set操作 是字符串相关的操作&#xA;set key value 设置key的值为value get key 获取指定key的值 setex key value second 设置key的值为value,并在second秒后过期，在second秒后，get key 会为空 psetex key milliseconds value 设置key的值为value,并在milliseconds秒后过期，单位时毫秒 getset key value 设置key的值为value，并返回key的旧值 mset key1 value1 [key2 value2 .</description>
+    </item>
+  </channel>
+</rss>

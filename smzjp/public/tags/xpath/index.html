@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/xpath/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="/tags/xpath/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/xpath/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/tags/xpath/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="Xpath">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Xpath">
+  <meta itemprop="datePublished" content="2022-08-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-08-22T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Xpath">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/_index.zh-cn/" title="主页 page">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/archives/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/search/" title="Search page">
+              Search
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/links/" title="Links page">
+              Links
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Xpath
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “Xpath”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 22, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/" class="link black dim">
+        数据解析之xpath
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。
+安装 由于XPath属于lxml库模块，所以首先要安装库lxml。
+# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。
+谓语被嵌在方括号中。
+在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：
+路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&lsquo;xx&rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&gt;10] &gt; &lt; &gt;= &lt;= !
+    </div>
+  <a href="/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 22, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/" class="link black dim">
+        数据解析之xpath
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。
+安装 由于XPath属于lxml库模块，所以首先要安装库lxml。
+# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。
+谓语被嵌在方括号中。
+在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：
+路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&lsquo;xx&rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&gt;10] &gt; &lt; &gt;= &lt;= !
+    </div>
+  <a href="/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  My New Hugo Site 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

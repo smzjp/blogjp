@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二分查找 on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
+    <description>Recent content in 二分查找 on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法之二分查找</title>
+      <link>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.zh-cn/</link>
+      <pubDate>Sat, 11 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.zh-cn/</guid>
+      <description>有序数组的元素不重复，查找指定的目标元素 arr := []int{1, 2, 3, 4, 6, 9} target := 2 left := 0 right := len(arr) - 1 for left &amp;lt; right { mid := (left + right) / 2 fmt.Println(&amp;#34;mid:&amp;#34;, mid) if arr[mid] == target { right = mid } else if arr[mid] &amp;lt; target { left = mid + 1 } else if arr[mid] &amp;gt; target { right = mid - 1 } } fmt.Println(&amp;#34;left:&amp;#34;, left) 有序数组的元素会重复，查找指定的目标元素的左边界。 arr := []int{1, 2, 2, 2, 2, 3, 4, 6, 9} target := 2 if len(arr) == 0 { fmt.</description>
+    </item>
+  </channel>
+</rss>

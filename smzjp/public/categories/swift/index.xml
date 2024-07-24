@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift on My New Hugo Site</title>
+    <link>http://localhost:1313/categories/swift/</link>
+    <description>Recent content in Swift on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法之递归</title>
+      <link>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/</link>
+      <pubDate>Tue, 09 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/</guid>
+      <description>递归一般有两种思路，一种是递，另一种是归。递是传递的意思，从递归开始的根节点开始计算，把计算数值通过递归函数的参数传递给下一个子节点，比如是用前序遍历，先计算跟节点，再计算左子树（先计算左子树里面的根节点），最后计算右子树。归是回归的意思，从叶子节点开始计算，把计算数值通过递归函数的返回参数返回给前一个父节点。也可以这么理解，递归算法都包含递和归的过程。如果是在递的过程中计算数值，就称为递的思想，如果是在归的过程中计算数值，就称为归的思想。&#xA;例子1，leetcode 1026题 给定二叉树的根节点 root，找出存在于 不同 节点 A 和 B 之间的最大值 V，其中 V = |A.val - B.val|，且 A 是 B 的祖先。&#xA;（如果 A 的任何子节点之一为 B，或者 A 的任何子节点是 B 的祖先，那么我们认为 A 是 B 的祖先）&#xA;递的思想(摘自leetcode题解) func maxAncestorDiff(root *TreeNode) (ans int) { var dfs func(*TreeNode, int, int) dfs = func(node *TreeNode, mn, mx int) { if node == nil { return } mn = min(mn, node.Val) mx = max(mx, node.Val) ans = max(ans, node.</description>
+    </item>
+    <item>
+      <title>swift语法</title>
+      <link>http://localhost:1313/post/swift/swift%E8%AF%AD%E6%B3%95tips/index.zh-cn/</link>
+      <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/swift/swift%E8%AF%AD%E6%B3%95tips/index.zh-cn/</guid>
+      <description>1. 数组的初始化 //方式1 创建空数组 //两种都可以看习惯 var arr01: [[Int]] = [] print(&amp;#34;arr01:\(arr01)&amp;#34;) // var arr02 = [[Int]]() print(&amp;#34;arr02:\(arr02)&amp;#34;) //方式2 创建包含初始值的数组 //初始值都一样的情况下，可以用这个方法创建 var arr03 = Array(repeating: [], count: 3) print(&amp;#34;arr03:\(arr03)&amp;#34;) //指定初始值 var arr04 = [1,2,3] print(&amp;#34;arr04:\(arr04)&amp;#34;) //结果 arr01:[] arr02:[] arr03:[[], [], []] arr04:[1, 2, 3] </description>
+    </item>
+  </channel>
+</rss>

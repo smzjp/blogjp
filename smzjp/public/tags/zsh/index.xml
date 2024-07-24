@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/zsh/</link>
+    <description>Recent content in Zsh on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zsh配置文件</title>
+      <link>http://localhost:1313/post/zsh%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/index.zh-cn/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/zsh%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/index.zh-cn/</guid>
+      <description>macOS 从Monterey开始改变了默认的shell解释器，之前是bash，现在改成了zsh。&#xA;命令 查看当前系统所有安装的shell解释器。 cat /etc/shells 查看当前使用的是哪个shell解释器 echo $SHELL 修改使用的shell。chsh -s /bin/bash。把shell解释器改为bash。 zsh 在用户根目录下可以看到两个隐藏的 .zprofile和.zshrc 文件。.zprofile只在电脑开机的时候加载一次，适合用来存放环境变量。.zshrc是每次启动shell终端时会加载。.zshrc的配置会覆盖.zprofile里面的配置如果出现一样的。&#xA;参考文档:https://www.zerotohero.dev/zshell-startup-files/&#xA;环境变量设置 临时设置 在当前的终端执行&#xA;export PATH=`pwd`/flutter/bin:$PATH 只会在当前的终端生效，如果当前终端关闭，下次打开要重新设置&#xA;永久设置 在用户根目录（～）下 找到.zprofile文件，注意是隐藏文件，可以通过ls命令显示，通过vim .zprofile打开，然后把下面代码添加到 .zprofile 里。&#xA;export PATH=FLUTTER_INSTALL_PATH/flutter/bin:$PATH //比如本机的flutter安装路径是~/development/ export PATH=~/development/flutter/bin:$PATH FLUTTER_INSTALL_PATH是软件安装路径，这里是以flutter举例，其他软件也是一样。路径可以通过which flutter查看。&#xA;运行 source $HOME/.zprofile 刷新当前终端窗口。&#xA;验证添加全局PATH是否成功echo $PATH。添加成功后，你就可以在任何打开的终端执行flutter的命令了，再次执行flutter doctor就不会报zsh: command not found: flutter的错误了。</description>
+    </item>
+  </channel>
+</rss>

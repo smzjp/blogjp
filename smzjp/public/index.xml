@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法之递归</title>
+      <link>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/</link>
+      <pubDate>Tue, 09 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/</guid>
+      <description>递归一般有两种思路，一种是递，另一种是归。递是传递的意思，从递归开始的根节点开始计算，把计算数值通过递归函数的参数传递给下一个子节点，比如是用前序遍历，先计算跟节点，再计算左子树（先计算左子树里面的根节点），最后计算右子树。归是回归的意思，从叶子节点开始计算，把计算数值通过递归函数的返回参数返回给前一个父节点。也可以这么理解，递归算法都包含递和归的过程。如果是在递的过程中计算数值，就称为递的思想，如果是在归的过程中计算数值，就称为归的思想。&#xA;例子1，leetcode 1026题 给定二叉树的根节点 root，找出存在于 不同 节点 A 和 B 之间的最大值 V，其中 V = |A.val - B.val|，且 A 是 B 的祖先。&#xA;（如果 A 的任何子节点之一为 B，或者 A 的任何子节点是 B 的祖先，那么我们认为 A 是 B 的祖先）&#xA;递的思想(摘自leetcode题解) func maxAncestorDiff(root *TreeNode) (ans int) { var dfs func(*TreeNode, int, int) dfs = func(node *TreeNode, mn, mx int) { if node == nil { return } mn = min(mn, node.Val) mx = max(mx, node.Val) ans = max(ans, node.</description>
+    </item>
+    <item>
+      <title>算法之二分查找</title>
+      <link>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.zh-cn/</link>
+      <pubDate>Sat, 11 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/index.zh-cn/</guid>
+      <description>有序数组的元素不重复，查找指定的目标元素 arr := []int{1, 2, 3, 4, 6, 9} target := 2 left := 0 right := len(arr) - 1 for left &amp;lt; right { mid := (left + right) / 2 fmt.Println(&amp;#34;mid:&amp;#34;, mid) if arr[mid] == target { right = mid } else if arr[mid] &amp;lt; target { left = mid + 1 } else if arr[mid] &amp;gt; target { right = mid - 1 } } fmt.Println(&amp;#34;left:&amp;#34;, left) 有序数组的元素会重复，查找指定的目标元素的左边界。 arr := []int{1, 2, 2, 2, 2, 3, 4, 6, 9} target := 2 if len(arr) == 0 { fmt.</description>
+    </item>
+    <item>
+      <title>swift语法</title>
+      <link>http://localhost:1313/post/swift/swift%E8%AF%AD%E6%B3%95tips/index.zh-cn/</link>
+      <pubDate>Sun, 20 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/swift/swift%E8%AF%AD%E6%B3%95tips/index.zh-cn/</guid>
+      <description>1. 数组的初始化 //方式1 创建空数组 //两种都可以看习惯 var arr01: [[Int]] = [] print(&amp;#34;arr01:\(arr01)&amp;#34;) // var arr02 = [[Int]]() print(&amp;#34;arr02:\(arr02)&amp;#34;) //方式2 创建包含初始值的数组 //初始值都一样的情况下，可以用这个方法创建 var arr03 = Array(repeating: [], count: 3) print(&amp;#34;arr03:\(arr03)&amp;#34;) //指定初始值 var arr04 = [1,2,3] print(&amp;#34;arr04:\(arr04)&amp;#34;) //结果 arr01:[] arr02:[] arr03:[[], [], []] arr04:[1, 2, 3] </description>
+    </item>
+    <item>
+      <title>爬虫框架之colly</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bcolly/index.zh-cn/</link>
+      <pubDate>Fri, 14 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bcolly/index.zh-cn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>爬虫框架之goquery</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bgoquery/index.zh-cn/</link>
+      <pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bgoquery/index.zh-cn/</guid>
+      <description>goquery 是用来html解析的，基于github.com/andybalholm/cascadia和golang.org/x/net/html库，使用的是css选择器语法来查找标签。&#xA;安装 go get -u github.com/PuerkitoBio/goquery&#xA;使用 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/PuerkitoBio/goquery&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { res, err := http.Get(&amp;#34;http://www.baidu.com&amp;#34;) if err != nil { log.Fatal(err) } defer res.Body.Close() if res.StatusCode != 200 { log.Fatalf(&amp;#34;status code error: %d&amp;#34;, res.StatusCode) } doc, err := goquery.NewDocumentFromReader(res.Body) if err != nil { log.Fatal(err) } doc.Find(&amp;#34;.s-hotsearch-content .hotsearch-item&amp;#34;).Each(func(i int, s *goquery.Selection) { content := s.Find(&amp;#34;.title-content-title&amp;#34;).Text() fmt.Printf(&amp;#34;%d: %s \n&amp;#34;, i, content) href, suc := s.</description>
+    </item>
+    <item>
+      <title>爬虫框架之pholcus</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup%E7%9A%84%E5%89%AF%E6%9C%AC/index.zh-cn/</link>
+      <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup%E7%9A%84%E5%89%AF%E6%9C%AC/index.zh-cn/</guid>
+      <description>https://github.com/andeya/pholcus</description>
+    </item>
+    <item>
+      <title>爬虫框架之soup</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup/index.zh-cn/</link>
+      <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup/index.zh-cn/</guid>
+      <description>soup是用来解析，提取html数据的库，它是基于html解析库golang.org/x/net/html。类似于python中的BeautifulSoup库，这个库比较小，总共只有500多行代码。&#xA;下面是其所提供的所有方法&#xA;var Headers map[string]string // Set headers as a map of key-value pairs, an alternative to calling Header() individually var Cookies map[string]string // Set cookies as a map of key-value pairs, an alternative to calling Cookie() individually func Get(string) (string,error) {} // Takes the url as an argument, returns HTML string func GetWithClient(string, *http.Client) {} // Takes the url and a custom HTTP client as arguments, returns HTML string func Post(string, string, interface{}) (string, error) {} // Takes the url, bodyType, and payload as an argument, returns HTML string func PostForm(string, url.</description>
+    </item>
+    <item>
+      <title>homebrew的环境变量</title>
+      <link>http://localhost:1313/post/homebrew%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.zh-cn/</link>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/homebrew%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.zh-cn/</guid>
+      <description>homewbrew在macOS Intel中的安装路径是 /usr/local，homewbrew在Apple Silicon中的安装路径是 /opt/homebrew。这里以M1电脑为例，brew安装的软件都存放在 /opt/homebrew/Cellar。brew 会为每个软件的bin目录创建一个软连接到/opt/homebrew/bin 里面。比如 我们通过brew install go&#xA;，那么在 /opt/homebrew/bin 目录下就会有一个 go 软连接，这个go 软件对应的原身就是 /opt/homebrew/Cellar/go/1.20.1/libexec/bin/go。因为我们安装homebrew的时候会配置环境变量。会把 /opt/homebrew/bin 配置到环境变量里面，这样间接就配置了所有通过brew安装的软件的环境变量。</description>
+    </item>
+    <item>
+      <title>关键字iota</title>
+      <link>http://localhost:1313/post/golang/%E6%9E%9A%E4%B8%BEiota/index.zh-cn/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E6%9E%9A%E4%B8%BEiota/index.zh-cn/</guid>
+      <description>案例1 const ( x = iota _ y z = &amp;#34;zz&amp;#34; k p = iota ) func main() { fmt.Println(&amp;#34;枚举&amp;#34;, x, y, z, k, p) //输出： 枚举 0 2 zz zz 5 } 这里要注意两个地方&#xA;iota可以理解为const的行索引或行下标，下标从0开始。 如果某一行没赋值，默认是跟上一行的表达式一样。 案例2 const ( //这个要注意 0左移一位是1 A1 = 1 &amp;lt;&amp;lt; iota B1 C1 D1 E1 = iota * iota F1 G1 ) func main() { fmt.Println(&amp;#34;A1:&amp;#34;, A1, &amp;#34;B1:&amp;#34;, B1, &amp;#34;C1:&amp;#34;, C1, &amp;#34;D1:&amp;#34;, D1, &amp;#34;E1:&amp;#34;, E1) // A1: 1 B1: 2 C1: 4 D1: 8 E1: 16 } 这里需要注意一个地方</description>
+    </item>
+    <item>
+      <title>单例模式</title>
+      <link>http://localhost:1313/post/golang/%E5%8D%95%E4%BE%8B/index.zh-cn/</link>
+      <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E5%8D%95%E4%BE%8B/index.zh-cn/</guid>
+      <description>​&#x9;单例有两种模式，一种是饿汉模式，另一种是懒汉模式&#xA;饿汉模式 饿汉模式，在调用之前初始化，所以一般在init中初始化。&#xA;type singleton struct { count int } var Instance = new(singleton) func (s *singleton) Add() int { s.count++ return s.count } func main() { //使用，go一般使用饿汉模式 fmt.Println(Instance.Add()) } 懒汉模式 懒汉模式，首次调用的时候初始化，使用懒加载的方式初始化。&#xA;type singleton02 struct { count int } var ( instance *singleton02 mutext sync.Mutex ) func New() *singleton02 { if instance == nil { //需要加锁，保证线程安全 mutext.Lock() if instance == nil { instance = new(singleton02) } mutext.Unlock() } return instance } func (s *singleton02) Add() int { s.</description>
+    </item>
+    <item>
+      <title>css选择器</title>
+      <link>http://localhost:1313/post/html/css%E9%80%89%E6%8B%A9%E5%99%A8/index.zh-cn/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/html/css%E9%80%89%E6%8B%A9%E5%99%A8/index.zh-cn/</guid>
+      <description>通配选择器 语法 *{样式声明}&#xA;例子 /*所有的元素都会匹配到，会生效*/ *{color:red;} 通配选择器一般不建议使用，性能最低，会遍历所有元素。&#xA;元素选择器 语法 元素 {样式声明}&#xA;例子 /*匹配所有的span元素*/ span { background-color: skyblue; } 类选择器 语法 .类名 { 样式声明 }&#xA;例子 /* 匹配所有 class=&amp;#34;spacious&amp;#34; 的元素 */ .spacious { margin: 2em; } /* class可以有多个名称 匹配所有class即=“spacious”又=“elegant”的li元素*/ /*首先需要是li元素，其次class要=“spacious”和=“elegant”*/ /*元素选择器和类选择器组合*/ li.spacious.elegant { margin: 2em; } ID选择器 语法 #id名 { 样式声明 }&#xA;例子 /* 匹配所有id=“identified”的元素 */ #identified { background-color: skyblue; } 属性选择器 语法 [属性名] [属性名=值] </description>
+    </item>
+    <item>
+      <title>zsh配置文件</title>
+      <link>http://localhost:1313/post/zsh%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/index.zh-cn/</link>
+      <pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/zsh%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/index.zh-cn/</guid>
+      <description>macOS 从Monterey开始改变了默认的shell解释器，之前是bash，现在改成了zsh。&#xA;命令 查看当前系统所有安装的shell解释器。 cat /etc/shells 查看当前使用的是哪个shell解释器 echo $SHELL 修改使用的shell。chsh -s /bin/bash。把shell解释器改为bash。 zsh 在用户根目录下可以看到两个隐藏的 .zprofile和.zshrc 文件。.zprofile只在电脑开机的时候加载一次，适合用来存放环境变量。.zshrc是每次启动shell终端时会加载。.zshrc的配置会覆盖.zprofile里面的配置如果出现一样的。&#xA;参考文档:https://www.zerotohero.dev/zshell-startup-files/&#xA;环境变量设置 临时设置 在当前的终端执行&#xA;export PATH=`pwd`/flutter/bin:$PATH 只会在当前的终端生效，如果当前终端关闭，下次打开要重新设置&#xA;永久设置 在用户根目录（～）下 找到.zprofile文件，注意是隐藏文件，可以通过ls命令显示，通过vim .zprofile打开，然后把下面代码添加到 .zprofile 里。&#xA;export PATH=FLUTTER_INSTALL_PATH/flutter/bin:$PATH //比如本机的flutter安装路径是~/development/ export PATH=~/development/flutter/bin:$PATH FLUTTER_INSTALL_PATH是软件安装路径，这里是以flutter举例，其他软件也是一样。路径可以通过which flutter查看。&#xA;运行 source $HOME/.zprofile 刷新当前终端窗口。&#xA;验证添加全局PATH是否成功echo $PATH。添加成功后，你就可以在任何打开的终端执行flutter的命令了，再次执行flutter doctor就不会报zsh: command not found: flutter的错误了。</description>
+    </item>
+    <item>
+      <title>asyncio模块使用</title>
+      <link>http://localhost:1313/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/</link>
+      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/</guid>
+      <description>协程 定义协程&#xA;import asyncio async def main(): print(&amp;#39;hello&amp;#39;) # 模拟I/O操作 await asyncio.sleep(1) print(&amp;#39;world&amp;#39;) 协程也叫异步函数，和普通函数相比，在def前面加了个关键字async。协程不能直接调用，没有效果，需要加入到事件循环里面。&#xA;协程的调用&#xA;import asyncio import time async def say_after(delay, what): await asyncio.sleep(delay) print(what) async def main(): print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await say_after(1, &amp;#39;hello&amp;#39;) await say_after(2, &amp;#39;world&amp;#39;) print(f&amp;#34;finished at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) asyncio.run(main()) 协程的调用使用 asyncio.run(main()),协程的使用一般会定义一个最高层级的入口协程async def main(),其他协程由其管理。这是一个串行的协程。&#xA;协程并行调用&#xA;import asyncio import time async def main(): task1 = asyncio.create_task( say_after(1, &amp;#39;hello&amp;#39;)) task2 = asyncio.create_task( say_after(2, &amp;#39;world&amp;#39;)) print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await task1 await task2 print(f&amp;#34;finished at {time.</description>
+    </item>
+    <item>
+      <title>nodejs的安装和使用</title>
+      <link>http://localhost:1313/post/javascript/nodejs%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/nodejs%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>概念 浏览器和nodejs 浏览器，google 浏览器使用的是 v8 javascript的内核 Nodejs是一个非阻塞，事件驱动的javascript运行时环境，nodejs在浏览器之外运行v8 javascript引擎 javascript 定义协程&#xA;import asyncio async def main(): print(&amp;#39;hello&amp;#39;) # 模拟I/O操作 await asyncio.sleep(1) print(&amp;#39;world&amp;#39;) 协程也叫异步函数，和普通函数相比，在def前面加了个关键字async。协程不能直接调用，没有效果，需要加入到事件循环里面。&#xA;协程的调用&#xA;import asyncio import time async def say_after(delay, what): await asyncio.sleep(delay) print(what) async def main(): print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await say_after(1, &amp;#39;hello&amp;#39;) await say_after(2, &amp;#39;world&amp;#39;) print(f&amp;#34;finished at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) asyncio.run(main()) 协程的调用使用 asyncio.run(main()),协程的使用一般会定义一个最高层级的入口协程async def main(),其他协程由其管理。这是一个串行的协程。&#xA;协程并行调用&#xA;import asyncio import time async def main(): task1 = asyncio.create_task( say_after(1, &amp;#39;hello&amp;#39;)) task2 = asyncio.create_task( say_after(2, &amp;#39;world&amp;#39;)) print(f&amp;#34;started at {time.</description>
+    </item>
+    <item>
+      <title>golang语法</title>
+      <link>http://localhost:1313/post/golang/golang%E8%AF%AD%E6%B3%95/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/golang%E8%AF%AD%E6%B3%95/index.zh-cn/</guid>
+      <description>基础语法 注释 单行注释&#xA;//单行注释 fmt.Println(&amp;#34;hello world&amp;#34;) 多行注释&#xA;/* 多行注释 多行注释 */ fmt.Println(&amp;#34;hello world too&amp;#34;) 变量 变量赋值的三种方式&#xA;//先声明 var x int8 //再赋值 x = 100 //声明并且赋值 var y = 100 //简写形式 相当于 var z = 300 z := 300 同时声明多个变量&#xA;//一行同时声明赋值多个变量 var name, age = &amp;#34;qu&amp;#34;, 22 值拷贝&#xA;一个变量赋值给另一个变量时，会发生值拷贝。&#xA;//值拷贝 var a = 100 //一个变量赋值给另一个变量时，会发生值拷贝 var b = a //是两个独立的内存空间，不会相互影响 a = 200 fmt.Println(b) 匿名变量&#xA;如果不使用某个变量，可以用_下划线代替&#xA;//匿名变量 var _, b = 100, 200 变量的命名</description>
+    </item>
+    <item>
+      <title>golang语法</title>
+      <link>http://localhost:1313/post/golang/golang%E8%AF%AD%E6%B3%95tips/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/golang%E8%AF%AD%E6%B3%95tips/index.zh-cn/</guid>
+      <description>这篇文章主要整理一些在做算法的过程中发现的一些需要注意的语法点。记录下来加深理解，查看。&#xA;1.切片初始化 切片初始化一般有两种方式，根据是否需要初始值。&#xA;//方式1 var arr01 []int fmt.Println(&amp;#34;arr01:&amp;#34;, arr01) //方式02 arr02 := make([]int, 3) fmt.Println(&amp;#34;arr02:&amp;#34;, arr02) //方式03 arr03 := []int{1, 2, 3} fmt.Println(&amp;#34;arr03:&amp;#34;, arr03) //结果 arr01: [] arr02: [0 0 0] arr03: [1 2 3] </description>
+    </item>
+    <item>
+      <title>solidity语法</title>
+      <link>http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/</guid>
+      <description>类型 引用类型 memory内存 声明周期只存在于函数调用期间 storage存储 状态变量保存的位置，gas开销最大 calldata调用数据 用于函数参数不可变存储区域 abi编码 abi：application binary interface 应用程序二进制接口 abi接口：定义如何与合约交互 abi编码 函数选择器：对函数签名计算keccak-256哈希，取前4个字节 参数编码： 调用一个合约函数 = 向合约地址发送一个交易（交易的内容就是ABI编码数据）&#xA;修饰符 view 修饰函数（视图函数）不修改状态 pure 修饰函数（纯函数）不修改状态，不读取状态，跟合约状态无关 payable 表示函数可以被支付eth，支付的eth值用msg.value 获取 modifier 函数修改器，用来修饰其他函数 继承 使用关键字 is 部署合约的时候只会生成一个合约，基类合约的代码会被编译进子类合约 除了private修饰的变量或者函数，其他子类都可以访问 抽象合约 不可以被单独部署，使用关键字 abstract 修饰 函数没有实现，使用 virtual 修饰，表示函数可以被重载 抽象合约可以作为基类，子类可以通过重载(使用关键字override)实现基类的函数，override表示重写了父类合约函数 调用父合约函数使用 super.xxx 库 定义库使用关键字 library polygon网络是matic网络改名来的，polygon不是专有区块链，它是以太坊区块链之上的第2层&#xA;Mumbai 是polygon的测试网&#xA;因此，Polygon可以与其他竞争网络相提并论，例如Solana、 Polkadot、Cosmos和Avalanche。&#xA;传统应用 前端 《===============》 后端服务器&#xA;web3应用 ABI和字节码 合约 ABI 是与 EVM 字节码交互的接口 ABI包括了函数的结构和实参 因为evm里面存放的是字节码（源码编译来的），字节码也需要调用函数。所以有了ABI用来交互和字节码。 wagmi&#xA;数据平台 Thegraph&#xA;Dune</description>
+    </item>
+    <item>
+      <title>使用go开发app</title>
+      <link>http://localhost:1313/post/golang/%E4%BD%BF%E7%94%A8go%E5%BC%80%E5%8F%91app/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E4%BD%BF%E7%94%A8go%E5%BC%80%E5%8F%91app/index.zh-cn/</guid>
+      <description>https://github.com/progrium/macdriver&#xA;https://yusank.space/posts/macapp-by-go/&#xA;https://www.kandaoni.com/news/14849.html&#xA;https://developer.fyne.io/</description>
+    </item>
+    <item>
+      <title>关键字defer</title>
+      <link>http://localhost:1313/post/golang/defer%E8%AF%AD%E5%8F%A5/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/defer%E8%AF%AD%E5%8F%A5/index.zh-cn/</guid>
+      <description>defer延迟函数,在函数或方法执行完成的最后调用，defer函数可以有多个。defer函数执行过程可以分两部分，多个defer函数先按照先后顺序入栈，最后执行的时候从栈中取出执行，多个defer的执行顺序是先入后出的。&#xA;案例1 func f1() int { var i int defer func() { i++ }() return i } func main() { fmt.Println(f1()) //执行结果 0 } 匿名返回值的时候，执行 return i的时候会重新创建一个局部变量，用来给返回值赋值，类似 result:=i ,这个result就是最终的返回值，因为defer是在return后面执行，所以在defer里面的i++是在赋值之后的语句，不会影响返回值。&#xA;案例2 func f2() (r int) { defer func() { r++ }() return r } func main() { fmt.Println(f2()) //执行结果 1 } 返回值不是匿名的，不需要赋值。所以defer里面修改值会影响到最终的返回值。&#xA;案例3 func f3() (r int) { defer func(a int) { fmt.Println(&amp;#34;r:&amp;#34;, r) r *= a fmt.Println(&amp;#34;a:&amp;#34;, a) }(r) return 2 } func main() { fmt.</description>
+    </item>
+    <item>
+      <title>关键字defer</title>
+      <link>http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 在mac系统下 执行 curl -L https://foundry.paradigm.xyz | bash 如果提示 安装 libusb，执行 brew install libusb 重启一个终端或者更新下环境变量的设置。然后执行 foundryup 命令 有三种命令&#xA;forge 可用来测试、构建和部署您的智能合约。 项目 新建项目 在想要存放项目的目录下 执行 forge init hello_foundry ，会创建一个默认的模版项目 如果使用指定的模版项目可以使用 forge init --template https://github.com/foundry-rs/forge-template hello_template 有四个目录，lib 存放依赖库，src 存放自己写的合约源码的地方。script 是存放一些脚本。test编写测试用例。 模版默认安装了一个依赖项：forge-std，这是用于 Foundry 项目的首选测试库。可以在lib目录下看到。 cd hello_foundry开始工作 已有项目 先克隆项目 git clone https://github.com/abigger87/femplate cd femplate 切换到项目目录下。 安装依赖项 forge install 会把所有的第三方依赖库下载下来。 依赖 foundry没有自己的项目依赖工具，使用git submodules 管理依赖项。&#xA;安装依赖 要导入第三方依赖库可以使用 forge install OpenZeppelin/openzeppelin-contracts ,具体使用的时候，在需要导入的.sol文件import。如果不清楚路径，可以使用 forge remappings 命令，会帮你映射路径，使路径变短方便引用。也可以自定义映射路径，需要在项目根目录新建一个 remappings.txt 文件, 然后把需要映射的路径写入，比如 solmate-utils/=lib/solmate/src/utils/, 如果要使用 solmate的utils目录下的文件，就可以 import &amp;quot;solmate-utils/SignedWadMath.</description>
+    </item>
+    <item>
+      <title>算法之优先队列</title>
+      <link>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/index.zh-cn/</guid>
+      <description>优先队列用来求数组里面的前n个最大，最小值很有用。&#xA;最小堆 最大最小堆是一种数据结构，用于在数据集合中快速找到最大或最小元素。堆是一种二叉树，其中每个父节点的值都大于或小于其两个子节点的值，具体来说，如果父节点的值大于子节点的值，则为最大堆；如果父节点的值小于子节点的值，则为最小堆。&#xA;// This example demonstrates an integer heap built using the heap interface. package main import ( &amp;#34;container/heap&amp;#34; &amp;#34;fmt&amp;#34; ) // An IntHeap is a min-heap of ints. type IntHeap []int func (h IntHeap) Len() int { return len(h) } // 最大堆用 &amp;gt; func (h IntHeap) Less(i, j int) bool { return h[i] &amp;lt; h[j] } func (h IntHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] } func (h *IntHeap) Push(x any) { // Push and Pop use pointer receivers because they modify the slice&amp;#39;s length, // not just its contents.</description>
+    </item>
+    <item>
+      <title>进程，线程，协程的关系</title>
+      <link>http://localhost:1313/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%8D%8F%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%8D%8F%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB/index.zh-cn/</guid>
+      <description>进程，线程，协程的出现是有时间先后顺序的，主要都是为了不断提高cpu的使用率。&#xA;进程 进程是一个应用程序在一个数据集上的一次动态执行过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序的运行载体。 有五种状态 创建态，就绪态，阻塞态，执行态，终止态。 进程一般是由应用程序，数据集合，进程控制快三部分组成。 进程是操作系统分配资源的最小单元。 线程 因为进程开销大，主要体现在占用内存开销大，切换时间开销大。所以出现了线程。&#xA;线程是程序执行的最小单元，也是cpu调度和分派的基本单元。进程是作为管理线程来使用。 一个进程有一个或者多个线程，各个线程之间共享程序的内存空间(也就是进程的内存空间)。 线程也有五态。其生命周期是 创建：一个新的线程被创建，等待该线程被调用执行 就绪：时间片已用完，此线程被强制暂停，等待下一次属于它的时间片到来 运行：此线程正在执行，正在占用时间片 阻塞：也叫等待状态，等待某一事件(如IO或者另一个程序)执行完。 退出：一个线程完成任务或者其他终止条件发生，该线程终止进入退出状态，退出状态释放该线程所分配的资源。 协程 线程之间切换还是有cpu时间消耗，但是线程是cpu调度的基本单元。没法改变，所以只能尽量减少线程的切换次数。这就出现了协程。&#xA;把多线程的程序改为多协程的程序(只有一个主线程)，这样就减少了消耗，当然也还是有多线编程，比如多核处理器机器，可以一个核对应一个线程。 一个线程可以有多个协程。 协程是由程序员自己写程序来控制的，协程调度中心是程序员自己写的(当然都是引用的第三库或者官方库)，非操作系统控制。 协程多了一个协程调度中心，也有时间片的功能，会在不同协程之间来回切换，是一种用户态的上下文切换技术。 具有欺骗cpu的作用，使用了协程的线程每次都能使用cpu最大时间片。因为就算是某一个协程在执行IO操作，协程调度中心会切换到另外的协程继续执行，这样这个线程在cpu看来就是一直在运行态，没有阻塞。 协程的切换是非抢占式的，相对于线程的抢占式切换来说。线程是当前分配的时间片用完了，必须强制切换到其他的线程，由操作系统控制。 </description>
+    </item>
+    <item>
+      <title>channel的使用</title>
+      <link>http://localhost:1313/post/golang/channel%E7%9A%84%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/channel%E7%9A%84%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>channel注意事项 在取值之前，如果管道关闭，可以一直取值不会报错，但是如果缓存区空了，会取到对应类型的零值。可以通过ok语句判断，值是否是缓冲区的还是零值。&#xA;//例1 func main() { ch := make(chan int, 2) ch &amp;lt;- 2 ch &amp;lt;- 0 close(ch) if v, ok := &amp;lt;-ch; ok { fmt.Println(&amp;#34;管道值:&amp;#34;, v) } if v, ok := &amp;lt;-ch; ok { fmt.Println(&amp;#34;管道值:&amp;#34;, v) } if v, ok := &amp;lt;-ch; ok { fmt.Println(&amp;#34;管道值:&amp;#34;, v) } //打印结果 //管道值: 2 //管道值: 0 } 或者也可以通过for语句取值，会把缓存区的值全部取出来，不需要ok判断。&#xA;//例子2 func main() { ch := make(chan int, 2) ch &amp;lt;- 2 ch &amp;lt;- 0 close(ch) for v := range ch { fmt.</description>
+    </item>
+    <item>
+      <title>mongodb的使用</title>
+      <link>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 在mac下通过homebrew安装。 可以通过 brew search 搜索 mongodb。看有哪些版本。 brew install mongodb-community@5.0 这里安装mongodb-community@5.0版本 启动 mongodb服务器 通过brew在后台启动服务器，brew services start mongodb-community@5.0 mongodb客户端 mongosh 启动客户端 mongosh 或者 mongosh -u root -p root123 admin 命令 官方文档&#xA;collection对应mysql的table，文档对应mysql的一条记录。&#xA;数据库相关操作 show dbs 或者 show databases 显示所有数据库 use xxx 使用指定数据库，如果不存在会新建此数据库 db 显示当前正在使用的数据库 db.dropDatabase() 删除当前使用的数据库 collect(表)相关操作 运行命令前需要先执行进入到具体的某一个数据库才可以 use xxx&#xA;show collections 或者show tables 显示当前数据库的所有集合(表) 文档(记录)相关操作 假设插入了一个文档&#xA;db.inventory.insertMany( [ { item: &amp;#34;canvas&amp;#34;, qty: 100, size: { h: 28, w: 35.5, uom: &amp;#34;cm&amp;#34; }, status: &amp;#34;A&amp;#34; }, { item: &amp;#34;journal&amp;#34;, qty: 25, size: { h: 14, w: 21, uom: &amp;#34;cm&amp;#34; }, status: &amp;#34;A&amp;#34; }, { item: &amp;#34;mat&amp;#34;, qty: 85, size: { h: 27.</description>
+    </item>
+    <item>
+      <title>redis使用</title>
+      <link>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>redis：remote dictionary server 远程字典服务&#xA;安装 在mac下，通过homebrew安装，brew install redis&#xA;运行 redis也是c/s架构的，需要先启动redis服务器。&#xA;redis服务器 启动方式 通过brew启动 brew services start redis,这是后台启动 直接在终端执行 redis-server，这个是前台启动 关闭服务 如果是通过前台启动的，直接关闭终端就可以。 如果是通过brew启动的 brew services stop redis 也可以通过 客户端向服务端发送命令关闭 redis-cli shutdown 检查redis相关进程是否在运行 可以通过 命令 ps axu | grep redis redis客户端 必须先开启服务端服务，客户端才能正常工作。&#xA;命令行终端 启动方式 redis-cli redis-cli -h 127.0.0.1 -p 6379 redis-cli -h 127.0.0.1 -p 6379 -a password 退出方式 直接 输入exit 就可以。 可视化工具 RedisDesktopManager&#xA;语法 set操作 是字符串相关的操作&#xA;set key value 设置key的值为value get key 获取指定key的值 setex key value second 设置key的值为value,并在second秒后过期，在second秒后，get key 会为空 psetex key milliseconds value 设置key的值为value,并在milliseconds秒后过期，单位时毫秒 getset key value 设置key的值为value，并返回key的旧值 mset key1 value1 [key2 value2 .</description>
+    </item>
+    <item>
+      <title>mysql数据库</title>
+      <link>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 服务端 下载链接&#xA;客户端 可以直接用vscode或者Pycharm提供的插件，也很方便。&#xA;常用命令 链接操作 链接数据库 mysql -h主机地址 -u用户名 -p用户密码 注意用户名和主机地址前可以有空格， 密码前不能有空格 本地一般是 mysql -u root -p 分两步，第二步输密码 指定ip和端口号 mysql -h 127.0.0.1 -u root -p -P 3306 mysql的默认端口是3306 数据库操作 在数据库里面操作末尾记得加上;分号表示命令结束。&#xA;show databases; 显示所有数据库 show create database database_name; 查看某个数据库的创建信息，可以看到数据库的编码格式等信息。 create database database_name; 创建数据库 create database database_name character set gbk; 可以指定编码格式 alter database database_name character set gbk; 修改数据库 只能修改编码格式，不能修改数据库名 drop database [if exists] spiders10; 删除数据库 use database_name; 进入某个数据库 select database(); 显示当前使用的是哪个数据库 表操作 需要先执行 use database_name; 进入到某个具体的数据库。</description>
+    </item>
+    <item>
+      <title>数据解析之xpath</title>
+      <link>http://localhost:1313/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/</guid>
+      <description>xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。&#xA;安装 由于XPath属于lxml库模块，所以首先要安装库lxml。&#xA;# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。&#xA;谓语被嵌在方括号中。&#xA;在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：&#xA;路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&amp;lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&amp;lsquo;xx&amp;rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&amp;gt;10] &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !</description>
+    </item>
+    <item>
+      <title>数据解析之xpath</title>
+      <link>http://localhost:1313/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/</guid>
+      <description>xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。&#xA;安装 由于XPath属于lxml库模块，所以首先要安装库lxml。&#xA;# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。&#xA;谓语被嵌在方括号中。&#xA;在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：&#xA;路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&amp;lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&amp;lsquo;xx&amp;rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&amp;gt;10] &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !</description>
+    </item>
+    <item>
+      <title>数据解析之BS4</title>
+      <link>http://localhost:1313/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/</guid>
+      <description>Beautiful Soup是python的一个库，最主要的功能是从网页抓取数据。&#xA;安装 # pip3 install bs4 安装 from bs4 import BeautifulSoup Beautiful Soup支持Python标准库中的HTML解析器,还支持一些第三方的解析器，如果我们不安装它，则 Python 会使用 Python默认的解析器。&#xA;lxml 解析器更加强大，速度更快，推荐安装。&#xA;# 先下载 pip3 install lxml # 使用 BeautifulSoup(markup,&amp;#39;lxml&amp;#39;) 另一个可供选择的解析器是纯Python实现的 html5lib , html5lib的解析方式与浏览器相同,可以选择下列方法来安装html5lib:&#xA;# 先下载pip3 install html5lib # 使用 BeautifulSoup(markup,&amp;#39;html5lib&amp;#39;) 初始化 from bs4 import BeautifulSoup # 第一个参数markup 是被解析的html字符串或者文件内容 # 第二个参数features 是解析器类型 soup = BeautifulSoup(markup,features) 四种对象 html_doc = &amp;#34;&amp;#34;&amp;#34; &amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;The Dormouse&amp;#39;s story&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p class=&amp;#34;title&amp;#34;&amp;gt;&amp;lt;b&amp;gt;The Dormouse&amp;#39;s story&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p class=&amp;#34;story&amp;#34;&amp;gt;Once upon a time there were three little sisters; and their names were &amp;lt;a href=&amp;#34;http://example.</description>
+    </item>
+    <item>
+      <title>正则表达式的使用</title>
+      <link>http://localhost:1313/post/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.zh-cn/</link>
+      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.zh-cn/</guid>
+      <description>正则表达式，如果是匹配多次，第一次匹配到了，第二次匹配的时候是从剩下的字符从新开始匹配。&#xA;通配符 通配符 . 可以匹配任何除换行符以外的字符，有且只能匹配一个字符，不能多也不能少。&#xA;import re ret = re.findall(&amp;#34;.&amp;#34;, &amp;#34;a,b,c,d,e&amp;#34;) # 结果 # [&amp;#39;a&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;e&amp;#39;] 全部都匹配到了，返回结果是一个数组&#xA;import re ret = re.findall(&amp;#34;a.b&amp;#34;, &amp;#34;a,b,c,d,e,ab,abb,a\tb,a\nb&amp;#34;) # 结果 # [&amp;#39;a,b&amp;#39;, &amp;#39;abb&amp;#39;, &amp;#39;a\tb&amp;#39;] 匹配到了三个结果&#xA;字符集 字符集[]多选一的意思，表示匹配[]里面的其中一个，也是有且只能匹配一个字符，不能多，也不能少。&#xA;import re ret = re.findall(&amp;#34;[ace]&amp;#34;, &amp;#34;a,b,c,d,e&amp;#34;) # 结果 # [&amp;#39;a&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;e&amp;#39;] 匹配到了三个结果。第一次从字符集里面取出a匹配一遍，看有哪些是符号条件的，第二次从字符集里面取出c匹配，等所以字符集里面的字符都匹配一遍，把结果合并。&#xA;import re ret = re.findall(&amp;#34;a[bce]f&amp;#34;, &amp;#34;af,abf,abbf,acef,aef,abf&amp;#34;) # 结果 # [&amp;#39;abf&amp;#39;, &amp;#39;aef&amp;#39;, &amp;#39;abf&amp;#39;] 匹配到了三个结果，第一次用abf匹配，找到所有结果。第二次匹配的字符串是截取后的，类似于split函数把字符串通过abf分段，然后再用acf去匹配每一段。&#xA;import re ret = re.findall(&amp;#34;[0123456789]&amp;#34;, &amp;#34;a,b,2,d,c,8,B,C,F&amp;#34;) # 结果 # [&amp;#39;2&amp;#39;, &amp;#39;8&amp;#39;] 匹配所有的数字，要注意字符集[]每次只能取一个字符用来匹配。[0123456789]写起来有些麻烦，可以用[0-9]简写，还可以用 \d简写表示，都表示一个意思，匹配所有的数字。</description>
+    </item>
+    <item>
+      <title>中文测试</title>
+      <link>http://localhost:1313/post/chinese-test/test-chinese/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/chinese-test/test-chinese/</guid>
+      <description>正文测试 而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下学生会退会。 既然如何， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 我们不得不面对一个非常尴尬的事实，那就是， 可是，即使是这样，学生会退会的出现仍然代表了一定的意义。 学生会退会，发生了会如何，不发生又会如何。 经过上述讨论， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 学生会退会，到底应该如何实现。 这样看来， 在这种困难的抉择下，本人思来想去，寝食难安。 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 就我个人来说，学生会退会对我的意义，不能不说非常重大。 莎士比亚曾经提到过，人的一生是短的，但如果卑劣地过这一生，就太长了。这似乎解答了我的疑惑。 莫扎特说过一句富有哲理的话，谁和我一样用功，谁就会和我一样成功。这启发了我， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 学生会退会，到底应该如何实现。 一般来说， 从这个角度来看， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 在这种困难的抉择下，本人思来想去，寝食难安。 了解清楚学生会退会到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 问题的关键究竟为何？ 而这些并不是完全重要，更加重要的问题是。&#xA;奥斯特洛夫斯基曾经说过，共同的事业，共同的斗争，可以使人们产生忍受一切的力量。　带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下学生会退会。 我认为， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 问题的关键究竟为何？ 每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，学生会退会，到底是一种怎么样的存在。 我认为， 既然如此， 每个人都不得不面对这些问题。 在面对这种问题时， 那么， 我认为， 学生会退会因何而发生。&#xA;引用 思念是最暖的忧伤像一双翅膀&#xA;让我停不了飞不远在过往游荡&#xA;不告而别的你 就算为了我着想&#xA;这么沉痛的呵护 我怎么能翱翔&#xA;最暖的憂傷 - 田馥甄&#xA;图片 ![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg) ![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.</description>
+    </item>
+    <item>
+      <title>Archives</title>
+      <link>http://localhost:1313/page/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/page/archives/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>http://localhost:1313/post/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Placeholder Text</title>
+      <link>http://localhost:1313/post/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Math Typesetting</title>
+      <link>http://localhost:1313/post/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Emoji Support</title>
+      <link>http://localhost:1313/post/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/page/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/page/about/</guid>
+      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&#xA;Hugo makes use of a variety of open source projects including:&#xA;https://github.com/yuin/goldmark https://github.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/_index.zh-cn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/_index.zh-cn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/js%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/js%E5%9F%BA%E7%A1%80/</guid>
+      <description>存放位置 内嵌式 可以放在html文件的任何位置。推荐放在head或者body标签里面，需要用script标签标记。 外联式 把js代码统一放在一个.js结尾的js文件中。然后在html里面通过script标签导入。 行内式 内嵌在其他比如button标签里面 注意&#xA;内嵌式和外联式不能共用同一个script标签&#xA;注释 单行注释 // 多行注释/* */ 结束符 js的结束符是; 也是可以省略的。&#xA;输出语法 //1.将信息在网页中以弹窗的形式输出 alert(&amp;#34;abc&amp;#34;) //2.将信息在控制台以文本的形式输出 console.log(&amp;#34;abc&amp;#34;) //3.将信息在网页的body标签中输出 document.write(&amp;#34;abc&amp;#34;) 输入语法 //1. 会弹窗。有输入框和确定，取消按钮 prompt(&amp;#34;请输入用户名:&amp;#34;) //2.会弹窗，有确定和取消两个按钮 confirm(&amp;#34;确定删除吗？&amp;#34;) 字面量 在计算机科学中，字面量(literal)是在计算机中描述 事/物 的&#xA;获取用户输入 let name = prompt(&amp;#39;请输入用户名:&amp;#39;) document.write(name) let和var的区别 var一般不使用，是旧版的。&#xA;let是为解决var的问题而出现的&#xA;不同点&#xA;let 定义的变量，必须先定义再使用。var定义的变量，可以先使用后定义 let定义的变量名，不能重复定义。var定义的变量名可以重复。 常量 使用关键字const定义变量&#xA;隐式数据类型转换 如果是加法运算，变量当中有字符串和数字类型，会把非字符串的变量转换成字符串类型，然后拼接。&#xA;let a = &amp;#39;1&amp;#39; let b = 2 let c = a + b console.log(c) console.log(typeof c) //打印结果 //11 //string //如果不希望返回字符串，想要执行加法运算 可以在前面加个 + 号 let c = +a + b 非加法运算中，会把字符串类型转换成数字类型，然后再计算</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/this%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/this%E6%80%BB%E7%BB%93/</guid>
+      <description>全局中的this表示window&#xA;普通函数中 this表示 window&#xA;定时器中的this表示window&#xA;事件处理函数中的this表示事件源&#xA;构造函数，对象方法，原型对象方法中的this，表示实例对象&#xA;静态方法中的this表示构造函数&#xA;箭头函数中 this 需要按照作用域链去查找&#xA;&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script&amp;gt; var age = 10 let obj = { age:20, //箭头函数中没有this，所以此this指的是外层作用域的也就是全局作用域 say: () =&amp;gt; { console.log(this.age) }, eat: function () { //箭头函数中没有this，所以这里的this指向eat方法中的this，既obj let fn = () =&amp;gt; { console.log(this.age) } fn() }, wash: () =&amp;gt; { function abc() { console.log(this.age) } abc() } } obj.say() obj.eat() obj.wash() &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 打印结果是10和20和10</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/untitled/</guid>
+      <description>js的运行环境 浏览器客户端 node.js 作用域 局部作用域 函数作用域&#xA;var，let，const&#xA;外部无法访问&#xA;块作用域&#xA;包括 {}，if{}，for(&amp;hellip;){}&#xA;ES6新增的，只有let，const有块作用域&#xA;//举例1 for (let i = 1; i &amp;lt;= 3; i++) { console.log(i) } //报错 console.log(i) 如果把代码里的let换成var，就不会报错。&#xA;全局作用域 没有放到任何{}里面的&#xA;作用域链 先从最内层找，然后一层一层往外找，知道全局作用域&#xA;垃圾回收 低版本的IE浏览器使用的是引用计数算法&#xA;引用计数算法会有循环引用的问题&#xA;目前现代浏览器使用的都是标记-清除算法&#xA;闭包 function outer() { const a = 1 function f() { console.log(a) } return f } let ff = outer() ff() ff() 闭包=内层函数+外层函数的变量&#xA;变量提升 代码运行的时候，会把函数的声明，创建提升到当前作用域的最开头&#xA;代码运行的时候，会把用var声明的变量的声明过程（没有赋值过程）提升到当前作用域的开头，在函数提升后面&#xA;let，const不存在变量提升，变量提升是旧的语法&#xA;console.log(a) fn() var a = 10 function fn() { console.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%85%B6%E4%BB%96%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/</guid>
+      <description>数字类型 let num = 3.14154 //保留3位小数点，四舍五入后 console.log(num.toFixed(3)) 对象的键值 let obj = {uname:&amp;#39;zs&amp;#39;,age:18} //获取键 console.log(Object.keys(obj)) console.log(Object.values(obj)) </description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <description>字符串方法 split&#xA;字符串分割,返回数组&#xA;let str = &amp;#39;aaa,bbb,ccc&amp;#39; let arr = str.split(&amp;#39;,&amp;#39;) console.log(arr) substring&#xA;字符截取，根据下标&#xA;let res = str.substring(4) console.log(res) res = str.substring(4,7) console.log(res) includes&#xA;startsWith&#xA;endsWith&#xA;toUpperCase&#xA;toLowerCase&#xA;trim</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%AF%B9%E8%B1%A1/</guid>
+      <description>对象的创建 利用对象字面量创建对象&#xA;//创建 const o = { name:&amp;#39;peiqi&amp;#39;, &amp;#34;a-b&amp;#34;:&amp;#39;enen&amp;#39;, age:18 } console.log(o.name) console.log(o[&amp;#34;a-b&amp;#34;]) let age = &amp;#39;name&amp;#39; console.log(o.age) console.log(o[age]) 使用 new Object创建对象 let obj = new Object() let obj02 = new Object({uname:&amp;#39;zs&amp;#39;,age:20}) console.log(obj02) 通过构造函数创建对象 构造函数约定首字母大写&#xA;function Pig(name, age, gender) { this.name = name this.age = age this.gender = gender //无效返回 //return &amp;#39;hello world&amp;#39; //返回对象 //return {uname:&amp;#39;zs&amp;#39;} } let person = new Pig(&amp;#39;zs&amp;#39;,6,&amp;#39;男&amp;#39;) console.log(person) 正常来讲，构造函数中不需要返回值&#xA;如果构造函数中返回了一个原始类型值(字符串，数字，布尔值)。无效返回。&#xA;如果构造函数中返回了一个引用类型的值(对象)，则返回的结果就是这个对象。&#xA;function Pig(name, age, gender) { //实例属性 this.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+      <description>throw语句 function fn(x,y) { if (!x || !y) { throw new Error(&amp;#34;参数错误&amp;#34;) } return x + y } console.log(fn()) try&amp;hellip;catch 语句 try { console.log(111) //调用不存在的方法 abc() console.log(222) } catch (e) { console.log(&amp;#34;异常:&amp;#34;,e.message) } console.log(333) //打印结果 //111 //异常: abc is not defined //333 断点添加 function fn(x,y) { console.log(111) //添加断点 debugger console.log(111) console.log(111) } console.log(fn()) </description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/javascript/js%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84/</guid>
+      <description>数组方法 some&#xA;let arr = [3,4,5] //数组中是否存在大于4的元素 let res = arr.some(function (item ) { return item &amp;gt; 4 }) every&#xA;let arr = [3,4,5] //数组中是否每个元素都大于4 let res = arr.every(function (item ) { return item &amp;gt; 4 }) find&#xA;let arr = [3,4,5,6] //返回第一个找到的元素 let res = arr.find(function (item ) { return item &amp;gt; 4 }) console.log(res) findIndex&#xA;let arr = [3,4,5,6] //返回第一个找到的元素的下标 let res = arr.findIndex(function (item ) { return item &amp;gt; 4 }) console.</description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>http://localhost:1313/categories/golang/golang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/golang/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Html</title>
+      <link>http://localhost:1313/categories/html/html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/html/html/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaScript</title>
+      <link>http://localhost:1313/categories/javascript/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/javascript/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Links</title>
+      <link>http://localhost:1313/page/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/page/links/</guid>
+      <description>To use this feature, add links section to frontmatter.&#xA;This page&amp;rsquo;s frontmatter:&#xA;links: - title: GitHub description: GitHub is the world&amp;#39;s largest software development platform. website: https://github.com image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png - title: TypeScript description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript. website: https://www.typescriptlang.org image: ts-logo-128.jpg image field accepts both local and external images.</description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/categories/python/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/python/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>http://localhost:1313/page/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/page/search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Swift</title>
+      <link>http://localhost:1313/categories/swift/swift/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/swift/swift/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>区块链</title>
+      <link>http://localhost:1313/categories/solidity/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/solidity/%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

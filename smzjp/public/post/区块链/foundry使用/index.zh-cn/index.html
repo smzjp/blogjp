@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>关键字defer | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="defer延迟函数">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="关键字defer">
+  <meta property="og:description" content="defer延迟函数">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:tag" content="Defer">
+
+  <meta itemprop="name" content="关键字defer">
+  <meta itemprop="description" content="defer延迟函数">
+  <meta itemprop="datePublished" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="121">
+  <meta itemprop="keywords" content="Defer">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="关键字defer">
+  <meta name="twitter:description" content="defer延迟函数">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/_index.zh-cn/" title="主页 page">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/archives/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/search/" title="Search page">
+              Search
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/links/" title="Links page">
+              Links
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">关键字defer</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-12-20T00:00:00Z">December 20, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="安装">安装</h3>
+<ol>
+<li>在mac系统下 执行 <code>curl -L https://foundry.paradigm.xyz | bash</code></li>
+<li>如果提示 安装 <strong>libusb</strong>，执行 <code>brew install libusb</code></li>
+<li>重启一个终端或者更新下环境变量的设置。然后执行 foundryup</li>
+</ol>
+<h3 id="命令">命令</h3>
+<p>有三种命令</p>
+<ol>
+<li><strong>forge</strong>  可用来测试、构建和部署您的智能合约。</li>
+<li></li>
+</ol>
+<h3 id="项目">项目</h3>
+<h4 id="新建项目">新建项目</h4>
+<ol>
+<li>在想要存放项目的目录下 执行 <code>forge init hello_foundry</code> ，会创建一个默认的模版项目
+<ol>
+<li>如果使用指定的模版项目可以使用 <code>forge init --template https://github.com/foundry-rs/forge-template hello_template</code></li>
+<li>有四个目录，<code>lib</code> 存放依赖库，<code>src</code> 存放自己写的合约源码的地方。<code>script</code> 是存放一些脚本。<code>test</code>编写测试用例。</li>
+<li>模版默认安装了一个依赖项：forge-std，这是用于 Foundry 项目的首选测试库。可以在lib目录下看到。</li>
+</ol>
+</li>
+<li><code>cd hello_foundry</code>开始工作</li>
+</ol>
+<h4 id="已有项目">已有项目</h4>
+<ol>
+<li>先克隆项目 <code>git clone https://github.com/abigger87/femplate</code></li>
+<li><code>cd femplate </code> 切换到项目目录下。</li>
+<li>安装依赖项 <code>forge install</code> 会把所有的第三方依赖库下载下来。</li>
+</ol>
+<h4 id="依赖">依赖</h4>
+<p>foundry没有自己的项目依赖工具，使用<strong>git submodules</strong> 管理依赖项。</p>
+<h5 id="安装依赖">安装依赖</h5>
+<p>要导入第三方依赖库可以使用 <code>forge install OpenZeppelin/openzeppelin-contracts</code> ,具体使用的时候，在需要导入的.sol文件import。如果不清楚路径，可以使用 <code>forge remappings</code> 命令，会帮你映射路径，使路径变短方便引用。也可以自定义映射路径，需要在项目根目录新建一个 <code>remappings.txt</code> 文件, 然后把需要映射的路径写入，比如 <code>solmate-utils/=lib/solmate/src/utils/</code>,  如果要使用 solmate的utils目录下的文件，就可以 <code>import &quot;solmate-utils/SignedWadMath.sol&quot;；</code></p>
+<h5 id="更新依赖">更新依赖</h5>
+<ol>
+<li>更新所有依赖 <code>forge update</code></li>
+<li>更新某一个依赖 <code>forge update lib/solmate</code></li>
+</ol>
+<h5 id="删除依赖">删除依赖</h5>
+<p><code>forge remove solmate</code> 或者 <code>forge remove lib/solmate</code></p>
+<h3 id="编译项目">编译项目</h3>
+<ol>
+<li><code>forge build</code></li>
+</ol>
+<h3 id="测试项目">测试项目</h3>
+<p>foundry里面测试用例使用solidity语言写的。</p>
+<h4 id="编写测试">编写测试</h4>
+<ol>
+<li>执行<code>forge test</code>
+<ol>
+<li>也可以执行 <code>forge test -vvv</code>。为失败的测试生成跟踪信息</li>
+<li><code>forge test -vvvv</code> 为所有的测试用例生成跟踪信息。</li>
+<li><code>forge test --gas-report</code> 为合约生成gas报告，可以预估合约将消耗多少gas
+<ol>
+<li>需要现在配置文件<code>foundry.toml</code> 配置哪些合约需要生成gas报告。<code>gas_reports = [&quot;MyContract&quot;, &quot;MyContractFactory&quot;]</code> 或者 <code>gas_reports = [&quot;*&quot;]</code>所有的合约都生成。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/defer/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Defer</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/">solidity语法</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/post/golang/defer%E8%AF%AD%E5%8F%A5/index.zh-cn/">关键字defer</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  My New Hugo Site 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bs4 on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/bs4/</link>
+    <description>Recent content in Bs4 on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bs4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据解析之BS4</title>
+      <link>http://localhost:1313/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/</guid>
+      <description>Beautiful Soup是python的一个库，最主要的功能是从网页抓取数据。&#xA;安装 # pip3 install bs4 安装 from bs4 import BeautifulSoup Beautiful Soup支持Python标准库中的HTML解析器,还支持一些第三方的解析器，如果我们不安装它，则 Python 会使用 Python默认的解析器。&#xA;lxml 解析器更加强大，速度更快，推荐安装。&#xA;# 先下载 pip3 install lxml # 使用 BeautifulSoup(markup,&amp;#39;lxml&amp;#39;) 另一个可供选择的解析器是纯Python实现的 html5lib , html5lib的解析方式与浏览器相同,可以选择下列方法来安装html5lib:&#xA;# 先下载pip3 install html5lib # 使用 BeautifulSoup(markup,&amp;#39;html5lib&amp;#39;) 初始化 from bs4 import BeautifulSoup # 第一个参数markup 是被解析的html字符串或者文件内容 # 第二个参数features 是解析器类型 soup = BeautifulSoup(markup,features) 四种对象 html_doc = &amp;#34;&amp;#34;&amp;#34; &amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;The Dormouse&amp;#39;s story&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p class=&amp;#34;title&amp;#34;&amp;gt;&amp;lt;b&amp;gt;The Dormouse&amp;#39;s story&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p class=&amp;#34;story&amp;#34;&amp;gt;Once upon a time there were three little sisters; and their names were &amp;lt;a href=&amp;#34;http://example.</description>
+    </item>
+  </channel>
+</rss>

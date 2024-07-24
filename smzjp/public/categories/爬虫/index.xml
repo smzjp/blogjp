@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>爬虫 on My New Hugo Site</title>
+    <link>http://localhost:1313/categories/%E7%88%AC%E8%99%AB/</link>
+    <description>Recent content in 爬虫 on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>爬虫框架之colly</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bcolly/index.zh-cn/</link>
+      <pubDate>Fri, 14 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bcolly/index.zh-cn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>爬虫框架之goquery</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bgoquery/index.zh-cn/</link>
+      <pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bgoquery/index.zh-cn/</guid>
+      <description>goquery 是用来html解析的，基于github.com/andybalholm/cascadia和golang.org/x/net/html库，使用的是css选择器语法来查找标签。&#xA;安装 go get -u github.com/PuerkitoBio/goquery&#xA;使用 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/PuerkitoBio/goquery&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { res, err := http.Get(&amp;#34;http://www.baidu.com&amp;#34;) if err != nil { log.Fatal(err) } defer res.Body.Close() if res.StatusCode != 200 { log.Fatalf(&amp;#34;status code error: %d&amp;#34;, res.StatusCode) } doc, err := goquery.NewDocumentFromReader(res.Body) if err != nil { log.Fatal(err) } doc.Find(&amp;#34;.s-hotsearch-content .hotsearch-item&amp;#34;).Each(func(i int, s *goquery.Selection) { content := s.Find(&amp;#34;.title-content-title&amp;#34;).Text() fmt.Printf(&amp;#34;%d: %s \n&amp;#34;, i, content) href, suc := s.</description>
+    </item>
+    <item>
+      <title>爬虫框架之pholcus</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup%E7%9A%84%E5%89%AF%E6%9C%AC/index.zh-cn/</link>
+      <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup%E7%9A%84%E5%89%AF%E6%9C%AC/index.zh-cn/</guid>
+      <description>https://github.com/andeya/pholcus</description>
+    </item>
+    <item>
+      <title>爬虫框架之soup</title>
+      <link>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup/index.zh-cn/</link>
+      <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%E4%B9%8Bsoup/index.zh-cn/</guid>
+      <description>soup是用来解析，提取html数据的库，它是基于html解析库golang.org/x/net/html。类似于python中的BeautifulSoup库，这个库比较小，总共只有500多行代码。&#xA;下面是其所提供的所有方法&#xA;var Headers map[string]string // Set headers as a map of key-value pairs, an alternative to calling Header() individually var Cookies map[string]string // Set cookies as a map of key-value pairs, an alternative to calling Cookie() individually func Get(string) (string,error) {} // Takes the url as an argument, returns HTML string func GetWithClient(string, *http.Client) {} // Takes the url and a custom HTTP client as arguments, returns HTML string func Post(string, string, interface{}) (string, error) {} // Takes the url, bodyType, and payload as an argument, returns HTML string func PostForm(string, url.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Python | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This is an example category">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/categories/python/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" />
+      <link href="/categories/python/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/categories/python/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/categories/python/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="Python">
+  <meta property="og:description" content="This is an example category">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Python">
+  <meta itemprop="description" content="This is an example category">
+  <meta itemprop="datePublished" content="2022-12-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-23T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python">
+  <meta name="twitter:description" content="This is an example category">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/_index.zh-cn/" title="主页 page">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/archives/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/search/" title="Search page">
+              Search
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/links/" title="Links page">
+              Links
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Python
+        </h1>
+        
+          <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+            This is an example category
+          </h2>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “Python”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        December 23, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/" class="link black dim">
+        asyncio模块使用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      协程 定义协程
+import asyncio async def main(): print(&#39;hello&#39;) # 模拟I/O操作 await asyncio.sleep(1) print(&#39;world&#39;) 协程也叫异步函数，和普通函数相比，在def前面加了个关键字async。协程不能直接调用，没有效果，需要加入到事件循环里面。
+协程的调用
+import asyncio import time async def say_after(delay, what): await asyncio.sleep(delay) print(what) async def main(): print(f&#34;started at {time.strftime(&#39;%X&#39;)}&#34;) await say_after(1, &#39;hello&#39;) await say_after(2, &#39;world&#39;) print(f&#34;finished at {time.strftime(&#39;%X&#39;)}&#34;) asyncio.run(main()) 协程的调用使用 asyncio.run(main()),协程的使用一般会定义一个最高层级的入口协程async def main(),其他协程由其管理。这是一个串行的协程。
+协程并行调用
+import asyncio import time async def main(): task1 = asyncio.create_task( say_after(1, &#39;hello&#39;)) task2 = asyncio.create_task( say_after(2, &#39;world&#39;)) print(f&#34;started at {time.strftime(&#39;%X&#39;)}&#34;) await task1 await task2 print(f&#34;finished at {time.
+    </div>
+  <a href="/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        November 5, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/" class="link black dim">
+        mongodb的使用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      安装 在mac下通过homebrew安装。 可以通过 brew search 搜索 mongodb。看有哪些版本。 brew install mongodb-community@5.0 这里安装mongodb-community@5.0版本 启动 mongodb服务器 通过brew在后台启动服务器，brew services start mongodb-community@5.0 mongodb客户端 mongosh 启动客户端 mongosh 或者 mongosh -u root -p root123 admin 命令 官方文档
+collection对应mysql的table，文档对应mysql的一条记录。
+数据库相关操作 show dbs 或者 show databases 显示所有数据库 use xxx 使用指定数据库，如果不存在会新建此数据库 db 显示当前正在使用的数据库 db.dropDatabase() 删除当前使用的数据库 collect(表)相关操作 运行命令前需要先执行进入到具体的某一个数据库才可以 use xxx
+show collections 或者show tables 显示当前数据库的所有集合(表) 文档(记录)相关操作 假设插入了一个文档
+db.inventory.insertMany( [ { item: &#34;canvas&#34;, qty: 100, size: { h: 28, w: 35.5, uom: &#34;cm&#34; }, status: &#34;A&#34; }, { item: &#34;journal&#34;, qty: 25, size: { h: 14, w: 21, uom: &#34;cm&#34; }, status: &#34;A&#34; }, { item: &#34;mat&#34;, qty: 85, size: { h: 27.
+    </div>
+  <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        October 20, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/" class="link black dim">
+        redis使用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      redis：remote dictionary server 远程字典服务
+安装 在mac下，通过homebrew安装，brew install redis
+运行 redis也是c/s架构的，需要先启动redis服务器。
+redis服务器 启动方式 通过brew启动 brew services start redis,这是后台启动 直接在终端执行 redis-server，这个是前台启动 关闭服务 如果是通过前台启动的，直接关闭终端就可以。 如果是通过brew启动的 brew services stop redis 也可以通过 客户端向服务端发送命令关闭 redis-cli shutdown 检查redis相关进程是否在运行 可以通过 命令 ps axu | grep redis redis客户端 必须先开启服务端服务，客户端才能正常工作。
+命令行终端 启动方式 redis-cli redis-cli -h 127.0.0.1 -p 6379 redis-cli -h 127.0.0.1 -p 6379 -a password 退出方式 直接 输入exit 就可以。 可视化工具 RedisDesktopManager
+语法 set操作 是字符串相关的操作
+set key value 设置key的值为value get key 获取指定key的值 setex key value second 设置key的值为value,并在second秒后过期，在second秒后，get key 会为空 psetex key milliseconds value 设置key的值为value,并在milliseconds秒后过期，单位时毫秒 getset key value 设置key的值为value，并返回key的旧值 mset key1 value1 [key2 value2 .
+    </div>
+  <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        September 19, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/" class="link black dim">
+        mysql数据库
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      安装 服务端 下载链接
+客户端 可以直接用vscode或者Pycharm提供的插件，也很方便。
+常用命令 链接操作 链接数据库 mysql -h主机地址 -u用户名 -p用户密码 注意用户名和主机地址前可以有空格， 密码前不能有空格 本地一般是 mysql -u root -p 分两步，第二步输密码 指定ip和端口号 mysql -h 127.0.0.1 -u root -p -P 3306 mysql的默认端口是3306 数据库操作 在数据库里面操作末尾记得加上;分号表示命令结束。
+show databases; 显示所有数据库 show create database database_name; 查看某个数据库的创建信息，可以看到数据库的编码格式等信息。 create database database_name; 创建数据库 create database database_name character set gbk; 可以指定编码格式 alter database database_name character set gbk; 修改数据库 只能修改编码格式，不能修改数据库名 drop database [if exists] spiders10; 删除数据库 use database_name; 进入某个数据库 select database(); 显示当前使用的是哪个数据库 表操作 需要先执行 use database_name; 进入到某个具体的数据库。
+    </div>
+  <a href="/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 22, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/" class="link black dim">
+        数据解析之xpath
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。
+安装 由于XPath属于lxml库模块，所以首先要安装库lxml。
+# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。
+谓语被嵌在方括号中。
+在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：
+路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&lsquo;xx&rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&gt;10] &gt; &lt; &gt;= &lt;= !
+    </div>
+  <a href="/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 22, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/" class="link black dim">
+        数据解析之xpath
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。
+安装 由于XPath属于lxml库模块，所以首先要安装库lxml。
+# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。
+谓语被嵌在方括号中。
+在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：
+路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&lsquo;xx&rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&gt;10] &gt; &lt; &gt;= &lt;= !
+    </div>
+  <a href="/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 21, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/" class="link black dim">
+        数据解析之BS4
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Beautiful Soup是python的一个库，最主要的功能是从网页抓取数据。
+安装 # pip3 install bs4 安装 from bs4 import BeautifulSoup Beautiful Soup支持Python标准库中的HTML解析器,还支持一些第三方的解析器，如果我们不安装它，则 Python 会使用 Python默认的解析器。
+lxml 解析器更加强大，速度更快，推荐安装。
+# 先下载 pip3 install lxml # 使用 BeautifulSoup(markup,&#39;lxml&#39;) 另一个可供选择的解析器是纯Python实现的 html5lib , html5lib的解析方式与浏览器相同,可以选择下列方法来安装html5lib:
+# 先下载pip3 install html5lib # 使用 BeautifulSoup(markup,&#39;html5lib&#39;) 初始化 from bs4 import BeautifulSoup # 第一个参数markup 是被解析的html字符串或者文件内容 # 第二个参数features 是解析器类型 soup = BeautifulSoup(markup,features) 四种对象 html_doc = &#34;&#34;&#34; &lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#39;s story&lt;/title&gt;&lt;/head&gt; &lt;body&gt; &lt;p class=&#34;title&#34;&gt;&lt;b&gt;The Dormouse&#39;s story&lt;/b&gt;&lt;/p&gt; &lt;p class=&#34;story&#34;&gt;Once upon a time there were three little sisters; and their names were &lt;a href=&#34;http://example.
+    </div>
+  <a href="/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        August 20, 2022
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.zh-cn/" class="link black dim">
+        正则表达式的使用
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      正则表达式，如果是匹配多次，第一次匹配到了，第二次匹配的时候是从剩下的字符从新开始匹配。
+通配符 通配符 . 可以匹配任何除换行符以外的字符，有且只能匹配一个字符，不能多也不能少。
+import re ret = re.findall(&#34;.&#34;, &#34;a,b,c,d,e&#34;) # 结果 # [&#39;a&#39;, &#39;,&#39;, &#39;b&#39;, &#39;,&#39;, &#39;c&#39;, &#39;,&#39;, &#39;d&#39;, &#39;,&#39;, &#39;e&#39;] 全部都匹配到了，返回结果是一个数组
+import re ret = re.findall(&#34;a.b&#34;, &#34;a,b,c,d,e,ab,abb,a\tb,a\nb&#34;) # 结果 # [&#39;a,b&#39;, &#39;abb&#39;, &#39;a\tb&#39;] 匹配到了三个结果
+字符集 字符集[]多选一的意思，表示匹配[]里面的其中一个，也是有且只能匹配一个字符，不能多，也不能少。
+import re ret = re.findall(&#34;[ace]&#34;, &#34;a,b,c,d,e&#34;) # 结果 # [&#39;a&#39;, &#39;c&#39;, &#39;e&#39;] 匹配到了三个结果。第一次从字符集里面取出a匹配一遍，看有哪些是符号条件的，第二次从字符集里面取出c匹配，等所以字符集里面的字符都匹配一遍，把结果合并。
+import re ret = re.findall(&#34;a[bce]f&#34;, &#34;af,abf,abbf,acef,aef,abf&#34;) # 结果 # [&#39;abf&#39;, &#39;aef&#39;, &#39;abf&#39;] 匹配到了三个结果，第一次用abf匹配，找到所有结果。第二次匹配的字符串是截取后的，类似于split函数把字符串通过abf分段，然后再用acf去匹配每一段。
+import re ret = re.findall(&#34;[0123456789]&#34;, &#34;a,b,2,d,c,8,B,C,F&#34;) # 结果 # [&#39;2&#39;, &#39;8&#39;] 匹配所有的数字，要注意字符集[]每次只能取一个字符用来匹配。[0123456789]写起来有些麻烦，可以用[0-9]简写，还可以用 \d简写表示，都表示一个意思，匹配所有的数字。
+    </div>
+  <a href="/post/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.zh-cn/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+
+        </div>
+      
+    </section>
+  </div>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  My New Hugo Site 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

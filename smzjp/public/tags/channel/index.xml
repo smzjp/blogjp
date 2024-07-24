@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Channel on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/channel/</link>
+    <description>Recent content in Channel on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/channel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>channel的使用</title>
+      <link>http://localhost:1313/post/golang/channel%E7%9A%84%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Thu, 01 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/golang/channel%E7%9A%84%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>channel注意事项 在取值之前，如果管道关闭，可以一直取值不会报错，但是如果缓存区空了，会取到对应类型的零值。可以通过ok语句判断，值是否是缓冲区的还是零值。&#xA;//例1 func main() { ch := make(chan int, 2) ch &amp;lt;- 2 ch &amp;lt;- 0 close(ch) if v, ok := &amp;lt;-ch; ok { fmt.Println(&amp;#34;管道值:&amp;#34;, v) } if v, ok := &amp;lt;-ch; ok { fmt.Println(&amp;#34;管道值:&amp;#34;, v) } if v, ok := &amp;lt;-ch; ok { fmt.Println(&amp;#34;管道值:&amp;#34;, v) } //打印结果 //管道值: 2 //管道值: 0 } 或者也可以通过for语句取值，会把缓存区的值全部取出来，不需要ok判断。&#xA;//例子2 func main() { ch := make(chan int, 2) ch &amp;lt;- 2 ch &amp;lt;- 0 close(ch) for v := range ch { fmt.</description>
+    </item>
+  </channel>
+</rss>

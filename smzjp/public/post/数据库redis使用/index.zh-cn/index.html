@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>redis使用 | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="redis常用方法及其在golang和python中的使用">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="redis使用">
+  <meta property="og:description" content="redis常用方法及其在golang和python中的使用">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-10-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-10-20T00:00:00+00:00">
+    <meta property="article:tag" content="Redis">
+    <meta property="article:tag" content="Publish">
+    <meta property="article:tag" content="Subscribe">
+
+  <meta itemprop="name" content="redis使用">
+  <meta itemprop="description" content="redis常用方法及其在golang和python中的使用">
+  <meta itemprop="datePublished" content="2022-10-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-10-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="628">
+  <meta itemprop="keywords" content="Redis,Publish,Subscribe">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="redis使用">
+  <meta name="twitter:description" content="redis常用方法及其在golang和python中的使用">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="Home page">
+              Home
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/_index.zh-cn/" title="主页 page">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/archives/" title="Archives page">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/search/" title="Search page">
+              Search
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/page/links/" title="Links page">
+              Links
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">redis使用</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-10-20T00:00:00Z">October 20, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>redis：remote dictionary server 远程字典服务</p>
+<h3 id="安装">安装</h3>
+<p>在mac下，通过homebrew安装，<code>brew install redis</code></p>
+<h3 id="运行">运行</h3>
+<p>redis也是c/s架构的，需要先启动redis服务器。</p>
+<h4 id="redis服务器">redis服务器</h4>
+<ol>
+<li>启动方式
+<ol>
+<li>通过brew启动 <code>brew services start redis</code>,这是后台启动</li>
+<li>直接在终端执行 <code>redis-server</code>，这个是前台启动</li>
+</ol>
+</li>
+<li>关闭服务
+<ol>
+<li>如果是通过前台启动的，直接关闭终端就可以。</li>
+<li>如果是通过brew启动的 <code>brew services stop redis</code></li>
+<li>也可以通过 客户端向服务端发送命令关闭 <code>redis-cli shutdown</code></li>
+</ol>
+</li>
+<li>检查redis相关进程是否在运行 可以通过 命令 <code>ps axu | grep redis</code></li>
+</ol>
+<h4 id="redis客户端">redis客户端</h4>
+<p>必须先开启服务端服务，客户端才能正常工作。</p>
+<h5 id="命令行终端">命令行终端</h5>
+<ol>
+<li>启动方式
+<ol>
+<li><code>redis-cli</code></li>
+<li><code>redis-cli -h 127.0.0.1 -p 6379</code></li>
+<li><code>redis-cli -h 127.0.0.1 -p 6379 -a password</code></li>
+</ol>
+</li>
+<li>退出方式
+<ol>
+<li>直接 输入<code>exit</code> 就可以。</li>
+</ol>
+</li>
+</ol>
+<h5 id="可视化工具">可视化工具</h5>
+<p><a href="https://github.com/RedisInsight/RedisDesktopManager">RedisDesktopManager</a></p>
+<h3 id="语法">语法</h3>
+<h4 id="set操作">set操作</h4>
+<p>是字符串相关的操作</p>
+<ol>
+<li><code>set key value</code> 设置key的值为value
+<ol>
+<li><code>get key</code> 获取指定key的值</li>
+</ol>
+</li>
+<li><code>setex key value second</code> 设置key的值为value,并在second秒后过期，在second秒后，<code>get key</code> 会为空
+<ol>
+<li><code>psetex key milliseconds value</code> 设置key的值为value,并在milliseconds秒后过期，单位时毫秒</li>
+</ol>
+</li>
+<li><code>getset key value</code> 设置key的值为value，并返回key的旧值</li>
+<li><code>mset key1 value1 [key2 value2 ...]</code> 一次设置多个key，value值
+<ol>
+<li><code>mget key1 [key2 ...]</code> 一次获取多个key的值</li>
+</ol>
+</li>
+<li><code>setnx key value</code> 只有在key不存在时，才会给 key设置value</li>
+</ol>
+<h4 id="list操作">list操作</h4>
+<p>是列表相关的操作，key对应存的是list。</p>
+<ol>
+<li><code>lpush key value1 [value2 ...]</code> 把vlue值添加到key对应的列表中，添加到列表的头部
+<ol>
+<li><code>rpush key value1 [value2 ...]</code> 把vlue值添加到key对应的列表中，添加到列表的尾部</li>
+<li><code>lpushx key value1 [value2 ...]</code> 为已存在的key添加值，如果key不存在添加不成功，可以防止不小心重写创建一个key。</li>
+</ol>
+</li>
+<li><code>lrange key start stop</code> 查看 key 对应的list的里面的值，必须要指定查看的list的范围
+<ol>
+<li>如果要查看所有的list数据 可以用 <code>lrange key 0 -1</code></li>
+</ol>
+</li>
+<li><code>llen key </code> 查看list的长度</li>
+<li><code>linsert key before|after pivot value</code> 在key对应的列表里面的pivot值的前面或者后面插入值value。如果列表里面有多个pivot值，只会对列表最前面的生效。</li>
+<li><code>lpop key</code> 移除列表的第一个元素，并且返回被移除的值
+<ol>
+<li><code>blpop key timeout</code> 移除列表的第一个元素，并且返回被移除的值, 如果列表没有元素会阻塞timeout秒直到等待超时或发现可弹出的元素为止。</li>
+</ol>
+</li>
+<li><code>lindex key index</code> 通过索引获取列表中的元素</li>
+</ol>
+<h4 id="hash操作">hash操作</h4>
+<p>是字典相关的操作，key对应存的是字典，然后对字典进行相关操作。</p>
+<ol>
+<li><code>hset key dicKey dicValue</code> 将key对应的字典中的dicKey设置为dicValue</li>
+<li><code>hget key  dicKey</code> 查看字典中dicKey对应的值
+<ol>
+<li><code>hgetall  key</code> 查看字典的所有键值对</li>
+</ol>
+</li>
+<li><code>hdel key dicKey1 [dicKey2 ...]</code> 删除字典键值对</li>
+<li><code>hvals key</code> 查看字典的所有值</li>
+<li><code>hexists key dicKey</code> 查看字典中是否存在dicKey键值对</li>
+</ol>
+<h4 id="查找操作">查找操作</h4>
+<ol>
+<li><code>keys *</code> 查找当前所有设置的key。</li>
+<li><code>exists key</code> 判断是否存在key键。</li>
+</ol>
+<h4 id="其他操作">其他操作</h4>
+<ol>
+<li>自增 <code>incr key</code> 将key中存储的数字值加1.
+<ol>
+<li>即使key对应的value数字是字符串类型，也可以。</li>
+<li><code>incrby key increment</code> 自增指定的increment值。</li>
+<li>自减 <code>decr key</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="python">python</h3>
+<h4 id="链接">链接</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> redis
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 方式1 链接数据库</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> redis<span style="color:#f92672">.</span>Redis(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;127.0.0.1&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">6379</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 方式2 </span>
+</span></span><span style="display:flex;"><span>pool <span style="color:#f92672">=</span> redis<span style="color:#f92672">.</span>ConnectionPool(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;127.0.0.1&#39;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">6379</span>)
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> redis<span style="color:#f92672">.</span>Redis(connection_pool<span style="color:#f92672">=</span>pool)
+</span></span></code></pre></div><h4 id="命令">命令</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># set操作</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;aaa&#34;</span>, <span style="color:#e6db74">&#34;bbb&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 如果 key存在，设置不成功</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>setnx(<span style="color:#e6db74">&#34;aaa&#34;</span>, <span style="color:#e6db74">&#34;dxdc&#34;</span>)
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;aaa&#34;</span>)<span style="color:#f92672">.</span>decode())
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># setex   设置10s后过期</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>setex(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#34;好的&#34;</span>)
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#34;aaa&#34;</span>)<span style="color:#f92672">.</span>decode())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># hash操作，赋值</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>hset(<span style="color:#e6db74">&#34;info&#34;</span>, mapping<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;zhangsan&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>: <span style="color:#ae81ff">30</span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># hash操作 取值</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>hget(<span style="color:#e6db74">&#34;info&#34;</span>, <span style="color:#e6db74">&#34;name&#34;</span>))
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>hgetall(<span style="color:#e6db74">&#34;info&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list操作 赋值</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>lpush(<span style="color:#e6db74">&#34;scores&#34;</span>, <span style="color:#ae81ff">310</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list操作  取所有值</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>lrange(<span style="color:#e6db74">&#34;scores&#34;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># # list操作 插入值</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>linsert(<span style="color:#e6db74">&#34;scores&#34;</span>, <span style="color:#e6db74">&#34;AFTER&#34;</span>, <span style="color:#ae81ff">140</span>, <span style="color:#ae81ff">150</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># list操作 删除第一个元素</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>lpop(<span style="color:#e6db74">&#34;scores&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 集合(无序，去重)操作 添加</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>sadd(<span style="color:#e6db74">&#34;name_set&#34;</span>, <span style="color:#e6db74">&#34;zs&#34;</span>, <span style="color:#e6db74">&#34;lisi&#34;</span>, <span style="color:#e6db74">&#34;wangwu&#34;</span>, <span style="color:#e6db74">&#34;zs&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 集合操作 删除</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>srem(<span style="color:#e6db74">&#34;name_set&#34;</span>, <span style="color:#e6db74">&#34;zs&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 集合操作 获取值</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>smembers(<span style="color:#e6db74">&#34;name_set&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 随机取两个值</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>srandmember(<span style="color:#e6db74">&#34;name_set&#34;</span>, <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 有序集合操作 按照权重排序</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>zadd(<span style="color:#e6db74">&#34;bangdan&#34;</span>, {<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">78</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#34;c&#34;</span>: <span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#34;d&#34;</span>: <span style="color:#ae81ff">90</span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 有序集合操作， 取值</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>zrange(<span style="color:#e6db74">&#34;bangdan&#34;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 有序集合操作， 取值 带权重</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>zrange(<span style="color:#e6db74">&#34;bangdan&#34;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, withscores<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 有序集合操作， 取值 带权重 倒叙</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>zrevrange(<span style="color:#e6db74">&#34;bangdan&#34;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, withscores<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 其他操作 获取所有key</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>keys(<span style="color:#e6db74">&#34;*&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 获取所有包含b的key</span>
+</span></span><span style="display:flex;"><span>print(r<span style="color:#f92672">.</span>keys(<span style="color:#e6db74">&#34;*b*&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置过期时间</span>
+</span></span><span style="display:flex;"><span>r<span style="color:#f92672">.</span>expire(<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#ae81ff">10</span>)
+</span></span></code></pre></div><h3 id="golang">golang</h3>
+<p><a href="https://redis.uptrace.dev/zh/guide/go-redis.html">文档链接</a></p>
+<h4 id="链接-1">链接</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/go-redis/redis&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redisClient</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Client</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initRedis</span>() (<span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">redisClient</span> = <span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Options</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Addr</span>:     <span style="color:#e6db74">&#34;127.0.0.1:6379&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Password</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">DB</span>:       <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Ping</span>().<span style="color:#a6e22e">Result</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">initRedis</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;redis链接失败: %v\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;redis链接成功&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 设置key值， 0代表不会过期
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;zhangsan&#34;</span>, <span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">Err</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="命令-1">命令</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 设置key值， 0代表不会过期
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;zhangsan&#34;</span>, <span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">Err</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//获取key值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">val</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#e6db74">&#34;name&#34;</span>).<span style="color:#a6e22e">Result</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;name:&#34;</span>, <span style="color:#a6e22e">val</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//批量设置key的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">MSet</span>(<span style="color:#e6db74">&#34;name1&#34;</span>, <span style="color:#e6db74">&#34;zs1&#34;</span>, <span style="color:#e6db74">&#34;name2&#34;</span>, <span style="color:#e6db74">&#34;zs2&#34;</span>, <span style="color:#e6db74">&#34;name3&#34;</span>, <span style="color:#e6db74">&#34;zs3&#34;</span>).<span style="color:#a6e22e">Err</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//批量获取key的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">vals</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">MGet</span>(<span style="color:#e6db74">&#34;name1&#34;</span>, <span style="color:#e6db74">&#34;name2&#34;</span>, <span style="color:#e6db74">&#34;name3&#34;</span>).<span style="color:#a6e22e">Result</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">vals</span><span style="color:#f92672">...</span>)
+</span></span></code></pre></div><h4 id="发布订阅模式">发布订阅模式</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">pubsub</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Subscribe</span>(<span style="color:#e6db74">&#34;mychannel1&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Publish</span>(<span style="color:#e6db74">&#34;mychannel1&#34;</span>, <span style="color:#e6db74">&#34;hello world&#34;</span>).<span style="color:#a6e22e">Err</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">msg</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">ReceiveMessage</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;enene&#34;</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Channel</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Payload</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><p>或者</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">pubsub</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Subscribe</span>(<span style="color:#e6db74">&#34;mychannel1&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">redisClient</span>.<span style="color:#a6e22e">Publish</span>(<span style="color:#e6db74">&#34;mychannel1&#34;</span>, <span style="color:#e6db74">&#34;hello world&#34;</span>).<span style="color:#a6e22e">Err</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">AfterFunc</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>, <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// When pubsub is closed channel is closed too.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ch</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pubsub</span>.<span style="color:#a6e22e">Channel</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">ch</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;enene&#34;</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Channel</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Payload</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><p>也可以启动多个终端，一个执行发布，其他的执行订阅。要先启动订阅，在执行发布。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//订阅
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/go-redis/redis&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">redisClient1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Options</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Addr</span>:     <span style="color:#e6db74">&#34;127.0.0.1:6379&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Password</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">DB</span>:       <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">publish</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient1</span>.<span style="color:#a6e22e">Subscribe</span>(<span style="color:#e6db74">&#34;chat&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">publish</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">msg</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">publish</span>.<span style="color:#a6e22e">Channel</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;channel=%s message=%s\n&#34;</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Channel</span>, <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">Payload</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//发布
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/go-redis/redis&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">redisClient2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">redis</span>.<span style="color:#a6e22e">Options</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Addr</span>:     <span style="color:#e6db74">&#34;127.0.0.1:6379&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Password</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">DB</span>:       <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">redisClient2</span>.<span style="color:#a6e22e">Publish</span>(<span style="color:#e6db74">&#34;chat&#34;</span>, <span style="color:#e6db74">&#34;helllllo&#34;</span>).<span style="color:#a6e22e">Result</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">n</span>, <span style="color:#e6db74">&#34;received message&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/redis/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Redis</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/publish/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Publish</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/subscribe/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Subscribe</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  My New Hugo Site 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

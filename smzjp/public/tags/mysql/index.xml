@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on My New Hugo Site</title>
+    <link>http://localhost:1313/tags/mysql/</link>
+    <description>Recent content in Mysql on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mysql数据库</title>
+      <link>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 服务端 下载链接&#xA;客户端 可以直接用vscode或者Pycharm提供的插件，也很方便。&#xA;常用命令 链接操作 链接数据库 mysql -h主机地址 -u用户名 -p用户密码 注意用户名和主机地址前可以有空格， 密码前不能有空格 本地一般是 mysql -u root -p 分两步，第二步输密码 指定ip和端口号 mysql -h 127.0.0.1 -u root -p -P 3306 mysql的默认端口是3306 数据库操作 在数据库里面操作末尾记得加上;分号表示命令结束。&#xA;show databases; 显示所有数据库 show create database database_name; 查看某个数据库的创建信息，可以看到数据库的编码格式等信息。 create database database_name; 创建数据库 create database database_name character set gbk; 可以指定编码格式 alter database database_name character set gbk; 修改数据库 只能修改编码格式，不能修改数据库名 drop database [if exists] spiders10; 删除数据库 use database_name; 进入某个数据库 select database(); 显示当前使用的是哪个数据库 表操作 需要先执行 use database_name; 进入到某个具体的数据库。</description>
+    </item>
+  </channel>
+</rss>

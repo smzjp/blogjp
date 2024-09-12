@@ -83,9 +83,9 @@
 # ------------------------------------- #
 baseURL = "https://smzjp.com/"
 title = "Pseudoyu"
-# theme = "github.com/theNewDynamic/gohugo-theme-ananke"
+theme = "github.com/theNewDynamic/gohugo-theme-ananke"
 # theme = "hugo-theme-stack-starter/v3"
-theme = ["github.com/CaiJimmy/hugo-theme-stack/v3"]
+# theme = ["github.com/CaiJimmy/hugo-theme-stack/v3"]
 
 enableRobotsTXT = true      # generate robots.txt
 enableEmoji = true           # use emoji support

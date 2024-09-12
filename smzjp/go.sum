@@ -6,5 +6,7 @@ github.com/shaform/hugo-theme-den v0.0.0-20220704130400-f420b491a016 h1:dfOqTNaq
 github.com/shaform/hugo-theme-den v0.0.0-20220704130400-f420b491a016/go.mod h1:EQTM/VjGpnvEv0S1n0o019W9ozPvq+MTz+MPJUu418I=
 github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e h1:7gGo4gWBXKqjctzjetYSPhOGJKbVBsNgkiv5oJ3LgJc=
 github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e/go.mod h1:yY14BLqqh5G61rO81YcJKMHY1rClY5iIiUK+K2JKSUM=
+github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240910150237-af9d8e86fc3b h1:MZmb89CqwA83PVJDFEDf4tWkXyoTbe/dXTmQ31bnHWk=
+github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240910150237-af9d8e86fc3b/go.mod h1:yY14BLqqh5G61rO81YcJKMHY1rClY5iIiUK+K2JKSUM=
 github.com/willfaught/paige v0.90.1 h1:2NL8KMMoE2/jpmBKI8Nqde4h0Yep/64ppakVidsvE+Y=
 github.com/willfaught/paige v0.90.1/go.mod h1:0Nt8ifl7UVYQIBaMtpZmg+BrQHHzFNqKcrBoA2Oo4/E=

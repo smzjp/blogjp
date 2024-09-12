@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 我的 Hugo 网站</title>
+    <link>http://localhost:1313/zh/categories/python/</link>
+    <description>Recent content in Python on 我的 Hugo 网站</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 23 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>asyncio模块使用</title>
+      <link>http://localhost:1313/zh/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/</link>
+      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/</guid>
+      <description>协程 定义协程&#xA;import asyncio async def main(): print(&amp;#39;hello&amp;#39;) # 模拟I/O操作 await asyncio.sleep(1) print(&amp;#39;world&amp;#39;) 协程也叫异步函数，和普通函数相比，在def前面加了个关键字async。协程不能直接调用，没有效果，需要加入到事件循环里面。&#xA;协程的调用&#xA;import asyncio import time async def say_after(delay, what): await asyncio.sleep(delay) print(what) async def main(): print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await say_after(1, &amp;#39;hello&amp;#39;) await say_after(2, &amp;#39;world&amp;#39;) print(f&amp;#34;finished at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) asyncio.run(main()) 协程的调用使用 asyncio.run(main()),协程的使用一般会定义一个最高层级的入口协程async def main(),其他协程由其管理。这是一个串行的协程。&#xA;协程并行调用&#xA;import asyncio import time async def main(): task1 = asyncio.create_task( say_after(1, &amp;#39;hello&amp;#39;)) task2 = asyncio.create_task( say_after(2, &amp;#39;world&amp;#39;)) print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await task1 await task2 print(f&amp;#34;finished at {time.</description>
+    </item>
+    <item>
+      <title>mongodb的使用</title>
+      <link>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 在mac下通过homebrew安装。 可以通过 brew search 搜索 mongodb。看有哪些版本。 brew install mongodb-community@5.0 这里安装mongodb-community@5.0版本 启动 mongodb服务器 通过brew在后台启动服务器，brew services start mongodb-community@5.0 mongodb客户端 mongosh 启动客户端 mongosh 或者 mongosh -u root -p root123 admin 命令 官方文档&#xA;collection对应mysql的table，文档对应mysql的一条记录。&#xA;数据库相关操作 show dbs 或者 show databases 显示所有数据库 use xxx 使用指定数据库，如果不存在会新建此数据库 db 显示当前正在使用的数据库 db.dropDatabase() 删除当前使用的数据库 collect(表)相关操作 运行命令前需要先执行进入到具体的某一个数据库才可以 use xxx&#xA;show collections 或者show tables 显示当前数据库的所有集合(表) 文档(记录)相关操作 假设插入了一个文档&#xA;db.inventory.insertMany( [ { item: &amp;#34;canvas&amp;#34;, qty: 100, size: { h: 28, w: 35.5, uom: &amp;#34;cm&amp;#34; }, status: &amp;#34;A&amp;#34; }, { item: &amp;#34;journal&amp;#34;, qty: 25, size: { h: 14, w: 21, uom: &amp;#34;cm&amp;#34; }, status: &amp;#34;A&amp;#34; }, { item: &amp;#34;mat&amp;#34;, qty: 85, size: { h: 27.</description>
+    </item>
+    <item>
+      <title>redis使用</title>
+      <link>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Thu, 20 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93redis%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>redis：remote dictionary server 远程字典服务&#xA;安装 在mac下，通过homebrew安装，brew install redis&#xA;运行 redis也是c/s架构的，需要先启动redis服务器。&#xA;redis服务器 启动方式 通过brew启动 brew services start redis,这是后台启动 直接在终端执行 redis-server，这个是前台启动 关闭服务 如果是通过前台启动的，直接关闭终端就可以。 如果是通过brew启动的 brew services stop redis 也可以通过 客户端向服务端发送命令关闭 redis-cli shutdown 检查redis相关进程是否在运行 可以通过 命令 ps axu | grep redis redis客户端 必须先开启服务端服务，客户端才能正常工作。&#xA;命令行终端 启动方式 redis-cli redis-cli -h 127.0.0.1 -p 6379 redis-cli -h 127.0.0.1 -p 6379 -a password 退出方式 直接 输入exit 就可以。 可视化工具 RedisDesktopManager&#xA;语法 set操作 是字符串相关的操作&#xA;set key value 设置key的值为value get key 获取指定key的值 setex key value second 设置key的值为value,并在second秒后过期，在second秒后，get key 会为空 psetex key milliseconds value 设置key的值为value,并在milliseconds秒后过期，单位时毫秒 getset key value 设置key的值为value，并返回key的旧值 mset key1 value1 [key2 value2 .</description>
+    </item>
+    <item>
+      <title>mysql数据库</title>
+      <link>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 服务端 下载链接&#xA;客户端 可以直接用vscode或者Pycharm提供的插件，也很方便。&#xA;常用命令 链接操作 链接数据库 mysql -h主机地址 -u用户名 -p用户密码 注意用户名和主机地址前可以有空格， 密码前不能有空格 本地一般是 mysql -u root -p 分两步，第二步输密码 指定ip和端口号 mysql -h 127.0.0.1 -u root -p -P 3306 mysql的默认端口是3306 数据库操作 在数据库里面操作末尾记得加上;分号表示命令结束。&#xA;show databases; 显示所有数据库 show create database database_name; 查看某个数据库的创建信息，可以看到数据库的编码格式等信息。 create database database_name; 创建数据库 create database database_name character set gbk; 可以指定编码格式 alter database database_name character set gbk; 修改数据库 只能修改编码格式，不能修改数据库名 drop database [if exists] spiders10; 删除数据库 use database_name; 进入某个数据库 select database(); 显示当前使用的是哪个数据库 表操作 需要先执行 use database_name; 进入到某个具体的数据库。</description>
+    </item>
+    <item>
+      <title>数据解析之xpath</title>
+      <link>http://localhost:1313/zh/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/</guid>
+      <description>xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。&#xA;安装 由于XPath属于lxml库模块，所以首先要安装库lxml。&#xA;# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。&#xA;谓语被嵌在方括号中。&#xA;在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：&#xA;路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&amp;lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&amp;lsquo;xx&amp;rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&amp;gt;10] &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !</description>
+    </item>
+    <item>
+      <title>数据解析之xpath</title>
+      <link>http://localhost:1313/zh/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/</guid>
+      <description>xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。&#xA;安装 由于XPath属于lxml库模块，所以首先要安装库lxml。&#xA;# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。&#xA;谓语被嵌在方括号中。&#xA;在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：&#xA;路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&amp;lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&amp;lsquo;xx&amp;rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&amp;gt;10] &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !</description>
+    </item>
+    <item>
+      <title>数据解析之BS4</title>
+      <link>http://localhost:1313/zh/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bbs4/index.zh-cn/</guid>
+      <description>Beautiful Soup是python的一个库，最主要的功能是从网页抓取数据。&#xA;安装 # pip3 install bs4 安装 from bs4 import BeautifulSoup Beautiful Soup支持Python标准库中的HTML解析器,还支持一些第三方的解析器，如果我们不安装它，则 Python 会使用 Python默认的解析器。&#xA;lxml 解析器更加强大，速度更快，推荐安装。&#xA;# 先下载 pip3 install lxml # 使用 BeautifulSoup(markup,&amp;#39;lxml&amp;#39;) 另一个可供选择的解析器是纯Python实现的 html5lib , html5lib的解析方式与浏览器相同,可以选择下列方法来安装html5lib:&#xA;# 先下载pip3 install html5lib # 使用 BeautifulSoup(markup,&amp;#39;html5lib&amp;#39;) 初始化 from bs4 import BeautifulSoup # 第一个参数markup 是被解析的html字符串或者文件内容 # 第二个参数features 是解析器类型 soup = BeautifulSoup(markup,features) 四种对象 html_doc = &amp;#34;&amp;#34;&amp;#34; &amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;The Dormouse&amp;#39;s story&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p class=&amp;#34;title&amp;#34;&amp;gt;&amp;lt;b&amp;gt;The Dormouse&amp;#39;s story&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p class=&amp;#34;story&amp;#34;&amp;gt;Once upon a time there were three little sisters; and their names were &amp;lt;a href=&amp;#34;http://example.</description>
+    </item>
+    <item>
+      <title>正则表达式的使用</title>
+      <link>http://localhost:1313/zh/post/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.zh-cn/</link>
+      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.zh-cn/</guid>
+      <description>正则表达式，如果是匹配多次，第一次匹配到了，第二次匹配的时候是从剩下的字符从新开始匹配。&#xA;通配符 通配符 . 可以匹配任何除换行符以外的字符，有且只能匹配一个字符，不能多也不能少。&#xA;import re ret = re.findall(&amp;#34;.&amp;#34;, &amp;#34;a,b,c,d,e&amp;#34;) # 结果 # [&amp;#39;a&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;d&amp;#39;, &amp;#39;,&amp;#39;, &amp;#39;e&amp;#39;] 全部都匹配到了，返回结果是一个数组&#xA;import re ret = re.findall(&amp;#34;a.b&amp;#34;, &amp;#34;a,b,c,d,e,ab,abb,a\tb,a\nb&amp;#34;) # 结果 # [&amp;#39;a,b&amp;#39;, &amp;#39;abb&amp;#39;, &amp;#39;a\tb&amp;#39;] 匹配到了三个结果&#xA;字符集 字符集[]多选一的意思，表示匹配[]里面的其中一个，也是有且只能匹配一个字符，不能多，也不能少。&#xA;import re ret = re.findall(&amp;#34;[ace]&amp;#34;, &amp;#34;a,b,c,d,e&amp;#34;) # 结果 # [&amp;#39;a&amp;#39;, &amp;#39;c&amp;#39;, &amp;#39;e&amp;#39;] 匹配到了三个结果。第一次从字符集里面取出a匹配一遍，看有哪些是符号条件的，第二次从字符集里面取出c匹配，等所以字符集里面的字符都匹配一遍，把结果合并。&#xA;import re ret = re.findall(&amp;#34;a[bce]f&amp;#34;, &amp;#34;af,abf,abbf,acef,aef,abf&amp;#34;) # 结果 # [&amp;#39;abf&amp;#39;, &amp;#39;aef&amp;#39;, &amp;#39;abf&amp;#39;] 匹配到了三个结果，第一次用abf匹配，找到所有结果。第二次匹配的字符串是截取后的，类似于split函数把字符串通过abf分段，然后再用acf去匹配每一段。&#xA;import re ret = re.findall(&amp;#34;[0123456789]&amp;#34;, &amp;#34;a,b,2,d,c,8,B,C,F&amp;#34;) # 结果 # [&amp;#39;2&amp;#39;, &amp;#39;8&amp;#39;] 匹配所有的数字，要注意字符集[]每次只能取一个字符用来匹配。[0123456789]写起来有些麻烦，可以用[0-9]简写，还可以用 \d简写表示，都表示一个意思，匹配所有的数字。</description>
+    </item>
+  </channel>
+</rss>

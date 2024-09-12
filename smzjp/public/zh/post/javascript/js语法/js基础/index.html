@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="存放位置 内嵌式 可以放在html文件的任何位置。推荐放在head或者body标签里面，需要用script标签标记。 外联式 把js代码统一放在一个.js结尾的js文件中。然后在html里面通过script标签导入。 行内式 内嵌在其他比如button标签里面 注意
+内嵌式和外联式不能共用同一个script标签
+注释 单行注释 // 多行注释/* */ 结束符 js的结束符是; 也是可以省略的。
+输出语法 //1.将信息在网页中以弹窗的形式输出 alert(&#34;abc&#34;) //2.将信息在控制台以文本的形式输出 console.log(&#34;abc&#34;) //3.将信息在网页的body标签中输出 document.write(&#34;abc&#34;) 输入语法 //1. 会弹窗。有输入框和确定，取消按钮 prompt(&#34;请输入用户名:&#34;) //2.会弹窗，有确定和取消两个按钮 confirm(&#34;确定删除吗？&#34;) 字面量 在计算机科学中，字面量(literal)是在计算机中描述 事/物 的
+获取用户输入 let name = prompt(&#39;请输入用户名:&#39;) document.write(name) let和var的区别 var一般不使用，是旧版的。
+let是为解决var的问题而出现的
+不同点
+let 定义的变量，必须先定义再使用。var定义的变量，可以先使用后定义 let定义的变量名，不能重复定义。var定义的变量名可以重复。 常量 使用关键字const定义变量
+隐式数据类型转换 如果是加法运算，变量当中有字符串和数字类型，会把非字符串的变量转换成字符串类型，然后拼接。
+let a = &#39;1&#39; let b = 2 let c = a &#43; b console.log(c) console.log(typeof c) //打印结果 //11 //string //如果不希望返回字符串，想要执行加法运算 可以在前面加个 &#43; 号 let c = &#43;a &#43; b 非加法运算中，会把字符串类型转换成数字类型，然后再计算">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/javascript/js%E8%AF%AD%E6%B3%95/js%E5%9F%BA%E7%A1%80/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/javascript/js%E8%AF%AD%E6%B3%95/js%E5%9F%BA%E7%A1%80/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="我的 Hugo 网站">
+  <meta property="og:description" content="存放位置 内嵌式 可以放在html文件的任何位置。推荐放在head或者body标签里面，需要用script标签标记。 外联式 把js代码统一放在一个.js结尾的js文件中。然后在html里面通过script标签导入。 行内式 内嵌在其他比如button标签里面 注意
+内嵌式和外联式不能共用同一个script标签
+注释 单行注释 // 多行注释/* */ 结束符 js的结束符是; 也是可以省略的。
+输出语法 //1.将信息在网页中以弹窗的形式输出 alert(&#34;abc&#34;) //2.将信息在控制台以文本的形式输出 console.log(&#34;abc&#34;) //3.将信息在网页的body标签中输出 document.write(&#34;abc&#34;) 输入语法 //1. 会弹窗。有输入框和确定，取消按钮 prompt(&#34;请输入用户名:&#34;) //2.会弹窗，有确定和取消两个按钮 confirm(&#34;确定删除吗？&#34;) 字面量 在计算机科学中，字面量(literal)是在计算机中描述 事/物 的
+获取用户输入 let name = prompt(&#39;请输入用户名:&#39;) document.write(name) let和var的区别 var一般不使用，是旧版的。
+let是为解决var的问题而出现的
+不同点
+let 定义的变量，必须先定义再使用。var定义的变量，可以先使用后定义 let定义的变量名，不能重复定义。var定义的变量名可以重复。 常量 使用关键字const定义变量
+隐式数据类型转换 如果是加法运算，变量当中有字符串和数字类型，会把非字符串的变量转换成字符串类型，然后拼接。
+let a = &#39;1&#39; let b = 2 let c = a &#43; b console.log(c) console.log(typeof c) //打印结果 //11 //string //如果不希望返回字符串，想要执行加法运算 可以在前面加个 &#43; 号 let c = &#43;a &#43; b 非加法运算中，会把字符串类型转换成数字类型，然后再计算">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+
+  <meta itemprop="name" content="我的 Hugo 网站">
+  <meta itemprop="description" content="存放位置 内嵌式 可以放在html文件的任何位置。推荐放在head或者body标签里面，需要用script标签标记。 外联式 把js代码统一放在一个.js结尾的js文件中。然后在html里面通过script标签导入。 行内式 内嵌在其他比如button标签里面 注意
+内嵌式和外联式不能共用同一个script标签
+注释 单行注释 // 多行注释/* */ 结束符 js的结束符是; 也是可以省略的。
+输出语法 //1.将信息在网页中以弹窗的形式输出 alert(&#34;abc&#34;) //2.将信息在控制台以文本的形式输出 console.log(&#34;abc&#34;) //3.将信息在网页的body标签中输出 document.write(&#34;abc&#34;) 输入语法 //1. 会弹窗。有输入框和确定，取消按钮 prompt(&#34;请输入用户名:&#34;) //2.会弹窗，有确定和取消两个按钮 confirm(&#34;确定删除吗？&#34;) 字面量 在计算机科学中，字面量(literal)是在计算机中描述 事/物 的
+获取用户输入 let name = prompt(&#39;请输入用户名:&#39;) document.write(name) let和var的区别 var一般不使用，是旧版的。
+let是为解决var的问题而出现的
+不同点
+let 定义的变量，必须先定义再使用。var定义的变量，可以先使用后定义 let定义的变量名，不能重复定义。var定义的变量名可以重复。 常量 使用关键字const定义变量
+隐式数据类型转换 如果是加法运算，变量当中有字符串和数字类型，会把非字符串的变量转换成字符串类型，然后拼接。
+let a = &#39;1&#39; let b = 2 let c = a &#43; b console.log(c) console.log(typeof c) //打印结果 //11 //string //如果不希望返回字符串，想要执行加法运算 可以在前面加个 &#43; 号 let c = &#43;a &#43; b 非加法运算中，会把字符串类型转换成数字类型，然后再计算">
+  <meta itemprop="wordCount" content="421">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="我的 Hugo 网站">
+  <meta name="twitter:description" content="存放位置 内嵌式 可以放在html文件的任何位置。推荐放在head或者body标签里面，需要用script标签标记。 外联式 把js代码统一放在一个.js结尾的js文件中。然后在html里面通过script标签导入。 行内式 内嵌在其他比如button标签里面 注意
+内嵌式和外联式不能共用同一个script标签
+注释 单行注释 // 多行注释/* */ 结束符 js的结束符是; 也是可以省略的。
+输出语法 //1.将信息在网页中以弹窗的形式输出 alert(&#34;abc&#34;) //2.将信息在控制台以文本的形式输出 console.log(&#34;abc&#34;) //3.将信息在网页的body标签中输出 document.write(&#34;abc&#34;) 输入语法 //1. 会弹窗。有输入框和确定，取消按钮 prompt(&#34;请输入用户名:&#34;) //2.会弹窗，有确定和取消两个按钮 confirm(&#34;确定删除吗？&#34;) 字面量 在计算机科学中，字面量(literal)是在计算机中描述 事/物 的
+获取用户输入 let name = prompt(&#39;请输入用户名:&#39;) document.write(name) let和var的区别 var一般不使用，是旧版的。
+let是为解决var的问题而出现的
+不同点
+let 定义的变量，必须先定义再使用。var定义的变量，可以先使用后定义 let定义的变量名，不能重复定义。var定义的变量名可以重复。 常量 使用关键字const定义变量
+隐式数据类型转换 如果是加法运算，变量当中有字符串和数字类型，会把非字符串的变量转换成字符串类型，然后拼接。
+let a = &#39;1&#39; let b = 2 let c = a &#43; b console.log(c) console.log(typeof c) //打印结果 //11 //string //如果不希望返回字符串，想要执行加法运算 可以在前面加个 &#43; 号 let c = &#43;a &#43; b 非加法运算中，会把字符串类型转换成数字类型，然后再计算">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/javascript/js%E8%AF%AD%E6%B3%95/js%E5%9F%BA%E7%A1%80/&amp;text=" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1"></h1>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h4 id="存放位置">存放位置</h4>
+<ol>
+<li>内嵌式
+<ol>
+<li>可以放在html文件的任何位置。推荐放在head或者body标签里面，需要用script标签标记。</li>
+</ol>
+</li>
+<li>外联式
+<ol>
+<li>把js代码统一放在一个.js结尾的js文件中。然后在html里面通过script标签导入。</li>
+</ol>
+</li>
+<li>行内式
+<ol>
+<li>内嵌在其他比如button标签里面</li>
+</ol>
+</li>
+</ol>
+<p><strong>注意</strong></p>
+<p>内嵌式和外联式不能共用同一个script标签</p>
+<h4 id="注释">注释</h4>
+<ol>
+<li>单行注释 <code>//</code></li>
+<li>多行注释<code>/* */</code></li>
+</ol>
+<h4 id="结束符">结束符</h4>
+<p>js的结束符是<code>;</code> 也是可以省略的。</p>
+<h4 id="输出语法">输出语法</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">//1.将信息在网页中以弹窗的形式输出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;abc&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//2.将信息在控制台以文本的形式输出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;abc&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//3.将信息在网页的body标签中输出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>document.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#34;abc&#34;</span>)
+</span></span></code></pre></div><h4 id="输入语法">输入语法</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//1. 会弹窗。有输入框和确定，取消按钮
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;请输入用户名:&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//2.会弹窗，有确定和取消两个按钮
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">confirm</span>(<span style="color:#e6db74">&#34;确定删除吗？&#34;</span>)
+</span></span></code></pre></div><h4 id="字面量">字面量</h4>
+<p>在计算机科学中，字面量(literal)是在计算机中描述 事/物 的</p>
+<h4 id="获取用户输入">获取用户输入</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#39;请输入用户名:&#39;</span>)
+</span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">name</span>)
+</span></span></code></pre></div><h4 id="let和var的区别">let和var的区别</h4>
+<p>var一般不使用，是旧版的。</p>
+<p>let是为解决var的问题而出现的</p>
+<p><strong>不同点</strong></p>
+<ol>
+<li>let 定义的变量，必须先定义再使用。var定义的变量，可以先使用后定义</li>
+<li>let定义的变量名，不能重复定义。var定义的变量名可以重复。</li>
+</ol>
+<h4 id="常量">常量</h4>
+<p>使用关键字<code>const</code>定义变量</p>
+<h4 id="隐式数据类型转换">隐式数据类型转换</h4>
+<ol>
+<li>
+<p>如果是加法运算，变量当中有字符串和数字类型，会把非字符串的变量转换成字符串类型，然后拼接。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//11
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//如果不希望返回字符串，想要执行加法运算 可以在前面加个 + 号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#f92672">+</span><span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
+</span></span></code></pre></div></li>
+<li>
+<p>非加法运算中，会把字符串类型转换成数字类型，然后再计算</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//number
+</span></span></span></code></pre></div></li>
+</ol>
+<h4 id="字符串拼接">字符串拼接</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;老段&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//方法1 加号拼接
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;姓名:&#39;</span><span style="color:#f92672">+</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;年龄:&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">age</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//方法2 反引号模版字符串拼接
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`姓名：</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">username</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span></code></pre></div><h4 id="undefined类型">undefined类型</h4>
+<p>如果变量的值是undefined或者变量没有赋值，那么变量的数据类型就是undefined类型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//undefined
+</span></span></span></code></pre></div><h4 id="null空类型空对象类型">null空类型（空对象类型）</h4>
+<p>如果变量的值是null，那么变量的类型叫空类型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span>(<span style="color:#a6e22e">a</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span>(<span style="color:#a6e22e">b</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//注意a和b的区别。b是一个不完全空对象，原型链上有Object。null是完全空对象，原型链也没有
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Object.<span style="color:#a6e22e">getPrototypeOf</span>(<span style="color:#a6e22e">b</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 不能执行，会报错
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// console.log(Object.getPrototypeOf(a))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">a</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Object.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">toString</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">b</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//[Object: null prototype] {}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//[object Null]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//[object Object]
+</span></span></span></code></pre></div><h4 id="强制类型转换">强制类型转换</h4>
+<ol>
+<li>
+<p>强制转换为数字类型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//强制转换为数字类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> Number(<span style="color:#e6db74">&#34;2.12&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//只保留整数部分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#e6db74">&#39;2.12&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> parseFloat(<span style="color:#e6db74">&#39;2.12&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2.12
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2.12
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//6.24
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//特殊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//parseInt会保留转换成功的部分 并且只会转换整数部分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">d</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#e6db74">&#39;2.1abc&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">d</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//parseFloat会保留转换成功的部分
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">=</span> parseFloat(<span style="color:#e6db74">&#39;2.1abc&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//Number转换的时候有一个转换不成功，就会返回NaN（not a number）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> Number(<span style="color:#e6db74">&#39;2.1abc&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">f</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2.1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//NaN
+</span></span></span></code></pre></div></li>
+<li>
+<p>强制转换为字符串类型</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//方法1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> String(<span style="color:#ae81ff">2.3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//方法2 toString(进制)，不填默认是10进制
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">66</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2.3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//102
+</span></span></span></code></pre></div></li>
+<li>
+<p>语法糖</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;2&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//在字符串变量前面添加一个 + 号，会变为数字类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#f92672">+</span><span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sum</span>)
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="比较运算符">比较运算符</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//等于 == 只比较值是否相等 true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//全等于 === 比较值和数据类型是否都相等 false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">b</span>)
+</span></span></code></pre></div><h4 id="语句和表达式">语句和表达式</h4>
+<p>**语句:**是一段可以执行的代码，重点是用来执行，不是用来计算某个具体结果。比如<code>prompt()</code>,<code>alert()</code></p>
+<p>**表达式:**在程序中能够得出，计算出某一个具体的结果。比如<code>3+4</code>,<code>num++</code>, 因为表达是可以被求值，所以可以写在赋值语句的右侧。<code>x = 3+4</code></p>
+<h4 id="逻辑运算符短路">逻辑运算符短路</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">3</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">||</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">3</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//打印结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//4
+</span></span></span></code></pre></div><h4 id="switch语句">switch语句</h4>
+<p>必须加break，不然会穿透</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;1111&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;222222&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;default&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="数组操作">数组操作</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//1.增 向数组后面添加
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//向数组前面添加
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">unshift</span>(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">unshift</span>(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//排序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">sort</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>,<span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//升序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//降序
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// return b - a;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//2.删 删除数组最后一个值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">pop</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//删除数组第一个值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">shift</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//指定删除开始位置的下标及个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">arr</span>)
+</span></span></code></pre></div><h4 id="promise函数">Promise函数</h4>
+<p>是为了解决回调地狱出现的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//假设有一段代码，需要嵌套很多层。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;111111&#34;</span>)
+</span></span><span style="display:flex;"><span>     <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;2222222&#39;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;333333&#39;</span>)
+</span></span><span style="display:flex;"><span>         },<span style="color:#ae81ff">3000</span>)
+</span></span><span style="display:flex;"><span>     },<span style="color:#ae81ff">2000</span>)
+</span></span><span style="display:flex;"><span> },<span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//上面代码用promise的写法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">new</span> Promise(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;1111111&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">resolve</span>()
+</span></span><span style="display:flex;"><span>    },<span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;2222222&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">resolve</span>()
+</span></span><span style="display:flex;"><span>        },<span style="color:#ae81ff">2000</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}).<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;33333333&#39;</span>)
+</span></span><span style="display:flex;"><span>    },<span style="color:#ae81ff">3000</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

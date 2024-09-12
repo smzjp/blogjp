@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>mysql数据库 | 我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="常用方法和在golang，python的链接">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="mysql数据库">
+  <meta property="og:description" content="常用方法和在golang，python的链接">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-09-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-19T00:00:00+00:00">
+    <meta property="article:tag" content="Mysql">
+
+  <meta itemprop="name" content="mysql数据库">
+  <meta itemprop="description" content="常用方法和在golang，python的链接">
+  <meta itemprop="datePublished" content="2022-09-19T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-09-19T00:00:00+00:00">
+  <meta itemprop="wordCount" content="888">
+  <meta itemprop="keywords" content="Mysql">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="mysql数据库">
+  <meta name="twitter:description" content="常用方法和在golang，python的链接">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mysql%E4%BD%BF%E7%94%A8/index.zh-cn/&amp;text=mysql%e6%95%b0%e6%8d%ae%e5%ba%93" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">mysql数据库</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-09-19T00:00:00Z">九月 19, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h4 id="安装">安装</h4>
+<h5 id="服务端">服务端</h5>
+<p><a href="https://dev.mysql.com/downloads/mysql/">下载链接</a></p>
+<h5 id="客户端">客户端</h5>
+<p>可以直接用vscode或者Pycharm提供的插件，也很方便。</p>
+<h4 id="常用命令">常用命令</h4>
+<h5 id="链接操作">链接操作</h5>
+<ol>
+<li>链接数据库 <code>mysql -h主机地址 -u用户名 -p用户密码</code>
+<ol>
+<li>注意用户名和主机地址前可以有空格， 密码前不能有空格</li>
+<li>本地一般是 <code>mysql -u root -p</code>  分两步，第二步输密码</li>
+<li>指定ip和端口号 <code>mysql -h 127.0.0.1 -u root -p -P 3306</code></li>
+<li>mysql的默认端口是3306</li>
+</ol>
+</li>
+</ol>
+<h5 id="数据库操作">数据库操作</h5>
+<p>在数据库里面操作末尾记得加上<code>;</code>分号表示命令结束。</p>
+<ol>
+<li><code>show databases;</code> 显示所有数据库
+<ol>
+<li><code>show create database database_name;</code> 查看某个数据库的创建信息，可以看到数据库的编码格式等信息。</li>
+</ol>
+</li>
+<li><code>create database database_name;</code> 创建数据库
+<ol>
+<li><code>create database database_name character set gbk;</code> 可以指定编码格式</li>
+</ol>
+</li>
+<li><code>alter database database_name character set gbk;</code> 修改数据库
+<ol>
+<li>只能修改编码格式，不能修改数据库名</li>
+</ol>
+</li>
+<li><code>drop database [if exists] spiders10;</code> 删除数据库</li>
+<li><code>use database_name;</code> 进入某个数据库</li>
+<li><code>select database();</code> 显示当前使用的是哪个数据库</li>
+</ol>
+<h5 id="表操作">表操作</h5>
+<p>需要先执行 <code>use database_name;</code> 进入到某个具体的数据库。</p>
+<ol>
+<li>
+<p><code>show tables;</code> 显示当前数据库所有的表</p>
+</li>
+<li>
+<p>创建表</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> worker (
+</span></span><span style="display:flex;"><span>    name varchar(<span style="color:#ae81ff">32</span>) <span style="color:#66d9ef">unique</span> ,
+</span></span><span style="display:flex;"><span>    age int <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">null</span> ,
+</span></span><span style="display:flex;"><span>    salary float(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>),
+</span></span><span style="display:flex;"><span>    job char(<span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p><code>unique</code>和<code>not null</code> 是约束，表示字段值唯一，和字段值不能为空。</p>
+<p><code>varchar(32)</code> 表示变长字符串类型，最大不能超过23字符。</p>
+<p><code>char(6)</code> 表示定长字符串，固定6个字符。</p>
+<p><code>float(6, 2)</code> 表示浮点类型，最大六位数，其中有两位是小数点xxxx.xx</p>
+</li>
+<li>
+<p><code>desc table_name;</code> 显示某个表的字段信息</p>
+</li>
+<li>
+<p><code>show create table table_name;</code> 查看某个表的建表时候所使用的语句</p>
+</li>
+<li>
+<p><code>drop table table_name;</code> 删除某个表</p>
+</li>
+<li>
+<p><code>rename table table_name to table_name_new;</code> 修改表名</p>
+</li>
+<li></li>
+</ol>
+<h5 id="表记录操作">表记录操作</h5>
+<ol>
+<li>
+<p><code>INSERT [INTO] &lt;表名&gt; [&lt;列名1&gt;[,...&lt;列名n&gt;]] VALUES (值1) [,...(值n)];</code>插入表记录。</p>
+<ol>
+<li>
+<p>指定需要插入数据的列名，若向表中的所有列插入数据，则列名可以省略，注意列名和值要一一对应。</p>
+</li>
+<li>
+<p><code>[]</code>里面的表示可选。</p>
+</li>
+<li>
+<p>举例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> workers (name, age, salary, job) <span style="color:#66d9ef">values</span> (<span style="color:#e6db74">&#34;张三&#34;</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">5555</span>.<span style="color:#ae81ff">32</span>, <span style="color:#e6db74">&#34;为&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">或者</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> workers <span style="color:#66d9ef">values</span> (<span style="color:#e6db74">&#34;李四&#34;</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">5555</span>.<span style="color:#ae81ff">32</span>, <span style="color:#e6db74">&#34;为&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">添加多个</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> workers <span style="color:#66d9ef">values</span>
+</span></span><span style="display:flex;"><span>                        (<span style="color:#e6db74">&#34;王五&#34;</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">5555</span>.<span style="color:#ae81ff">32</span>, <span style="color:#e6db74">&#34;为&#34;</span>),
+</span></span><span style="display:flex;"><span>                        (<span style="color:#e6db74">&#34;王五2&#34;</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">5555</span>.<span style="color:#ae81ff">32</span>, <span style="color:#e6db74">&#34;为&#34;</span>),
+</span></span><span style="display:flex;"><span>                        (<span style="color:#e6db74">&#34;王五3&#34;</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">5555</span>.<span style="color:#ae81ff">32</span>, <span style="color:#e6db74">&#34;为&#34;</span>),
+</span></span><span style="display:flex;"><span>                        (<span style="color:#e6db74">&#34;王五4&#34;</span>, <span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">5555</span>.<span style="color:#ae81ff">32</span>, <span style="color:#e6db74">&#34;为&#34;</span>);
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>查询表记录</p>
+<pre tabindex="0"><code>SELECT *|字段名1[,地段名2,...] FROM table_name	
+										[WHERE 条件
+										GROUP BY 字段名
+										HAVING 刷选
+										ORDER BY 字段名
+										LIMIT 限制条件]
+</code></pre><p><code>where 条件</code>中可以使用</p>
+<ol>
+<li>比较运算符:
+<ol>
+<li><code>&gt; &lt; &gt;= &lt;= &lt;&gt; =</code></li>
+<li><code>between 80 and 100</code> 值在80到100之间</li>
+<li><code>in(80,90,100)</code> 值是80，90或100</li>
+<li><code>like '张%'</code>
+<ol>
+<li><code>%</code> 表示0到任意多字符，可以匹配张三，张小凡等</li>
+<li><code>_</code> 表示一个字符，只能匹配张三，<code>_</code> 可以使用多个。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>逻辑运算符:
+<ol>
+<li>多个条件可以使用<code>and</code> <code> or</code>  <code> not</code></li>
+</ol>
+</li>
+<li>正则:
+<ol>
+<li><code>SELECT * FROM table_name WHERE 字段名 REGEXP '正则语句'; </code></li>
+</ol>
+</li>
+</ol>
+<p><code>LIMIT 限制条件</code></p>
+<ol>
+<li>
+<p>限制记录的个数</p>
+<p><code>limit 3</code>表示取前三条数据</p>
+</li>
+<li>
+<p>指定位置取记录</p>
+<p><code>limit 3,4</code> 取三条数据，从第三条开始取往后数三条</p>
+</li>
+</ol>
+<p>举例</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">查询</span>workers表的所有字段数据,<span style="color:#960050;background-color:#1e0010">\</span>G表示数据垂直显示<span style="color:#960050;background-color:#1e0010">，如果是在终端操作，会比较清楚记录看起来。</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> workers<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#66d9ef">G</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">查询</span> <span style="color:#960050;background-color:#1e0010">指定字段的数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  name,age <span style="color:#66d9ef">from</span> workers;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">查询</span> <span style="color:#960050;background-color:#1e0010">所有</span>age大于30的记录
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  name,age <span style="color:#66d9ef">from</span> workers <span style="color:#66d9ef">where</span> age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">30</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">查询</span> <span style="color:#960050;background-color:#1e0010">所有名称包含王的记录</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span>  name,age <span style="color:#66d9ef">from</span>  workers <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#34;%王%&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">降序</span><span style="color:#66d9ef">desc</span> <span style="color:#960050;background-color:#1e0010">升序</span>esc <span style="color:#960050;background-color:#1e0010">先按</span>age排序<span style="color:#960050;background-color:#1e0010">，如果</span>age一样再按salary排序
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> name,age <span style="color:#66d9ef">from</span> workers <span style="color:#66d9ef">order</span> <span style="color:#66d9ef">by</span> age <span style="color:#66d9ef">desc</span>,salary <span style="color:#66d9ef">desc</span> ;
+</span></span></code></pre></div></li>
+<li>
+<p>表记录删除 <code>DELETE FROM &lt;表名&gt; [WHERE 语句] [ORDER BY 语句] [LIMIT 语句]</code></p>
+<ol>
+<li><code>delete from table_name;</code> 删除表的所有记录</li>
+<li><code>delete from workers where name = &quot;张三&quot;;</code> 删除字段名name是张三的记录</li>
+</ol>
+</li>
+<li>
+<p>表记录更新 <code>UPDATE &lt;表名&gt; SET 字段1=新值1 [字段2=新值2...] [WHERE 语句]</code></p>
+<ol>
+<li><code>update workers set age = 30 where name = &quot;李四&quot;;</code> 把李四的年龄改为30</li>
+</ol>
+</li>
+</ol>
+<h4 id="python">python</h4>
+<h5 id="链接">链接</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pymysql
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 1.创建链接对象</span>
+</span></span><span style="display:flex;"><span>    conn <span style="color:#f92672">=</span> pymysql<span style="color:#f92672">.</span>Connect(
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># mysql数据库服务器地址</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># host=&#39;127.0.0.1&#39;,</span>
+</span></span><span style="display:flex;"><span>        host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;localhost&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># mysql端口号</span>
+</span></span><span style="display:flex;"><span>        port<span style="color:#f92672">=</span><span style="color:#ae81ff">3306</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># mysql的用户名</span>
+</span></span><span style="display:flex;"><span>        user<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;root&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># mysql的密码,如果没有密码为空&#39;&#39;就可以</span>
+</span></span><span style="display:flex;"><span>        password<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;xxxx&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 数据仓库的名字</span>
+</span></span><span style="display:flex;"><span>        db<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;spiders&#39;</span>,
+</span></span><span style="display:flex;"><span>      	<span style="color:#75715e"># 设置返回结果以字典，数组形式，默认是元组</span>
+</span></span><span style="display:flex;"><span>        cursorclass<span style="color:#f92672">=</span>pymysql<span style="color:#f92672">.</span>cursors<span style="color:#f92672">.</span>DictCursor,
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 编码格式</span>
+</span></span><span style="display:flex;"><span>        charset<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utf8&#39;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>    print(e)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;成功链接数据库&#39;</span>)
+</span></span></code></pre></div><h5 id="执行">执行</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 2.创建游标对象，用来执行sql语句的</span>
+</span></span><span style="display:flex;"><span>cursor <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>cursor()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">createDataBase</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 创建数据库，数据库名称一般用小写</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;CREATE DATABASE spiders&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">changeDataBase</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 切换数据库,创建链接对象conn的时候也有指定db，后面如果需要切换的话，可以用这个语句</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;USE spiders&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">deleteTable</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 删除表</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;DROP TABLE IF EXISTS urls&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">createTable</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 创建表</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return &#39;CREATE TABLE EMPLOYEE ( FIRST_NAME CHAR(20) NOT NULL, LAST_NAME CHAR(20), AGE INT, SEX CHAR(1), INCOME FLOAT)&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;CREATE TABLE urls ( id INT PRIMARY KEY AUTO_INCREMENT, url VARCHAR(1000) NOT NULL , content VARCHAR(4000) NOT NULL , create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP)&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insertData</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 插入数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return &#39;insert into EMPLOYEE values (&#34;三&#34;,&#34;李&#34;,29,&#34;男&#34;,123.0)&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;insert into urls (url, content) values (&#34;www.baidu.com&#34;,&#34;这是内容呃呃嗯嗯嗯&#34;)&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">deleteData</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 删除数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;delete from EMPLOYEE where FIRST_NAME = &#34;三&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">updateData</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 更新数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;update EMPLOYEE set FIRST_NAME = &#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34; where LAST_NAME = &#34;张&#34;&#39;</span><span style="color:#f92672">%</span><span style="color:#e6db74">&#39;三dd三&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return &#39;update EMPLOYEE set AGE = %d where LAST_NAME = &#34;张&#34;&#39;%100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">searchData</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 查询数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return  &#39;select * from EMPLOYEE&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># *表示返回所有的列</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return  &#39;select * from urls where url = &#34;www.baidu.com&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 返回指定的列</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>  <span style="color:#e6db74">&#39;select url,content from urls where url = &#34;www.baidu.com&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">zipSearchTable</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 表合并查找，webs和urls是表名，链接条件是webs.web_url = urls.url</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 内链接，必须web_url和url相等的行才会合并显示，类似并集</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;select * from webs inner join urls on webs.web_url = urls.url&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 左链接,如果左边的表(webs)的数据有多(存在web_url，找不到url与其相等)， 会保留此数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return &#39;select * from webs left join urls on webs.web_url = urls.url&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 右链接，如果右边的表的数据有多(存在url，找不到web_url与其相等)， 会保留此数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># return &#39;select * from webs right join urls on webs.web_url = urls.url&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 3.执行sql语句</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># cursor.execute(deleteTable())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># cursor.execute(createTable())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># cursor.execute(insertData())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># cursor.execute(deleteData())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># cursor.execute(updateData())</span>
+</span></span><span style="display:flex;"><span>    cursor<span style="color:#f92672">.</span>execute(searchData())
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 查询数据，需要多执行一个fetch操作,才可以拿到数据</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> cursor<span style="color:#f92672">.</span>fetchall()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 获取一条数据</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># result = cursor.fetchone()</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;查询结果:&#34;</span>,result)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 4. 提交数据，如果不提交，mysql数据库将不会生效</span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;错误: &#34;</span> <span style="color:#f92672">+</span> e)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 4. #撤销数据,如果发生错误则回滚</span>
+</span></span><span style="display:flex;"><span>    conn<span style="color:#f92672">.</span>rollback()
+</span></span></code></pre></div><h5 id="关闭">关闭</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#5.关闭资源</span>
+</span></span><span style="display:flex;"><span>cursor<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span>conn<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h4 id="golang">golang</h4>
+<p>golang中使用mysql，首先需要安装驱动 <code>go get -u github.com/go-sql-driver/mysql</code></p>
+<h5 id="链接-1">链接</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;database/sql&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/go-sql-driver/mysql&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;mysql&#34;</span>, <span style="color:#e6db74">&#34;root:123456@(127.0.0.1:3306)/spiders&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//设置打开数据库连接的最大数量，也就是并发数。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//默认是没限制
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">SetMaxOpenConns</span>(<span style="color:#ae81ff">25</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 用于设置连接池中连接的数量。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//默认是2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">SetMaxIdleConns</span>(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//链接池中的链接的最大存活时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">SetConnMaxLifetime</span>(<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Ping</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;数据库连接失败&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;数据库连接成功&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>SetMaxOpenConns</code>是设置数据库的并发能力，如果设置为25，那么假设都26个协程同一时间点访问数据库，那么有一个有一个协程需要等待。</p>
+<p><code>SetMaxIdleConns</code>  是设置链接池的数量，如果设置为5，那么假设有10个协程同一时间访问数据库，那么有5个协程可以直接去链接池里面去链接，不用新创建链接。其他5个协程就需要新创建链接。如果是链接池没有链接，那么会创建10个链接，数据库访问完毕后，其中5个会进入链接池，供后面复用。其他剩下的5个链接会直接关闭。</p>
+<p><code>SetConnMaxLifetime</code> 是用来控制链接池中的链接的存活时间的，如果长时间没有访问数据库的请求，链接池中的链接一直开着出浴空闲状态也是浪费。所以需要设置一个最大存活时间，超过这个时间就主动关闭链接。再有，mysql的服务器也有一个类似的控制时间<code>wait_timeout</code> 默认是8小时, 链接如果一直空闲超过这个时间，服务器会关闭链接，这时候如果go程序去调用这个链接会panic。所以不如go程序主动设置个时间主动断开链接，这样至少不会报错。设置的时间比  <code>wait_timeout</code>短就可以。</p>
+<h5 id="查询">查询</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">content</span>, <span style="color:#a6e22e">date</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//多行查询
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">rows</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Query</span>(<span style="color:#e6db74">&#34;select * from urls&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">rows</span>.<span style="color:#a6e22e">Next</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">rows</span>.<span style="color:#a6e22e">Scan</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">id</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">url</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">content</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">date</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">content</span>, <span style="color:#a6e22e">date</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//查询单行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">row</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">QueryRow</span>(<span style="color:#e6db74">&#34;select url,content from urls where url = &#39;www.baidu.com&#39;&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">row</span>.<span style="color:#a6e22e">Scan</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">url</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">content</span>)
+</span></span></code></pre></div><h5 id="插入操作">插入操作</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#75715e">//插入操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sql</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;insert into urls values (3,&#39;www.cc.com&#39;,&#39;enenen&#39;,&#39;2023-02-04 19:42:22&#39;)&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">sql</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">RowsAffected</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;受影响的记录是&#34;</span>, <span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//占位符插入操作 推荐使用占位符 防止注入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">datas</span> <span style="color:#f92672">:=</span> [][]<span style="color:#66d9ef">string</span>{{<span style="color:#e6db74">&#34;4&#34;</span>, <span style="color:#e6db74">&#34;www.xx.com&#34;</span>, <span style="color:#e6db74">&#34;enenen&#34;</span>, <span style="color:#e6db74">&#34;2023-02-04 19:42:22&#34;</span>}, {<span style="color:#e6db74">&#34;5&#34;</span>, <span style="color:#e6db74">&#34;www.kk.com&#34;</span>, <span style="color:#e6db74">&#34;enenen&#34;</span>, <span style="color:#e6db74">&#34;2023-02-04 19:42:22&#34;</span>}}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pre</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Prepare</span>(<span style="color:#e6db74">&#34;insert into urls values (?,?,?,?)&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">d</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">datas</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>], <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">2</span>], <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><h5 id="事物">事物</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//开启事务
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">tx</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Begin</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;tx fail&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 准备sql语句,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">pre</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Prepare</span>(<span style="color:#e6db74">&#34;delete from urls WHERE id = ?&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;err&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Rollback</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;rollbackerr&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">RowsAffected</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;受影响的记录是&#34;</span>, <span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#e6db74">&#34;eee&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;err&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Rollback</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;rollbackerr&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">n</span>, <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">RowsAffected</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;受影响的记录是&#34;</span>, <span style="color:#a6e22e">n</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;提交事物&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 提交事务
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Commit</span>()
+</span></span></code></pre></div><p>注意事物里面的操作要使用<code>tx</code>的，<code>tx</code>对象也拥有数据库交互的<code>Query</code>、<code>Exec</code>、<code>Prepare</code>方法，用法和<code>db</code>对象类似。事物最终一定要调用<code>Commit</code>或者<code>Rollback</code>方法，不然链接不会释放。</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/zh/tags/mysql/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Mysql</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

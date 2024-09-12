@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>mongodb的使用 | 我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="常用命令和在golang，paython中的使用">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="mongodb的使用">
+  <meta property="og:description" content="常用命令和在golang，paython中的使用">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-11-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-05T00:00:00+00:00">
+    <meta property="article:tag" content="Mongodb">
+
+  <meta itemprop="name" content="mongodb的使用">
+  <meta itemprop="description" content="常用命令和在golang，paython中的使用">
+  <meta itemprop="datePublished" content="2022-11-05T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-11-05T00:00:00+00:00">
+  <meta itemprop="wordCount" content="849">
+  <meta itemprop="keywords" content="Mongodb">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="mongodb的使用">
+  <meta name="twitter:description" content="常用命令和在golang，paython中的使用">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/&amp;text=mongodb%e7%9a%84%e4%bd%bf%e7%94%a8" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">mongodb的使用</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-11-05T00:00:00Z">十一月 5, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="安装">安装</h3>
+<ol>
+<li>在mac下通过homebrew安装。</li>
+<li>可以通过 <code>brew search </code> 搜索 mongodb。看有哪些版本。</li>
+<li><code>brew install mongodb-community@5.0</code> 这里安装<strong><a href="mailto:mongodb-community@5.0">mongodb-community@5.0</a></strong>版本</li>
+</ol>
+<h3 id="启动">启动</h3>
+<h4 id="mongodb服务器">mongodb服务器</h4>
+<ol>
+<li>通过brew在后台启动服务器，<code>brew services start mongodb-community@5.0</code></li>
+</ol>
+<h4 id="mongodb客户端">mongodb客户端</h4>
+<ol>
+<li><code>mongosh</code> 启动客户端
+<ol>
+<li><code>mongosh</code> 或者  <code>mongosh -u root -p root123 admin</code></li>
+</ol>
+</li>
+</ol>
+<h3 id="命令">命令</h3>
+<p><a href="https://docs.mongoing.com/mongodb-crud-operations">官方文档</a></p>
+<p>collection对应mysql的table，文档对应mysql的一条记录。</p>
+<h4 id="数据库相关操作">数据库相关操作</h4>
+<ol>
+<li><code>show dbs</code> 或者 <code>show databases</code> 显示所有数据库</li>
+<li><code>use xxx</code>  使用指定数据库，如果不存在会新建此数据库</li>
+<li><code>db</code> 显示当前正在使用的数据库</li>
+<li><code>db.dropDatabase()</code> 删除当前使用的数据库</li>
+</ol>
+<h4 id="collect表相关操作">collect(表)相关操作</h4>
+<p>运行命令前需要先执行进入到具体的某一个数据库才可以 <code>use xxx</code></p>
+<ol>
+<li><code>show collections</code> 或者<code>show tables</code> 显示当前数据库的所有集合(表)</li>
+</ol>
+<h4 id="文档记录相关操作">文档(记录)相关操作</h4>
+<p>假设插入了一个文档</p>
+<pre tabindex="0"><code>db.inventory.insertMany( [
+   { item: &#34;canvas&#34;, qty: 100, size: { h: 28, w: 35.5, uom: &#34;cm&#34; }, status: &#34;A&#34; },
+   { item: &#34;journal&#34;, qty: 25, size: { h: 14, w: 21, uom: &#34;cm&#34; }, status: &#34;A&#34; },
+   { item: &#34;mat&#34;, qty: 85, size: { h: 27.9, w: 35.5, uom: &#34;cm&#34; }, status: &#34;A&#34; },
+   { item: &#34;mousepad&#34;, qty: 25, size: { h: 19, w: 22.85, uom: &#34;cm&#34; }, status: &#34;P&#34; },
+   { item: &#34;notebook&#34;, qty: 50, size: { h: 8.5, w: 11, uom: &#34;in&#34; }, status: &#34;P&#34; },
+   { item: &#34;paper&#34;, qty: 100, size: { h: 8.5, w: 11, uom: &#34;in&#34; }, status: &#34;D&#34; },
+   { item: &#34;planner&#34;, qty: 75, size: { h: 22.85, w: 30, uom: &#34;cm&#34; }, status: &#34;D&#34; },
+   { item: &#34;postcard&#34;, qty: 45, size: { h: 10, w: 15.25, uom: &#34;cm&#34; }, status: &#34;A&#34; },
+   { item: &#34;sketchbook&#34;, qty: 80, size: { h: 14, w: 21, uom: &#34;cm&#34; }, status: &#34;A&#34; },
+   { item: &#34;sketch pad&#34;, qty: 95, size: { h: 22.85, w: 30.5, uom: &#34;cm&#34; }, status: &#34;A&#34; }
+] );
+</code></pre><h5 id="新增">新增</h5>
+<ol>
+<li>
+<p>新增一个文档</p>
+<pre tabindex="0"><code>db.inventory.insertOne({ item: &#34;postcard&#34;, qty: 45, size: { h: 10, w: 15.25, uom: &#34;cm&#34; }, status: &#34;A&#34; })
+</code></pre></li>
+<li>
+<p>新增多个文档</p>
+<pre tabindex="0"><code>db.inventory.insertMany([{ item: &#34;sketchbook&#34;, qty: 80, size: { h: 14, w: 21, uom: &#34;cm&#34; }, status: &#34;A&#34; },{ item: &#34;sketch pad&#34;, qty: 95, size: { h: 22.85, w: 30.5, uom: &#34;cm&#34; }, status: &#34;A&#34; }])
+</code></pre></li>
+</ol>
+<h5 id="查询">查询</h5>
+<ol>
+<li>查询所有文档  <code>db.inventory.find({})</code> 或者 <code>db.inventory.find()</code> 或者<code>db.goods.find().pretty()</code> 按结构化展示所有记录。</li>
+<li>等值查询 <code>db.inventory.find({&quot;item&quot;:&quot;sketchbook&quot;})</code>  查找item等于sketchbook的所有文档</li>
+<li>查找单个文档 <code>db.inventory.findOne({&quot;item&quot;:&quot;sketchbook&quot;})</code> 只返回第一个找到的文档</li>
+<li>取指定字段显示<code>db.inventory.find({&quot;item&quot;:&quot;sketchbook&quot;},{&quot;_id&quot;:0,item:1})</code> 只显示item字段，0表示隐藏，1表示显示。</li>
+<li>排序 默认是按照_id 升序排列的 , 1代表升序，-1代表降序<code>db.inventory.find( { tags:{$all:[&quot;blank&quot;,&quot;red&quot;]}} ).sort({qty:1,item:-1})</code></li>
+<li>获取数量<code>db.inventory.count({&quot;item&quot;:&quot;paper&quot;})</code></li>
+<li>分页
+<ol>
+<li><code>db.inventory.find().limit(2)</code> 取两个记录</li>
+<li><code>db.inventory.find().limit(2).skip(1)</code>  跳过第一条记录，再开始取两条记录</li>
+</ol>
+</li>
+</ol>
+<h6 id="条件查询">条件查询</h6>
+<ol>
+<li>
+<p>比较运算符查找</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$ne</th>
+<th style="text-align:center">$gt</th>
+<th style="text-align:center">$lt</th>
+<th style="text-align:center">$get</th>
+<th style="text-align:center">$lte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">!=</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:center">&lt;=</td>
+</tr>
+</tbody>
+</table>
+<p><code>db.inventory.find({qty:{$gt:50}})</code> 查找qty大于50的所有文档</p>
+</li>
+<li>
+<p>and 逻辑运算符查找 <code>db.inventory.find({qty:{$gt:50},qty:{$lt:80}})</code> 查找qty大于50且小于80的所有文档</p>
+</li>
+<li>
+<p>or逻辑运算符查找 <code>db.inventory.find({$or:[{item:&quot;postcard&quot;},{item:&quot;planner&quot;}]})</code> 查找item等于postcard或者item等于planner的所有文档</p>
+</li>
+<li>
+<p>模运算 <code>db.inventory.find({qty:{$mod:[2,1]}})</code> 查找 qty 除 2，余数是1的记录。也就是所有qty是奇数的记录</p>
+</li>
+<li>
+<p>not 逻辑运算 <code>db.inventory.find({qty:{$not:{$mod:[2,1]}}})</code>, 查找所有qty是偶数的记录</p>
+</li>
+<li>
+<p>正则匹配 <code>/正则表达式/i</code></p>
+<ol>
+<li><code>db.inventory.find({item:/^s.*/i})</code>, <code>^</code>表示与张开头，<code>.</code>是匹配任意字符，<code>*</code>表示任意数量的字符。查找所有item值是s开头的文档，也可以写成 <code>db.inventory.find({item:{$regex:&quot;^s.*&quot;}})</code></li>
+</ol>
+</li>
+<li>
+<p>成员运算 <code>db.inventory.find({qty:{$in:[80,95]}})</code></p>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$in</th>
+<th style="text-align:center">$nin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:center">not in</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h6 id="数组查询">数组查询</h6>
+<p>插入如下文档</p>
+<pre tabindex="0"><code>db.inventory.insertMany([
+   { item: &#34;journal&#34;, qty: 25, tags: [&#34;blank&#34;, &#34;red&#34;], dim_cm: [ 14, 21 ] },
+   { item: &#34;notebook&#34;, qty: 50, tags: [&#34;red&#34;, &#34;blank&#34;], dim_cm: [ 14, 21 ] },
+   { item: &#34;paper&#34;, qty: 100, tags: [&#34;red&#34;, &#34;blank&#34;, &#34;plain&#34;], dim_cm: [ 14, 21 ] },
+   { item: &#34;planner&#34;, qty: 75, tags: [&#34;blank&#34;, &#34;red&#34;], dim_cm: [ 22.85, 30 ] },
+   { item: &#34;postcard&#34;, qty: 45, tags: [&#34;blue&#34;], dim_cm: [ 10, 15.25 ] }
+]);
+</code></pre><ol>
+<li><code>db.inventory.find( { tags:[&quot;red&quot;, &quot;blank&quot;]})</code> 查询tags值等于[&ldquo;red&rdquo;, &ldquo;blank&rdquo;]的文档，注意数组需要顺序也一致。</li>
+<li><code>db.inventory.find( { tags:&quot;blank&quot;} )</code> 查看tags元素包含blank的记录。</li>
+<li><code>db.inventory.find( { tags:{$all:[&quot;blank&quot;,&quot;red&quot;]}} )</code>查看tags元素既包含blank又包含red的记录。</li>
+</ol>
+<h5 id="更新">更新</h5>
+<ol>
+<li>
+<p>更新单个文档的指定字段</p>
+<pre tabindex="0"><code class="language-mongodb" data-lang="mongodb">db.inventory.updateOne(
+    { item: &#34;paper&#34; },
+    {
+        $set: { &#34;size.uom&#34;: &#34;cm&#34;, status: &#34;P&#34; }
+    }
+)
+</code></pre><p><code>{ item: &quot;paper&quot; }</code> 是条件，找到第一个符合这个的文档。<code>{$set: { &quot;size.uom&quot;: &quot;cm&quot;, status: &quot;P&quot; }}</code>是修改的内容，</p>
+</li>
+<li>
+<p>更新单个文档的指定字段，如果没找到文档会执行插入操作</p>
+<pre tabindex="0"><code class="language-mongodb" data-lang="mongodb">db.inventory.updateOne(
+    { item: &#34;paper&#34; },
+    {
+        $set: { &#34;size.uom&#34;: &#34;cm&#34;, status: &#34;P&#34; }
+    },
+    {upsert:true}
+)
+</code></pre></li>
+<li>
+<p>更新多个文档</p>
+<pre tabindex="0"><code class="language-mongodb" data-lang="mongodb">db.inventory.updateMany( 
+      { &#34;qty&#34;: { $lt: 50 } },
+      {  
+          $set: { &#34;size.uom&#34;: &#34;in&#34;, status: &#34;P&#34; }
+      }
+  )
+</code></pre><p><code>{ &quot;qty&quot;: { $lt: 50 } }</code> 是条件，找到所有符合条件的文档，把这些文档按照<code>{$set: { &quot;size.uom&quot;: &quot;in&quot;, status: &quot;P&quot; }}</code>修改内容。</p>
+</li>
+<li>
+<p>替换文档(覆盖)</p>
+<pre tabindex="0"><code class="language-mongodb" data-lang="mongodb">db.inventory.replaceOne(
+   { item: &#34;paper&#34; },
+   { item: &#34;paper&#34;, instock: [ { warehouse: &#34;A&#34;, qty: 60 }, { warehouse: &#34;B&#34;, qty: 40 } ] }
+)
+</code></pre><p><code>{ item: &quot;paper&quot; }</code> 是条件，找到符合条件的第一个文档，把这个文档的内容替换为新内容。旧内容除了&quot;_id&quot;不变，其他内容都没了。</p>
+</li>
+<li>
+<p>自增或者自减</p>
+<ol>
+<li><code>db.inventory.update({}, {$inc:{qty:1}})</code> ,找到符合条件的第一个文档，使这个文档的qty值增加1</li>
+<li><code>db.inventory.update({}, {$inc:{qty:-1}})</code> 找到符合条件的第一个文档，使这个文档的qty值减少1</li>
+</ol>
+</li>
+</ol>
+<h5 id="删除">删除</h5>
+<ol>
+<li>删除所有文档 <code>db.inventory.deleteMany({})</code></li>
+<li>删除所有符合条件的文档 <code>db.inventory.deleteMany({status: &quot;A&quot;})</code></li>
+<li>删除符合条件的一个文档 <code>db.inventory.deleteOne({ status: &quot;A&quot; })</code></li>
+</ol>
+<h4 id="权限设置">权限设置</h4>
+<h5 id="创建超级管理员用户">创建超级管理员用户</h5>
+<ol>
+<li><code>use admin</code> 进入admin数据库</li>
+<li><code>db.createUser({user:&quot;root&quot;,pwd:&quot;root123&quot;,roles:[{role: &quot;root&quot;,db:&quot;admin&quot;}]})</code></li>
+<li>然后关闭服务，重启服务，可以使用用户，密码链接登陆 <code>mongosh -u root -p root123 admin</code> admin表示数据库，这样就可以直接登陆到admin数据库，不用使用use命令切换。</li>
+<li>如果登陆的时候没有使用用户登陆，也可以登陆后再进行验证使用命令 <code>db.auth(&quot;root&quot;,&quot;root123&quot;)</code>,注意要先切换到 <code>use admin</code>再执行。</li>
+</ol>
+<h5 id="创建普通用户">创建普通用户</h5>
+<ol>
+<li><code>db.createUser({user:&quot;app01&quot;,pwd:&quot;app01&quot;,roles:[{role:&quot;read&quot;,db:&quot;app&quot;},{role:&quot;readWrite&quot;,db:&quot;test&quot;}]})</code> ,user表示用户名称，pwd用户密码，role是在指定的数据库的权限角色，官方有定义很多，可以看官方文档，db表示对应的数据库名称</li>
+</ol>
+<h5 id="查看用户">查看用户</h5>
+<ol>
+<li><code>use admin</code></li>
+<li><code>db.system.users.find()</code></li>
+</ol>
+<h5 id="删除用户">删除用户</h5>
+<ol>
+<li>需要root用户登录</li>
+<li><code>db.dropUser(&quot;app01&quot;)</code> app01是用户名称</li>
+</ol>
+<h5 id="注意">注意</h5>
+<p>mongodb默认是不要权限就可以操作的，设置权限后，需要在配置文件 <strong>mongod.conf</strong>里面添加配置</p>
+<pre tabindex="0"><code>security:
+    authorization: enabled
+</code></pre><p>配置文件的路径在 <code>/opt/homebrew/etc/mongod.conf</code></p>
+<h3 id="python">python</h3>
+<h4 id="链接">链接</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pymongo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 链接数据库 database是数据库名称</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_db</span>(database):
+</span></span><span style="display:flex;"><span>    conn <span style="color:#f92672">=</span> pymongo<span style="color:#f92672">.</span>MongoClient(
+</span></span><span style="display:flex;"><span>        host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;127.0.0.1&#39;</span>,
+</span></span><span style="display:flex;"><span>        port<span style="color:#f92672">=</span><span style="color:#ae81ff">27017</span>,
+</span></span><span style="display:flex;"><span>        username<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root&#34;</span>,
+</span></span><span style="display:flex;"><span>        password<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;root123&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    db <span style="color:#f92672">=</span> conn[database]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> db
+</span></span></code></pre></div><h4 id="执行">执行</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 查询数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find</span>(table):
+</span></span><span style="display:flex;"><span>    db <span style="color:#f92672">=</span> get_db(<span style="color:#e6db74">&#34;sanqi&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> db[table]<span style="color:#f92672">.</span>find()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 插入一条数据 table是集合(表)名称，</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert_one</span>(table, data):
+</span></span><span style="display:flex;"><span>    db <span style="color:#f92672">=</span> get_db(<span style="color:#e6db74">&#39;sanqi&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> db[table]<span style="color:#f92672">.</span>insert_one(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据condition条件在table中查询，然后将查询到的数据修改为data</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(table, condition, data):
+</span></span><span style="display:flex;"><span>    db <span style="color:#f92672">=</span> get_db(<span style="color:#e6db74">&#39;sanqi&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> db[table]<span style="color:#f92672">.</span>update_one(condition, {<span style="color:#e6db74">&#34;$set&#34;</span>: data})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据condition条件删除数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete</span>(table, condition):
+</span></span><span style="display:flex;"><span>    db <span style="color:#f92672">=</span> get_db(<span style="color:#e6db74">&#39;sanqi&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> db[table]<span style="color:#f92672">.</span>delete_one(condition)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 插入</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> insert_one(<span style="color:#e6db74">&#39;stu&#39;</span>, {<span style="color:#e6db74">&#34;school&#34;</span>: <span style="color:#e6db74">&#34;qinghua&#34;</span>, <span style="color:#e6db74">&#34;age&#34;</span>: <span style="color:#ae81ff">33</span>, <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;alex&#34;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 修改数据，把age是33的doucments(行)的name修改为&#34;hahahahaha&#34;</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> update(<span style="color:#e6db74">&#34;stu&#34;</span>,{<span style="color:#e6db74">&#39;age&#39;</span>:<span style="color:#ae81ff">33</span>},{<span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;hahahahaha&#34;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 删除</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> delete(<span style="color:#e6db74">&#39;stu&#39;</span>,{<span style="color:#e6db74">&#34;school&#34;</span>: <span style="color:#e6db74">&#39;qinghua&#39;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查找</span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> find(<span style="color:#e6db74">&#34;stu&#34;</span>)
+</span></span><span style="display:flex;"><span>print(list(r))
+</span></span></code></pre></div><h3 id="golang">golang</h3>
+<p>首先下载 <code>go get -u go.mongodb.org/mongo-driver/mongo</code> 驱动</p>
+<h4 id="链接-1">链接</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;context&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;go.mongodb.org/mongo-driver/mongo&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;go.mongodb.org/mongo-driver/mongo/options&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;go.mongodb.org/mongo-driver/mongo/readpref&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// uri := &#34;mongodb://localhost:27017&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">uri</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;mongodb://root:root123@localhost:27017/admin&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">cancel</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithTimeout</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">cancel</span>()
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ctx := context.TODO()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">client</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mongo</span>.<span style="color:#a6e22e">Connect</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">Client</span>().<span style="color:#a6e22e">ApplyURI</span>(<span style="color:#a6e22e">uri</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Disconnect</span>(<span style="color:#a6e22e">ctx</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Ping</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">readpref</span>.<span style="color:#a6e22e">Primary</span>()); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		panic(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;mongodb 链接成功&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="执行-1">执行</h4>
+<p>方式1</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//集合(表)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">collection</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Database</span>(<span style="color:#e6db74">&#34;sanqi&#34;</span>).<span style="color:#a6e22e">Collection</span>(<span style="color:#e6db74">&#34;stu&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//设置空的查询条件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">cursor</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">bson</span>.<span style="color:#a6e22e">D</span>{})
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 定义bson.M类型的文档数组，bson.M是一个map类型的键值数据结构
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">results</span> []<span style="color:#a6e22e">bson</span>.<span style="color:#a6e22e">M</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// var results []map[string]interface{}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// 使用All函数获取所有查询结果，并将结果保存至results变量。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">cursor</span>.<span style="color:#a6e22e">All</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">TODO</span>(), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">results</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 遍历结果数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">results</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">result</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><p>方式2</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">results</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//集合(表)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">collection</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Database</span>(<span style="color:#e6db74">&#34;sanqi&#34;</span>).<span style="color:#a6e22e">Collection</span>(<span style="color:#e6db74">&#34;stu&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//设置空的查询条件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">FindOne</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">bson</span>.<span style="color:#a6e22e">D</span>{}).<span style="color:#a6e22e">Decode</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">results</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 定义bson.M类型的文档数组，bson.M是一个map类型的键值数据结构
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">results</span>)
+</span></span></code></pre></div><p>方式2只针对结果只有一个的</p>
+<p><strong>参考文档:</strong> <a href="https://www.tizi365.com/topic/92.html">https://www.tizi365.com/topic/92.html</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/zh/tags/mongodb/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Mongodb</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

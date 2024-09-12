@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>golang语法 | 我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="基本语法">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/golang/golang%E8%AF%AD%E6%B3%95/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/golang/golang%E8%AF%AD%E6%B3%95/index.zh-cn/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="golang语法">
+  <meta property="og:description" content="基本语法">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-20T00:00:00+00:00">
+
+  <meta itemprop="name" content="golang语法">
+  <meta itemprop="description" content="基本语法">
+  <meta itemprop="datePublished" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1053">
+  <meta itemprop="keywords" content="Golang">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="golang语法">
+  <meta name="twitter:description" content="基本语法">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/golang/golang%E8%AF%AD%E6%B3%95/index.zh-cn/&amp;text=golang%e8%af%ad%e6%b3%95" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">golang语法</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-12-20T00:00:00Z">十二月 20, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="基础语法">基础语法</h3>
+<h4 id="注释">注释</h4>
+<ol>
+<li>
+<p>单行注释</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#75715e">//单行注释
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;hello world&#34;</span>)
+</span></span></code></pre></div></li>
+<li>
+<p>多行注释</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">		多行注释
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">		多行注释
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	*/</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;hello world too&#34;</span>)
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="变量">变量</h4>
+<p>变量赋值的三种方式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//先声明
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int8</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//再赋值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">x</span> = <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//声明并且赋值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">y</span> = <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//简写形式 相当于 var z = 300
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">z</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">300</span>
+</span></span></code></pre></div><ol>
+<li>
+<p>同时声明多个变量</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//一行同时声明赋值多个变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> = <span style="color:#e6db74">&#34;qu&#34;</span>, <span style="color:#ae81ff">22</span>
+</span></span></code></pre></div></li>
+<li>
+<p>值拷贝</p>
+<p>一个变量赋值给另一个变量时，会发生值拷贝。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#75715e">//值拷贝
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> = <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//一个变量赋值给另一个变量时，会发生值拷贝
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> = <span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//是两个独立的内存空间，不会相互影响
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">a</span> = <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span>)
+</span></span></code></pre></div></li>
+<li>
+<p>匿名变量</p>
+<p>如果不使用某个变量，可以用<code>_</code>下划线代替</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//匿名变量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">b</span> = <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span>
+</span></span></code></pre></div></li>
+<li>
+<p>变量的命名</p>
+<ol>
+<li>变量名由字母数字下划线组成，且不能是数字开头。</li>
+<li>变量名不能是保留字和关键字。</li>
+<li>变量名区分大小写。</li>
+<li>变量名建议使用驼峰式命名。</li>
+</ol>
+<p><strong>关键字</strong></p>
+<table>
+<thead>
+<tr>
+<th>break</th>
+<th>default</th>
+<th>Func</th>
+<th>Interface</th>
+<th>Select</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>case</td>
+<td>defer</td>
+<td>go</td>
+<td>map</td>
+<td>struct</td>
+</tr>
+<tr>
+<td>chan</td>
+<td>else</td>
+<td>goto</td>
+<td>package</td>
+<td>switch</td>
+</tr>
+<tr>
+<td>const</td>
+<td>fallthrough</td>
+<td>if</td>
+<td>range</td>
+<td>type</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>for</td>
+<td>import</td>
+<td>return</td>
+<td>var</td>
+</tr>
+</tbody>
+</table>
+<p><strong>预定义字</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#75715e">//内建常量
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">true</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">iota</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//内建类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> <span style="color:#66d9ef">int8</span> <span style="color:#66d9ef">int16</span> <span style="color:#66d9ef">int32</span> <span style="color:#66d9ef">int64</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">uint</span> <span style="color:#66d9ef">uint8</span> <span style="color:#66d9ef">uint16</span> <span style="color:#66d9ef">uint32</span> <span style="color:#66d9ef">uint64</span> <span style="color:#66d9ef">uintptr</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">float32</span> <span style="color:#66d9ef">float64</span> <span style="color:#66d9ef">complex128</span> <span style="color:#66d9ef">complex64</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">byte</span> <span style="color:#66d9ef">rune</span> <span style="color:#66d9ef">string</span> <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//内建函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">make</span> <span style="color:#a6e22e">len</span> <span style="color:#a6e22e">cap</span> <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">append</span> <span style="color:#a6e22e">copy</span> <span style="color:#a6e22e">clone</span> <span style="color:#a6e22e">delete</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">complex</span> <span style="color:#a6e22e">real</span> <span style="color:#a6e22e">imag</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">panic</span> <span style="color:#a6e22e">recover</span>
+</span></span></code></pre></div></li>
+<li>
+<p>语句分隔符</p>
+<p>有两个，一个是<code>;</code>分号，另一个是换行符。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#75715e">//不推荐
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//var x = 100; var y = 200
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//或者
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> = <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">y</span> = <span style="color:#ae81ff">200</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="基本数据类型">基本数据类型</h3>
+<h4 id="字节">字节</h4>
+<p>字节(Byte)：计算机中数据存储的基本单位，缩写是B。</p>
+<p>位(bit)：也叫作”比特“，计算机中数据存储的最小单位，因为计算机中是以二进制的形式存储数据，所以一位就代表一个”0“或”1“，缩写是b。</p>
+<p>字节和位的关系，1字节=8位。1Byte=8bit。1B=8b。</p>
+<h4 id="整型">整型</h4>
+<ol>
+<li>整型类型
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int8</td>
+<td>-128~127</td>
+</tr>
+<tr>
+<td>uint8</td>
+<td>0~255</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>-32768~32767</td>
+</tr>
+<tr>
+<td>uint16</td>
+<td>0~65535</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>-2147483648~2147483647</td>
+</tr>
+<tr>
+<td>uint32</td>
+<td>0~4294967295</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>-9223372036854775808~9223372036854775807</td>
+</tr>
+<tr>
+<td>uint64</td>
+<td>0~18446744073709551615</td>
+</tr>
+<tr>
+<td>uint</td>
+<td>与平台相关 32位操作系统上就是uint32</td>
+</tr>
+<tr>
+<td>int</td>
+<td>与平台相关 32位操作系统上就是int32</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h4 id="浮点型">浮点型</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#75715e">//浮点型， float32精度比较低
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">f1</span> <span style="color:#66d9ef">float32</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">f1</span> = <span style="color:#ae81ff">0.123456789</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//打印结果0.12345679
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//float64精度比较高
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">f2</span> <span style="color:#66d9ef">float64</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">f2</span> = <span style="color:#ae81ff">0.1234567890123456789</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f2</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//打印结果0.12345678901234568
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//科学计数法 都是浮点类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">f3</span> = <span style="color:#ae81ff">3.4e-2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//打印结果0.034 float64
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f3</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">f3</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">f4</span> = <span style="color:#ae81ff">3.4e+2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//340 float64
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">f4</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">f4</span>))
+</span></span></code></pre></div><h4 id="布尔类型">布尔类型</h4>
+<p>布尔类型只有两个值true和false，分别代表逻辑判断中的真和假，主要应用再条件判断中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">b</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">b</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">b</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//比较运算符的结果是一个布尔值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>)
+</span></span></code></pre></div><h4 id="字符串">字符串</h4>
+<p>字符串是 UTF-8 字符的一个序列（当字符为 ASCII 码时则占用 1 个字节，其它字符根据需要占用 2-4 个字节）。UTF-8 是被广泛使用的编码格式，是文本文件的标准编码，其它包括 XML 和 JSON 在内，也都使用该编码。由于该编码对占用字节长度的不定性，Go 中的字符串里面的字符也可能根据需要占用 1 至 4 个字节。</p>
+<p>字符串是一种值类型，且值不可变，即创建某个文本后你无法再次修改这个文本的内容；更深入地讲，字符串是字节的定长数组，字符串再内存中是一串连续存储空间。</p>
+<h5 id="转义符">转义符</h5>
+<ul>
+<li><code>\n</code>：换行符</li>
+<li><code>\r</code>：回车符</li>
+<li><code>\t</code>：tab 键</li>
+<li><code>\u</code> 或 <code>\U</code>：Unicode 字符</li>
+<li><code>\\</code>：反斜杠自身</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;\u0041 么么腭面 \U0001f642&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>)
+</span></span></code></pre></div><p><code>\u0041</code>和<code>\U0001f642</code>会被转义成<code>A</code>和<code> 🙂</code>。如果不想被转义可以使用 <code>\</code>，或者把字符串用反引号括起来,字符串里面的转义符就不会生效。反引号也支持字符串多行书写</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`\u0041 么么腭面 \U0001f642`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>)
+</span></span></code></pre></div><h5 id="基本用法">基本用法</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#75715e">//使用双引号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//索引操作,获取指定下标的字符，然后把字符转化为字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">s</span>[<span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//切片 获取指定范围的字符串值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">s</span>[<span style="color:#ae81ff">6</span>:<span style="color:#ae81ff">11</span>]))
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">s</span>[:<span style="color:#ae81ff">6</span>]))
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(string(<span style="color:#a6e22e">s</span>[<span style="color:#ae81ff">6</span>:]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//字符串拼接
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s1</span> = <span style="color:#e6db74">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s2</span> = <span style="color:#e6db74">&#34;world&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s3</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">s1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">s2</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//转义符  \n换行符  \ 使普通符号 n 特殊化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s4</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;aaaa\nbbbb\ncccc&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s4</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 使用 \ 使特殊符号&#34; 普通化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s5</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;my name is \&#34;zhangsan\&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 打印路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s6</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;work\\next&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s6</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//打印多行字符串 使用反引号
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s7</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`数额哦嗯嗯额么
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	么们嗯嗯
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">	恩`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s7</span>)
+</span></span></code></pre></div><h5 id="常用方法">常用方法</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Hello World&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//转成大写字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sUpper</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ToUpper</span>(<span style="color:#a6e22e">s</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">sUpper</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//转成小写字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ToLower</span>(<span style="color:#a6e22e">sUpper</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//判断是否以某个字符串开头和结尾
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">HasPrefix</span>(<span style="color:#a6e22e">s</span>, <span style="color:#e6db74">&#34;H&#34;</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">HasSuffix</span>(<span style="color:#a6e22e">s</span>, <span style="color:#e6db74">&#34;World&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//判断是否包含某个字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Contains</span>(<span style="color:#a6e22e">s</span>, <span style="color:#e6db74">&#34;llo&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s1</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;   lisi &#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//去除字符串前后两端的空格，也可以去除其他的字符串，根据你输入的
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//s2 := strings.TrimSpace(s1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Trim</span>(<span style="color:#a6e22e">s1</span>, <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//索引函数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// 找到某个子字符串在字符串中的起始位置 如果不存在返回-1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s3</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;abc ddd eemem&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Index</span>(<span style="color:#a6e22e">s3</span>, <span style="color:#e6db74">&#34;ddd&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//分隔字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//按空格分隔
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//strings.Fields(s)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s4</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;beijing,shanghai,guangzhou,shenzhen&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//按指定字符串分隔
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">datas</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Split</span>(<span style="color:#a6e22e">s4</span>, <span style="color:#e6db74">&#34;,&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">datas</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//拼接字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">datas</span>, <span style="color:#e6db74">&#34;-&#34;</span>))
+</span></span></code></pre></div><ol>
+<li>
+<p><code>strings.NewReader(str)</code>通过string生成reader对象。</p>
+<ul>
+<li><code>Read()</code> 从 <code>[]byte</code> 中读取内容。</li>
+<li><code>ReadByte()</code> 和 <code>ReadRune()</code> 从字符串中读取下一个 <code>byte</code> 或者 <code>rune</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="指针">指针</h4>
+<h5 id="注意事项">注意事项</h5>
+<ol>
+<li>
+<p>不能获取字面量或者常量的地址</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ptr</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">i</span> <span style="color:#75715e">//error: cannot take the address of i
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">ptr2</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#ae81ff">10</span> <span style="color:#75715e">//error: cannot take the address of 10
+</span></span></span></code></pre></div></li>
+<li>
+<p>对一个空指针的反向引用是不合法的，并且会使程序崩溃</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">int</span> = <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">*</span><span style="color:#a6e22e">p</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// in Windows: stops only with: &lt;exit code=&#34;-1073741819&#34; msg=&#34;process crashed&#34;/&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// runtime error: invalid memory address or nil pointer dereference
+</span></span></span></code></pre></div></li>
+</ol>
+<h4 id="常量">常量</h4>
+<p>常量使用关键字<code>const</code>定义，用于存储不会改变的数据，存储在常量中的数据类型只可以是布尔型，数字型（整数型，浮点型，复数）和字符串型。</p>
+<h5 id="定义格式">定义格式</h5>
+<p><code>const identifier [type] = value</code></p>
+<h5 id="举例">举例</h5>
+<ul>
+<li>显式类型定义： <code>const a string = &quot;abcde&quot;</code></li>
+<li>隐式类型定义：<code>const a = &quot;abcde&quot;</code></li>
+</ul>
+<h5 id="注意">注意</h5>
+<ol>
+<li>
+<p>常量的值必须是能够在编译时就能够确定的，常量赋值表达式中可以涉及计算过程，但是所有用于计算的值必须在编译期间就能获得。</p>
+<ul>
+<li>正确的做法：<code>const c1 = 2/3</code></li>
+<li>错误的做法：<code>const c2 = customFunc()</code></li>
+</ul>
+<p>赋值语句不能有自定义函数，但可以使用内置函数，比如<code>len()</code>。</p>
+</li>
+</ol>
+<h4 id="值类型和引用类型">值类型和引用类型</h4>
+<h5 id="值类型">值类型</h5>
+<p>所有像 <code>int</code>、<code>float</code>、<code>bool</code> 和 <code>string</code> 这些基本类型都属于值类型，使用这些类型的变量直接指向存在内存中的值。另外，像<code>数组</code>和<code>结构体</code>这些复合类型也是值类型。</p>
+<p>当使用等号 <code>=</code> 将一个变量的值赋值给另一个变量时，如：<code>j = i</code>，实际上是在内存中将 <code>i</code> 的值进行了拷贝，所以如果后面<code>i</code>的值即使修改了，也不会影响<code>j</code>值。</p>
+<p>值类型的变量的值存储在栈中。</p>
+<h5 id="引用类型">引用类型</h5>
+<p>指针属性引用类型，其他的引用类型还包括<code>slice</code>，<code>map</code>，<code>channel</code>。被引用的变量会存储在堆中，以便进行垃圾回收，且比栈拥有更大的内存空间。</p>
+<p>一个引用类型的变量<code>r1</code>存储的是<code>r1</code>的值所在的内存地址，当使用赋值语句<code>r2 = r1</code>时，只有内存地址被复制，这时<code>r2</code>存的值也是内存地址(这个内存地址指向<code>r1</code>的值)。如果<code>r1</code>的值被改变了，<code>r2</code>也会受到影响。</p>
+<h4 id="随机数">随机数</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#75715e">//方法1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Int</span>()
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d / &#34;</span>, <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//方法2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#ae81ff">8</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d / &#34;</span>, <span style="color:#a6e22e">r</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//方法3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">timer</span> <span style="color:#f92672">:=</span> int64(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Nanosecond</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">NewSource</span>(<span style="color:#a6e22e">timer</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%f / &#34;</span>, <span style="color:#ae81ff">100</span><span style="color:#f92672">*</span><span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">Float32</span>())
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//方法4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">timens</span> <span style="color:#f92672">:=</span> int64(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Nanosecond</span>())
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">timens</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%2.2f / &#34;</span>, <span style="color:#ae81ff">100</span><span style="color:#f92672">*</span><span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Float32</span>())
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><p>函数 <code>rand.Intn</code> 返回介于 [0,n) 之间的伪随机数。</p>
+<p>函数 <code>rand.Float32</code> 和 <code>rand.Float64</code> 返回介于 [0.0,1.0) 之间的伪随机数。</p>
+<p>你可以使用 <code>rand.Seed(value)</code> 函数来提供伪随机数的生成种子，一般情况下都会使用当前时间的纳秒级数字。</p>
+<p>方法4中的<code>rand.Seed</code>已经弃用了，可以使用方法3代替。</p>
+<h4 id="字符类型byte和rune">字符类型(byte和rune)</h4>
+<p>严格来说，<code>byte</code>和<code>rune</code>并不是Go语言的一个类型，字符只是整数的特殊用例。<code>byte</code> 类型是 <code>uint8</code> 的别名，<code>rune</code>是<code>int32</code>的别名。</p>
+<h5 id="byte类型">byte类型</h5>
+<p><code>byte</code>代表一个ASCII编码的字符。ASCII字符集总的只有128个字符，所以可以用<code>byte</code>表示，</p>
+<p><code>byte</code>有多种写法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#75715e">//十进制写法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch</span> <span style="color:#66d9ef">byte</span> = <span style="color:#ae81ff">65</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//16进制写法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch02</span> <span style="color:#66d9ef">byte</span> = <span style="color:#e6db74">&#39;\x41&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//8进制写法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch03</span> <span style="color:#66d9ef">byte</span> = <span style="color:#e6db74">&#39;\101&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//打印对应的字符 都代表 字符 &#39;A&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%c---%c----%c\n&#34;</span>, <span style="color:#a6e22e">ch</span>, <span style="color:#a6e22e">ch02</span>, <span style="color:#a6e22e">ch03</span>)
+</span></span></code></pre></div><h5 id="rune类型">rune类型</h5>
+<p><code>rune</code>代表一个UTF-8编码的字符，UFT-8是unicode字符集的一种编码方式，当需要处理中文，日文等其他复合字符时，需要用到<code>rune</code>类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch</span> <span style="color:#66d9ef">rune</span> = <span style="color:#ae81ff">65</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch02</span> <span style="color:#66d9ef">rune</span> = <span style="color:#e6db74">&#39;\x41&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch03</span> <span style="color:#66d9ef">rune</span> = <span style="color:#e6db74">&#39;\u0041&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ch04</span> <span style="color:#66d9ef">rune</span> = <span style="color:#e6db74">&#39;\U00101234&#39;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">ch04</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//输出表示该字符的十进制整数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d----%d----%d \n&#34;</span>, <span style="color:#a6e22e">ch</span>, <span style="color:#a6e22e">ch02</span>, <span style="color:#a6e22e">ch03</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//输出对应的字符
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%c----%c----%c \n&#34;</span>, <span style="color:#a6e22e">ch</span>, <span style="color:#a6e22e">ch02</span>, <span style="color:#a6e22e">ch03</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//输出表示该字符的16进制整数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%X----%X----%X \n&#34;</span>, <span style="color:#a6e22e">ch</span>, <span style="color:#a6e22e">ch02</span>, <span style="color:#a6e22e">ch03</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//输出格式为 U+hhhh 的字符串，表示对应的unicode码点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%U----%U----%U \n&#34;</span>, <span style="color:#a6e22e">ch</span>, <span style="color:#a6e22e">ch02</span>, <span style="color:#a6e22e">ch03</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dd</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%U&#34;</span>, <span style="color:#a6e22e">ch02</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;dd&#34;</span>, <span style="color:#a6e22e">dd</span>)
+</span></span></code></pre></div><h3 id="类型转换">类型转换</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>  <span style="color:#75715e">//数字转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int8</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x</span> = <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">y</span> = <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//注意转换用精度低的转成精度高的，这样可以避免精度损失
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(int(<span style="color:#a6e22e">x</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//字符串和数字转换
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">score</span> = <span style="color:#e6db74">&#34;99&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//字符串转换成数字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">score</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">value</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">height</span> = <span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//整型数字转字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Itoa</span>(<span style="color:#a6e22e">height</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">s</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//转成浮点类型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">value2</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">ParseFloat</span>(<span style="color:#e6db74">&#34;3.14&#34;</span>, <span style="color:#ae81ff">32</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">value2</span>, <span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">TypeOf</span>(<span style="color:#a6e22e">value2</span>))
+</span></span></code></pre></div><h3 id="常量-1">常量</h3>
+<h3 id="控制语句">控制语句</h3>
+<h4 id="条件语句">条件语句</h4>
+<ol>
+<li>
+<p>判断一个字符串是否为空</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">str</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {<span style="color:#f92672">...</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">str</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {<span style="color:#f92672">...</span>}
+</span></span></code></pre></div></li>
+<li>
+<p>判断运行go程序的操作系统类型，这可以通过常量 <code>runtime.GOOS</code> 来判断</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">runtime</span>.<span style="color:#a6e22e">GOOS</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;windows&#34;</span>	 {
+</span></span><span style="display:flex;"><span>	.	..
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> { <span style="color:#75715e">// Unix-like
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	.	..
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><code>if</code> 可以包含一个初始化语句（如：给一个变量赋值）。这种写法具有固定的格式（在初始化语句后方必须加上分号）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">val</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">val</span> &gt; <span style="color:#a6e22e">max</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// do something
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//也可以这样写
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">val</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">val</span> &gt; <span style="color:#a6e22e">max</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// do something
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>但要注意的是，使用简短方式 <code>:=</code> 声明的变量的作用域只存在于 <code>if</code> 结构中。</p>
+</li>
+<li>
+<p><code>switch</code>语句特殊写法，不提供判断值，用来代替<code>if-else</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">num1</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">switch</span> {
+</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">num1</span> &lt; <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>		    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Number is negative&#34;</span>)
+</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">num1</span> &gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">num1</span> &lt; <span style="color:#ae81ff">10</span>:
+</span></span><span style="display:flex;"><span>		    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Number is between 0 and 10&#34;</span>)
+</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>		    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Number is 10 or greater&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p><code>switch</code>语句特殊写法，包含初始化语句。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">x</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">y</span>[<span style="color:#a6e22e">j</span>]; {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">a</span> &lt; <span style="color:#a6e22e">b</span>: <span style="color:#a6e22e">t</span> = <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">b</span>: <span style="color:#a6e22e">t</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">a</span> &gt; <span style="color:#a6e22e">b</span>: <span style="color:#a6e22e">t</span> = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="循环语句">循环语句</h4>
+<p>循环语句的基本形式为</p>
+<pre tabindex="0"><code>for 初始化语句; 条件语句; 修饰语句 {}
+</code></pre><p>这三部分组成的循环的头部，它们之间使用分号 <code>;</code> 相隔，但并不需要括号 <code>()</code> 将它们括起来。例如：<code>for (i = 0; i &lt; 10; i++) { }</code>，这是无效的代码！</p>
+<p>可以在循环种同时使用多个计数器</p>
+<pre tabindex="0"><code>for i, j := 0, 10; i &lt; j; i, j = i+1, j-1 {}
+</code></pre><p>注意每个语句都只能有一条语句，比如不可以</p>
+<pre tabindex="0"><code>for i:=0, j := 0; i &lt; j; i, j = i+1, j-1 {}
+</code></pre><h4 id="标签与goto语句">标签与goto语句</h4>
+<p><code>for</code>、<code>switch</code> 或 <code>select</code> 语句都可以配合标签 (label) 形式的标识符使用，即某一行第一个以冒号 (<code>:</code>) 结尾的单词（gofmt 会将后续代码自动移至下一行）。</p>
+<h5 id="continue用法">continue用法</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">LABEL1</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">continue</span> <span style="color:#a6e22e">LABEL1</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;i is: %d, and j is: %d\n&#34;</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>从打印结果可以看出，这个加了标签的<code>continue</code>相当于外层的<code>for</code>的<code>continue</code>。</p>
+<h5 id="goto用法">goto用法</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">i</span><span style="color:#f92672">:=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">HERE</span>:
+</span></span><span style="display:flex;"><span>		print(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">==</span><span style="color:#ae81ff">5</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">goto</span> <span style="color:#a6e22e">HERE</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>使用<code>goto</code>和标签模拟循环。</p>
+<p><strong>特别注意</strong></p>
+<p>使用标签和 <code>goto</code> 语句是不被鼓励的：它们会很快导致非常糟糕的程序设计，而且总有更加可读的替代方案来实现相同的需求。</p>
+<p>如果您必须使用 <code>goto</code>，应当只使用正序的标签（标签位于 <code>goto</code> 语句之后），但注意标签和 <code>goto</code> 语句之间不能出现定义新变量的语句，否则会导致编译失败。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">相关內容</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/zh/post/golang/golang%E8%AF%AD%E6%B3%95tips/index.zh-cn/">golang语法</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

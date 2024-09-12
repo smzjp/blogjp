@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>算法之递归 | 我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="边界">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="算法之递归">
+  <meta property="og:description" content="边界">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-04-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-04-09T00:00:00+00:00">
+    <meta property="article:tag" content="递归">
+
+  <meta itemprop="name" content="算法之递归">
+  <meta itemprop="description" content="边界">
+  <meta itemprop="datePublished" content="2024-04-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2024-04-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="414">
+  <meta itemprop="keywords" content="递归">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="算法之递归">
+  <meta name="twitter:description" content="边界">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/golang/%E7%AE%97%E6%B3%95%E4%B9%8B%E9%80%92%E5%BD%92/index.zh-cn/&amp;text=%e7%ae%97%e6%b3%95%e4%b9%8b%e9%80%92%e5%bd%92" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">算法之递归</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-04-09T00:00:00Z">四月 9, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>递归一般有两种思路，一种是递，另一种是归。递是传递的意思，从递归开始的根节点开始计算，把计算数值通过递归函数的参数传递给下一个子节点，比如是用前序遍历，先计算跟节点，再计算左子树（先计算左子树里面的根节点），最后计算右子树。归是回归的意思，从叶子节点开始计算，把计算数值通过递归函数的返回参数返回给前一个父节点。也可以这么理解，递归算法都包含递和归的过程。如果是在递的过程中计算数值，就称为递的思想，如果是在归的过程中计算数值，就称为归的思想。</p>
+<h5 id="例子1leetcode-1026题">例子1，leetcode 1026题</h5>
+<p>给定二叉树的根节点 <code>root</code>，找出存在于 <strong>不同</strong> 节点 <code>A</code> 和 <code>B</code> 之间的最大值 <code>V</code>，其中 <code>V = |A.val - B.val|</code>，且 <code>A</code> 是 <code>B</code> 的祖先。</p>
+<p>（如果 A 的任何子节点之一为 B，或者 A 的任何子节点是 B 的祖先，那么我们认为 A 是 B 的祖先）</p>
+<ol>
+<li>递的思想(摘自leetcode题解)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxAncestorDiff</span>(root <span style="color:#f92672">*</span>TreeNode) (ans int) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> dfs <span style="color:#66d9ef">func</span>(<span style="color:#f92672">*</span>TreeNode, int, int)
+</span></span><span style="display:flex;"><span>    dfs = <span style="color:#66d9ef">func</span>(node <span style="color:#f92672">*</span>TreeNode, mn, mx int) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> node == <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        mn = min(mn, node.Val)
+</span></span><span style="display:flex;"><span>        mx = max(mx, node.Val)
+</span></span><span style="display:flex;"><span>        ans = max(ans, node.Val<span style="color:#f92672">-</span>mn, mx<span style="color:#f92672">-</span>node.Val)
+</span></span><span style="display:flex;"><span>        dfs(node.Left, mn, mx)
+</span></span><span style="display:flex;"><span>        dfs(node.Right, mn, mx)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    dfs(root, root.Val, root.Val)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
+<li>归的思想</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>	<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxAncestorDiff</span>(<span style="color:#66d9ef">_</span> root: TreeNode?) -&gt; Int {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">var</span> ans = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">min</span>(a:Int,b:Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&gt;</span> b {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> b
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> a
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">max</span>(a:Int,b:Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&gt;</span> b {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> a
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> b
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">dfs</span>(node: TreeNode?) -&gt; (Int,Int) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> node == <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> (Int.min,Int.max)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> (lmx,lmn) = dfs(node: node?.<span style="color:#66d9ef">left</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> (rmx,rmn) = dfs(node: node?.<span style="color:#66d9ef">right</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> mn = min(a: node!.val, b: lmn)
+</span></span><span style="display:flex;"><span>            mn = min(a: mn, b: rmn)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> mx = max(a: node!.val, b: lmx)
+</span></span><span style="display:flex;"><span>            mx = max(a: mx, b: rmx)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            ans = max(a: ans, b: node!.val<span style="color:#f92672">-</span>mn)
+</span></span><span style="display:flex;"><span>            ans = max(a: ans, b: mx<span style="color:#f92672">-</span>node!.val)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> (mx,mn)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        dfs(node: root)
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">return</span> ans
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h5 id="例子2-leetcode-98题">例子2 leetcode 98题</h5>
+<p>给你一个二叉树的根节点 <code>root</code> ，判断其是否是一个有效的二叉搜索树。</p>
+<p><strong>有效</strong> 二叉搜索树定义如下：</p>
+<ul>
+<li>节点的左子树只包含小于 当前节点的数。</li>
+<li>节点的右子树只包含 <strong>大于</strong> 当前节点的数。</li>
+<li>所有左子树和右子树自身必须也是二叉搜索树。</li>
+</ul>
+<p>1.递的思想</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">isValidBST</span>(<span style="color:#66d9ef">_</span> root: TreeNode?) -&gt; Bool {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">maxV</span>(a:Int64,b:Int64) -&gt; Int64 {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&gt;</span> b {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> a
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> b
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">minV</span>(a:Int64,b:Int64) -&gt; Int64 {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> a <span style="color:#f92672">&lt;</span> b {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> a
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> b
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#66d9ef">_</span> node: TreeNode) -&gt; (Bool,Int64,Int64) {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> max = Int64(node.val)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> min = Int64(node.val)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> left = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> leftNode = node.<span style="color:#66d9ef">left</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> (leftFLag,leftMax,leftMin) = dfs(leftNode)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> leftMin <span style="color:#f92672">&lt;</span> min {
+</span></span><span style="display:flex;"><span>                    min = leftMin
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">left</span> = leftFLag <span style="color:#f92672">&amp;&amp;</span> (leftMax <span style="color:#f92672">&lt;</span> node.val)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> right = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> rihtNode = node.<span style="color:#66d9ef">right</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> (rightFlag,rightMax,rightMin) = dfs(rihtNode)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> rightMax <span style="color:#f92672">&gt;</span> max {
+</span></span><span style="display:flex;"><span>                    max = rightMax
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">right</span> = rightFlag <span style="color:#f92672">&amp;&amp;</span> (rightMin <span style="color:#f92672">&gt;</span> node.val)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>           
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">left</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">right</span>) == <span style="color:#66d9ef">false</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">false</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">left</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">right</span>,max,min)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> (ans,<span style="color:#66d9ef">_</span>,<span style="color:#66d9ef">_</span>) = dfs(root!)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ans
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>2.归的思想(摘自leetcode题解)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">node</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TreeNode</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">MaxInt</span>, <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">MinInt</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lMin</span>, <span style="color:#a6e22e">lMax</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Left</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">rMin</span>, <span style="color:#a6e22e">rMax</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Right</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Val</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">lMax</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">rMin</span> { <span style="color:#75715e">// 也可以在递归完左子树之后立刻判断，如果发现不是二叉搜索树，就不用递归右子树了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">MinInt</span>, <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">MaxInt</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> min(<span style="color:#a6e22e">lMin</span>, <span style="color:#a6e22e">x</span>), max(<span style="color:#a6e22e">rMax</span>, <span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">isValidBST</span>(<span style="color:#a6e22e">root</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TreeNode</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">mx</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dfs</span>(<span style="color:#a6e22e">root</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">mx</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">MaxInt</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/zh/tags/%E9%80%92%E5%BD%92/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">递归</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

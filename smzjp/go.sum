@@ -1,5 +1,9 @@
+github.com/CaiJimmy/hugo-theme-stack/v3 v3.26.0 h1:kLZSTvo+E3S2YWw59DjXWtKLNbw3JaL7Z+VAjcegqa0=
+github.com/CaiJimmy/hugo-theme-stack/v3 v3.26.0/go.mod h1:IPmCXiIxlFSLFYS0tOmYP6ySLviyeNVSabyvSuaxD+I=
 github.com/mrhelloboy/seven v1.7.3 h1:WSqaNG1n6Joq9jqK6YH3lNX2838dvd0gZFn0hM9zd4Q=
 github.com/mrhelloboy/seven v1.7.3/go.mod h1:3BrZvw02YVf/8XyJPRcaIJVZeFM+YyMQpymVYm29ZBY=
+github.com/shaform/hugo-theme-den v0.0.0-20220704130400-f420b491a016 h1:dfOqTNaq8YMAUNj9x3OaQBQaeOXFdex1vDMq4evszpg=
+github.com/shaform/hugo-theme-den v0.0.0-20220704130400-f420b491a016/go.mod h1:EQTM/VjGpnvEv0S1n0o019W9ozPvq+MTz+MPJUu418I=
 github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e h1:7gGo4gWBXKqjctzjetYSPhOGJKbVBsNgkiv5oJ3LgJc=
 github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e/go.mod h1:yY14BLqqh5G61rO81YcJKMHY1rClY5iIiUK+K2JKSUM=
 github.com/willfaught/paige v0.90.1 h1:2NL8KMMoE2/jpmBKI8Nqde4h0Yep/64ppakVidsvE+Y=

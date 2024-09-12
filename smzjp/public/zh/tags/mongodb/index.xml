@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongodb on 我的 Hugo 网站</title>
+    <link>http://localhost:1313/zh/tags/mongodb/</link>
+    <description>Recent content in Mongodb on 我的 Hugo 网站</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 05 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mongodb的使用</title>
+      <link>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/</link>
+      <pubDate>Sat, 05 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/%E6%95%B0%E6%8D%AE%E5%BA%93mongodb%E4%BD%BF%E7%94%A8/index.zh-cn/</guid>
+      <description>安装 在mac下通过homebrew安装。 可以通过 brew search 搜索 mongodb。看有哪些版本。 brew install mongodb-community@5.0 这里安装mongodb-community@5.0版本 启动 mongodb服务器 通过brew在后台启动服务器，brew services start mongodb-community@5.0 mongodb客户端 mongosh 启动客户端 mongosh 或者 mongosh -u root -p root123 admin 命令 官方文档&#xA;collection对应mysql的table，文档对应mysql的一条记录。&#xA;数据库相关操作 show dbs 或者 show databases 显示所有数据库 use xxx 使用指定数据库，如果不存在会新建此数据库 db 显示当前正在使用的数据库 db.dropDatabase() 删除当前使用的数据库 collect(表)相关操作 运行命令前需要先执行进入到具体的某一个数据库才可以 use xxx&#xA;show collections 或者show tables 显示当前数据库的所有集合(表) 文档(记录)相关操作 假设插入了一个文档&#xA;db.inventory.insertMany( [ { item: &amp;#34;canvas&amp;#34;, qty: 100, size: { h: 28, w: 35.5, uom: &amp;#34;cm&amp;#34; }, status: &amp;#34;A&amp;#34; }, { item: &amp;#34;journal&amp;#34;, qty: 25, size: { h: 14, w: 21, uom: &amp;#34;cm&amp;#34; }, status: &amp;#34;A&amp;#34; }, { item: &amp;#34;mat&amp;#34;, qty: 85, size: { h: 27.</description>
+    </item>
+  </channel>
+</rss>

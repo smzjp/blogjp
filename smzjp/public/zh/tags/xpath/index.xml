@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xpath on 我的 Hugo 网站</title>
+    <link>http://localhost:1313/zh/tags/xpath/</link>
+    <description>Recent content in Xpath on 我的 Hugo 网站</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/tags/xpath/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据解析之xpath</title>
+      <link>http://localhost:1313/zh/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E4%B9%8Bxpath/index.zh-cn/</guid>
+      <description>xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。&#xA;安装 由于XPath属于lxml库模块，所以首先要安装库lxml。&#xA;# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。&#xA;谓语被嵌在方括号中。&#xA;在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：&#xA;路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&amp;lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&amp;lsquo;xx&amp;rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&amp;gt;10] &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !</description>
+    </item>
+    <item>
+      <title>数据解析之xpath</title>
+      <link>http://localhost:1313/zh/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/%E6%A1%88%E4%BE%8B%E4%B9%8B%E6%9C%89%E9%81%93%E7%BF%BB%E8%AF%91/index.zh-cn/</guid>
+      <description>xpath 全称为XML Path Language 一种小型的查询语言，其优点是可在XML中查找信息 ，支持HTML的查找，通过元素和属性进行导航。&#xA;安装 由于XPath属于lxml库模块，所以首先要安装库lxml。&#xA;# pip3 install lxml 安装 初始化 from lxml import etree selector=etree.HTML(源码) #将源码转化为能被XPath匹配的格式 selector.xpath(表达式) #返回为一列表 路径表达式 表达式 描述 实例 解析 / 从根节点选取 /body/div[1] 选取根结点下的body下的第一个div标签 // 从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置 //a 选取文档中所有的a标签 ./ 当前节点再次进行xpath ./a 选取当前节点下的所有a标签 @ 选取属性 //@calss 选取所有的class属性 谓语（Predicates） 谓语用来查找某个特定的节点或者包含某个指定的值的节点。&#xA;谓语被嵌在方括号中。&#xA;在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：&#xA;路径表达式 结果 /ul/li[1] 选取属于 ul子元素的第一个 li元素。 /ul/li[last()] 选取属于 ul子元素的最后一个 li元素。 /ul/li[last()-1] 选取属于 ul子元素的倒数第二个 li元素。 //ul/li[position()&amp;lt;3] 选取最前面的两个属于 ul元素的子元素的 li元素。 //a[@title] 选取所有拥有名为 title的属性的 a元素。 //a[@title=&amp;lsquo;xx&amp;rsquo;] 选取所有 a元素，且这些元素拥有值为 xx的 title属性。 //a[@title&amp;gt;10] &amp;gt; &amp;lt; &amp;gt;= &amp;lt;= !</description>
+    </item>
+  </channel>
+</rss>

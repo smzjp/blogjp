@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>关键字defer | 我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="defer延迟函数">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="关键字defer">
+  <meta property="og:description" content="defer延迟函数">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:tag" content="Defer">
+
+  <meta itemprop="name" content="关键字defer">
+  <meta itemprop="description" content="defer延迟函数">
+  <meta itemprop="datePublished" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="121">
+  <meta itemprop="keywords" content="Defer">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="关键字defer">
+  <meta name="twitter:description" content="defer延迟函数">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/&amp;text=%e5%85%b3%e9%94%ae%e5%ad%97defer" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">关键字defer</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-12-20T00:00:00Z">十二月 20, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="安装">安装</h3>
+<ol>
+<li>在mac系统下 执行 <code>curl -L https://foundry.paradigm.xyz | bash</code></li>
+<li>如果提示 安装 <strong>libusb</strong>，执行 <code>brew install libusb</code></li>
+<li>重启一个终端或者更新下环境变量的设置。然后执行 foundryup</li>
+</ol>
+<h3 id="命令">命令</h3>
+<p>有三种命令</p>
+<ol>
+<li><strong>forge</strong>  可用来测试、构建和部署您的智能合约。</li>
+<li></li>
+</ol>
+<h3 id="项目">项目</h3>
+<h4 id="新建项目">新建项目</h4>
+<ol>
+<li>在想要存放项目的目录下 执行 <code>forge init hello_foundry</code> ，会创建一个默认的模版项目
+<ol>
+<li>如果使用指定的模版项目可以使用 <code>forge init --template https://github.com/foundry-rs/forge-template hello_template</code></li>
+<li>有四个目录，<code>lib</code> 存放依赖库，<code>src</code> 存放自己写的合约源码的地方。<code>script</code> 是存放一些脚本。<code>test</code>编写测试用例。</li>
+<li>模版默认安装了一个依赖项：forge-std，这是用于 Foundry 项目的首选测试库。可以在lib目录下看到。</li>
+</ol>
+</li>
+<li><code>cd hello_foundry</code>开始工作</li>
+</ol>
+<h4 id="已有项目">已有项目</h4>
+<ol>
+<li>先克隆项目 <code>git clone https://github.com/abigger87/femplate</code></li>
+<li><code>cd femplate </code> 切换到项目目录下。</li>
+<li>安装依赖项 <code>forge install</code> 会把所有的第三方依赖库下载下来。</li>
+</ol>
+<h4 id="依赖">依赖</h4>
+<p>foundry没有自己的项目依赖工具，使用<strong>git submodules</strong> 管理依赖项。</p>
+<h5 id="安装依赖">安装依赖</h5>
+<p>要导入第三方依赖库可以使用 <code>forge install OpenZeppelin/openzeppelin-contracts</code> ,具体使用的时候，在需要导入的.sol文件import。如果不清楚路径，可以使用 <code>forge remappings</code> 命令，会帮你映射路径，使路径变短方便引用。也可以自定义映射路径，需要在项目根目录新建一个 <code>remappings.txt</code> 文件, 然后把需要映射的路径写入，比如 <code>solmate-utils/=lib/solmate/src/utils/</code>,  如果要使用 solmate的utils目录下的文件，就可以 <code>import &quot;solmate-utils/SignedWadMath.sol&quot;；</code></p>
+<h5 id="更新依赖">更新依赖</h5>
+<ol>
+<li>更新所有依赖 <code>forge update</code></li>
+<li>更新某一个依赖 <code>forge update lib/solmate</code></li>
+</ol>
+<h5 id="删除依赖">删除依赖</h5>
+<p><code>forge remove solmate</code> 或者 <code>forge remove lib/solmate</code></p>
+<h3 id="编译项目">编译项目</h3>
+<ol>
+<li><code>forge build</code></li>
+</ol>
+<h3 id="测试项目">测试项目</h3>
+<p>foundry里面测试用例使用solidity语言写的。</p>
+<h4 id="编写测试">编写测试</h4>
+<ol>
+<li>执行<code>forge test</code>
+<ol>
+<li>也可以执行 <code>forge test -vvv</code>。为失败的测试生成跟踪信息</li>
+<li><code>forge test -vvvv</code> 为所有的测试用例生成跟踪信息。</li>
+<li><code>forge test --gas-report</code> 为合约生成gas报告，可以预估合约将消耗多少gas
+<ol>
+<li>需要现在配置文件<code>foundry.toml</code> 配置哪些合约需要生成gas报告。<code>gas_reports = [&quot;MyContract&quot;, &quot;MyContractFactory&quot;]</code> 或者 <code>gas_reports = [&quot;*&quot;]</code>所有的合约都生成。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/zh/tags/defer/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Defer</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">相关內容</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/">solidity语法</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/zh/post/golang/defer%E8%AF%AD%E5%8F%A5/index.zh-cn/">关键字defer</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

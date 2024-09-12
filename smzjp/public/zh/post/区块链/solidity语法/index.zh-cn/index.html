@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>solidity语法 | 我的 Hugo 网站</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="solidity的使用">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/">
+  <meta property="og:site_name" content="我的 Hugo 网站">
+  <meta property="og:title" content="solidity语法">
+  <meta property="og:description" content="solidity的使用">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-20T00:00:00+00:00">
+    <meta property="article:tag" content="Defer">
+
+  <meta itemprop="name" content="solidity语法">
+  <meta itemprop="description" content="solidity的使用">
+  <meta itemprop="datePublished" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2022-12-20T00:00:00+00:00">
+  <meta itemprop="wordCount" content="75">
+  <meta itemprop="keywords" content="Defer">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="solidity语法">
+  <meta name="twitter:description" content="solidity的使用">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/zh/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        我的 Hugo 网站
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/" title="主页 页">
+              主页
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/search/" title="搜索 页">
+              搜索
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/ideas/" title="想法 页">
+              想法
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/zh/post/" title="Posts 页">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/solidity%E8%AF%AD%E6%B3%95/index.zh-cn/&amp;text=solidity%e8%af%ad%e6%b3%95" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">solidity语法</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-12-20T00:00:00Z">十二月 20, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h3 id="类型">类型</h3>
+<h4 id="引用类型">引用类型</h4>
+<ol>
+<li><strong>memory</strong>内存  声明周期只存在于函数调用期间</li>
+<li><strong>storage</strong>存储 状态变量保存的位置，gas开销最大</li>
+<li><strong>calldata</strong>调用数据 用于函数参数不可变存储区域</li>
+</ol>
+<h4 id="abi编码">abi编码</h4>
+<ol>
+<li>abi：application binary interface 应用程序二进制接口</li>
+<li>abi接口：定义如何与合约交互</li>
+<li>abi编码
+<ol>
+<li>函数选择器：对函数签名计算keccak-256哈希，取前4个字节</li>
+<li>参数编码：</li>
+</ol>
+</li>
+</ol>
+<p>调用一个合约函数 = 向合约地址发送一个交易（交易的内容就是ABI编码数据）</p>
+<h4 id="修饰符">修饰符</h4>
+<ol>
+<li><strong>view</strong> 修饰函数（视图函数）不修改状态</li>
+<li><strong>pure</strong> 修饰函数（纯函数）不修改状态，不读取状态，跟合约状态无关</li>
+<li><strong>payable</strong> 表示函数可以被支付eth，支付的eth值用msg.value 获取</li>
+<li><strong>modifier</strong> 函数修改器，用来修饰其他函数</li>
+</ol>
+<h4 id="继承">继承</h4>
+<ol>
+<li>使用关键字 <strong>is</strong></li>
+<li>部署合约的时候只会生成一个合约，基类合约的代码会被编译进子类合约</li>
+<li>除了private修饰的变量或者函数，其他子类都可以访问</li>
+</ol>
+<h4 id="抽象合约">抽象合约</h4>
+<ol>
+<li>不可以被单独部署，使用关键字 <strong>abstract</strong> 修饰</li>
+<li>函数没有实现，使用 <strong>virtual</strong> 修饰，表示函数可以被重载</li>
+<li>抽象合约可以作为基类，子类可以通过重载(使用关键字<strong>override</strong>)实现基类的函数，<strong>override</strong>表示重写了父类合约函数</li>
+<li>调用父合约函数使用 <code>super.xxx</code></li>
+</ol>
+<h4 id="库">库</h4>
+<ol>
+<li>定义库使用关键字 <strong>library</strong></li>
+</ol>
+<p>polygon网络是matic网络改名来的，polygon不是专有区块链，它是以太坊区块链之上的第2层</p>
+<p>Mumbai 是polygon的测试网</p>
+<p>因此，Polygon可以与其他竞争网络相提并论，例如<a href="https://www.kraken.com/zh-cn/prices/solana">Solana</a>、 <a href="https://www.kraken.com/zh-cn/prices/polkadot">Polkadot</a>、<a href="https://www.kraken.com/zh-cn/prices/cosmos">Cosmos</a>和<a href="https://www.kraken.com/zh-cn/prices/avalanche">Avalanche</a>。</p>
+<h4 id="传统应用">传统应用</h4>
+<p>前端 《===============》 后端服务器</p>
+<h4 id="web3应用">web3应用</h4>
+<h4 id="abi和字节码">ABI和字节码</h4>
+<ol>
+<li>合约 ABI 是与 EVM 字节码交互的接口</li>
+<li>ABI包括了函数的结构和实参</li>
+<li>因为evm里面存放的是字节码（源码编译来的），字节码也需要调用函数。所以有了ABI用来交互和字节码。</li>
+</ol>
+<p>wagmi</p>
+<h4 id="数据平台">数据平台</h4>
+<p>Thegraph</p>
+<p>Dune</p>
+<h4 id="合约自动化调用">合约自动化调用</h4>
+<ol>
+<li>chainlink automation</li>
+<li>Gelato network</li>
+<li></li>
+</ol>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/zh/tags/defer/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Defer</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">相关內容</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/zh/post/golang/defer%E8%AF%AD%E5%8F%A5/index.zh-cn/">关键字defer</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/zh/post/%E5%8C%BA%E5%9D%97%E9%93%BE/foundry%E4%BD%BF%E7%94%A8/index.zh-cn/">关键字defer</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/zh/" >
+    &copy;  我的 Hugo 网站 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

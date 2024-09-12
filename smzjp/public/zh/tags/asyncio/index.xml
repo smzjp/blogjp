@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asyncio on 我的 Hugo 网站</title>
+    <link>http://localhost:1313/zh/tags/asyncio/</link>
+    <description>Recent content in Asyncio on 我的 Hugo 网站</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 23 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/tags/asyncio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>asyncio模块使用</title>
+      <link>http://localhost:1313/zh/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/</link>
+      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/python/asyncio%E6%A8%A1%E5%9D%97/index.zh-cn/</guid>
+      <description>协程 定义协程&#xA;import asyncio async def main(): print(&amp;#39;hello&amp;#39;) # 模拟I/O操作 await asyncio.sleep(1) print(&amp;#39;world&amp;#39;) 协程也叫异步函数，和普通函数相比，在def前面加了个关键字async。协程不能直接调用，没有效果，需要加入到事件循环里面。&#xA;协程的调用&#xA;import asyncio import time async def say_after(delay, what): await asyncio.sleep(delay) print(what) async def main(): print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await say_after(1, &amp;#39;hello&amp;#39;) await say_after(2, &amp;#39;world&amp;#39;) print(f&amp;#34;finished at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) asyncio.run(main()) 协程的调用使用 asyncio.run(main()),协程的使用一般会定义一个最高层级的入口协程async def main(),其他协程由其管理。这是一个串行的协程。&#xA;协程并行调用&#xA;import asyncio import time async def main(): task1 = asyncio.create_task( say_after(1, &amp;#39;hello&amp;#39;)) task2 = asyncio.create_task( say_after(2, &amp;#39;world&amp;#39;)) print(f&amp;#34;started at {time.strftime(&amp;#39;%X&amp;#39;)}&amp;#34;) await task1 await task2 print(f&amp;#34;finished at {time.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IOS on 我的 Hugo 网站</title>
+    <link>http://localhost:1313/zh/tags/ios/</link>
+    <description>Recent content in IOS on 我的 Hugo 网站</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用go开发app</title>
+      <link>http://localhost:1313/zh/post/golang/%E4%BD%BF%E7%94%A8go%E5%BC%80%E5%8F%91app/index.zh-cn/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/golang/%E4%BD%BF%E7%94%A8go%E5%BC%80%E5%8F%91app/index.zh-cn/</guid>
+      <description>https://github.com/progrium/macdriver&#xA;https://yusank.space/posts/macapp-by-go/&#xA;https://www.kandaoni.com/news/14849.html&#xA;https://developer.fyne.io/</description>
+    </item>
+  </channel>
+</rss>

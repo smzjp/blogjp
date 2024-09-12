@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Css on 我的 Hugo 网站</title>
+    <link>http://localhost:1313/zh/tags/css/</link>
+    <description>Recent content in Css on 我的 Hugo 网站</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 22 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>css选择器</title>
+      <link>http://localhost:1313/zh/post/html/css%E9%80%89%E6%8B%A9%E5%99%A8/index.zh-cn/</link>
+      <pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/zh/post/html/css%E9%80%89%E6%8B%A9%E5%99%A8/index.zh-cn/</guid>
+      <description>通配选择器 语法 *{样式声明}&#xA;例子 /*所有的元素都会匹配到，会生效*/ *{color:red;} 通配选择器一般不建议使用，性能最低，会遍历所有元素。&#xA;元素选择器 语法 元素 {样式声明}&#xA;例子 /*匹配所有的span元素*/ span { background-color: skyblue; } 类选择器 语法 .类名 { 样式声明 }&#xA;例子 /* 匹配所有 class=&amp;#34;spacious&amp;#34; 的元素 */ .spacious { margin: 2em; } /* class可以有多个名称 匹配所有class即=“spacious”又=“elegant”的li元素*/ /*首先需要是li元素，其次class要=“spacious”和=“elegant”*/ /*元素选择器和类选择器组合*/ li.spacious.elegant { margin: 2em; } ID选择器 语法 #id名 { 样式声明 }&#xA;例子 /* 匹配所有id=“identified”的元素 */ #identified { background-color: skyblue; } 属性选择器 语法 [属性名] [属性名=值] </description>
+    </item>
+  </channel>
+</rss>
